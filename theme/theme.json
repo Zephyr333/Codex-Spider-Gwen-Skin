@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "spider-gwen",
+  "name": "Spider-Gwen",
+  "brandSubtitle": "EARTH-65 // SPIDER-GWEN",
+  "tagline": "穿过蛛网与霓虹，把灵感带进下一个宇宙。",
+  "projectPrefix": "跃入宇宙 · ",
+  "projectLabel": "◈  选择宇宙",
+  "statusText": "EARTH-65 ONLINE",
+  "quote": "CREATE YOUR OWN DIMENSION",
+  "image": "image.jpg",
+  "appearance": "dark",
+  "art": {
+    "focusX": 0.5,
+    "focusY": 0.5,
+    "safeArea": "right",
+    "taskMode": "ambient"
+  },
+  "palette": {
+    "accent": "#59d7f0"
+  }
+}
