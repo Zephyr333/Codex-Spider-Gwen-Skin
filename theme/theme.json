@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "id": "spider-gwen",
   "name": "Spider-Gwen",
+  "stylePreset": "dream-original",
   "brandSubtitle": "EARTH-65 // SPIDER-GWEN",
   "tagline": "穿过蛛网与霓虹，把灵感带进下一个宇宙。",
   "projectPrefix": "跃入宇宙 · ",
@@ -16,7 +17,19 @@
     "safeArea": "right",
     "taskMode": "ambient"
   },
+  "colors": {
+    "background": "#050B18",
+    "panel": "#08172D",
+    "panelAlt": "#0D203D",
+    "accent": "#63DFF4",
+    "accentAlt": "#A4F2FF",
+    "secondary": "#FF5CA8",
+    "highlight": "#A86BFF",
+    "text": "#F4F7FF",
+    "muted": "#A9B7D0",
+    "line": "rgba(89, 215, 240, .28)"
+  },
   "palette": {
-    "accent": "#59d7f0"
+    "accent": "#63DFF4"
   }
 }
