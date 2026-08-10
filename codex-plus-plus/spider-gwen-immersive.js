@@ -7,9 +7,12 @@
   const HOME_SHELL_CLASS = "spider-gwen-home-shell";
   const TASK_SHELL_CLASS = "spider-gwen-task-shell";
   const HOME_COMPOSER_GROUP_CLASS = "spider-gwen-home-composer-group";
+  const NATIVE_HOME_BANNERS_CLASS = "spider-gwen-native-home-banners";
+  const NATIVE_HOME_UTILITY_CLASS = "spider-gwen-native-home-utility";
+  const NATIVE_HOME_BODY_CLASS = "spider-gwen-native-home-body";
   const SHELL_HEADER_CLASS = "spider-gwen-shell-header";
-  const VERSION = "1.5.0";
-  const COMPATIBILITY_REVISION = 2;
+  const VERSION = "1.6.0";
+  const COMPATIBILITY_REVISION = 8;
   const ICON_DATA_URL = "data:image/png;base64,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";
 
   const CSS = String.raw`
@@ -75,10 +78,9 @@
   --sg-focus-ring-both:
     linear-gradient(45deg,
       var(--sg-focus-cyan) 0%,
-      rgb(89 215 240 / .32) 22%,
-      transparent 38%,
-      transparent 62%,
-      rgb(255 92 168 / .36) 78%,
+      rgb(89 215 240 / .52) 24%,
+      rgb(120 71 232 / .48) 50%,
+      rgb(255 92 168 / .54) 76%,
       var(--sg-focus-pink) 100%);
   --sg-focus-ring-cyan:
     linear-gradient(45deg, var(--sg-focus-cyan) 0%, rgb(89 215 240 / .30) 28%, transparent 48%);
@@ -377,16 +379,98 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="home"] {
   background: transparent !important;
 }
 
-/* Codex 1.2.42 inserts a home-banners host before the actual homepage
-   content. Dream Skin v3's legacy first-child rule expands that host to a
-   full viewport, pushing the title, suggestion cards, and composer below
-   the fold. Collapse only the semantic banner host; a real non-empty banner
-   can still establish its own intrinsic height. */
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-banners-host"] {
+/* Preserve Codex's native homepage flow. Dream Skin v3's legacy first-child
+   hero rule can expand the semantic banners host to a full viewport. Restore
+   only that host's natural height; real banner content still keeps its own
+   intrinsic height. */
+html.codex-dream-skin.codex-spider-gwen-immersive
+  .dream-home
+  [data-spider-gwen-role="home-banners-host"].spider-gwen-native-home-banners {
   min-height: 0 !important;
   height: auto !important;
   padding-top: 0 !important;
   flex: 0 0 auto !important;
+}
+
+/* A recognized Codex composer already has one Spider-Gwen outer material.
+   ComposerLayoutRoot and ComposerLayoutBody trade native surface ownership
+   between home, task and pending-instruction states. Neutralize both semantic
+   inner layers without changing their layout; unknown composers remain native. */
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  [class*="ComposerLayoutRoot"],
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  [class*="ComposerLayoutBody"],
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  .spider-gwen-native-home-utility,
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  .spider-gwen-native-home-body {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* The current work home keeps its project utility and ComposerLayoutBody
+   inside one data-codex-composer-root. Their native nested backdrop filters
+   split the otherwise transparent layers at the utility/body boundary. Let
+   the recognized home composer own the only blur; thread composers are not
+   affected. */
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"][data-composer-placement="home"]
+  [data-spider-gwen-role="native-home-utility"],
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"][data-composer-placement="home"]
+  [data-spider-gwen-role="native-home-composer-body"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* ChatGPT's new-chat home has no data-codex-composer-root. Enhance only the
+   explicitly marked ChatGPT/chat/home form and keep its native flow intact. */
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="chatgpt-home-composer"]
+  [data-spider-gwen-role="chatgpt-home-surface"] {
+  min-height: 78px !important;
+  border-color: transparent !important;
+  border-radius: 22px !important;
+  background: var(--sg-surface) !important;
+  box-shadow:
+    0 16px 36px var(--sg-shadow),
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 var(--sg-material-depth) !important;
+  backdrop-filter: blur(14px) saturate(1.04) !important;
+  overflow: visible !important;
+  transition: background 170ms ease, box-shadow 170ms ease !important;
+}
+
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="chatgpt-home-composer"]
+  [data-spider-gwen-role="chatgpt-home-surface"]:focus-within {
+  box-shadow:
+    0 18px 40px var(--sg-shadow),
+    -8px 8px 28px rgb(89 215 240 / .10),
+    8px -8px 28px rgb(255 92 168 / .10),
+    inset 0 1px 0 rgb(220 249 255 / .12),
+    inset 0 -1px 0 var(--sg-material-depth) !important;
+}
+
+html.codex-dream-skin.codex-spider-gwen-immersive
+  [data-spider-gwen-role="chatgpt-home-composer"]
+  [data-spider-gwen-role="chatgpt-home-surface"]
+  [class*="ComposerLayoutFooter"][data-composer-layout="single-line"] {
+  min-height: 78px !important;
+}
+
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="chatgpt-home-composer"] .ProseMirror,
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="chatgpt-home-composer"] .ProseMirror:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-panel"] {
@@ -641,6 +725,41 @@ html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gw
 html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within::after,
 html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"]:has([data-spider-gwen-role="composer"]:focus-within) [data-spider-gwen-role="home-utility"]::after {
   opacity: 1;
+}
+
+/* Codex renders thread status (file changes, step progress and pending work)
+   inside a fixed 32px slot whose capsule is absolutely positioned above the
+   composer. Keep that known slot in normal flow so the Gwen composer owns the
+   only visible shell and can grow naturally with the status content. */
+html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"][data-composer-placement="thread"]
+  [data-spider-gwen-role="thread-composer-accessory"] {
+  display: block !important;
+  min-height: 0 !important;
+  padding: 8px 13px 0 !important;
+}
+
+html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive
+  [data-spider-gwen-role="thread-composer-accessory"] > * {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive
+  [data-spider-gwen-role="thread-composer-accessory"] > * > * {
+  position: static !important;
+  inset: auto !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive
+  [data-spider-gwen-role="thread-composer-accessory-surface"] {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"]:has([data-spider-gwen-role="composer"]:focus-within) [data-spider-gwen-role="home-utility"] {
@@ -1081,6 +1200,10 @@ html.codex-spider-gwen-immersive * {
     "[data-app-shell-main-content-top-fade]",
     "[data-app-shell-left-panel]",
     "[data-codex-composer-root]",
+    "button[aria-label*='切换模式，当前模式']",
+    "[role='group'][aria-label='撰写器模式'] button[aria-pressed]",
+    "form[data-thread-find-composer='true'][data-composer-placement]",
+    "[role='textbox'][aria-label='给 ChatGPT 发消息']",
     "[data-feature='game-source']",
     ".home-banners",
     "[data-home-banners]",
@@ -1274,22 +1397,10 @@ html.codex-spider-gwen-immersive * {
       return box.width >= shellMain.getBoundingClientRect().width * .45 && box.height >= innerHeight * .45;
     };
     return resolveAnchor("home", [
-      { source: "semantic:game-source", find: () => query(shellMain, '[role="main"]:has([data-feature="game-source"])'), validate },
-      { source: "semantic:home-icon", find: () => query(shellMain, '[role="main"]:has([data-testid="home-icon"])'), validate },
-      { source: "compat:dream-home", find: () => query(shellMain, ".dream-home"), validate },
-      {
-        source: "geometry:message-free-main",
-        find: () => [...shellMain.querySelectorAll('[role="main"], main')]
-          .filter((node) => validate(node) &&
-            !query(node, '[data-message-author-role], article') &&
-            query(node, "[data-codex-composer-root], [contenteditable='true'].ProseMirror"))
-          .sort((left, right) => {
-            const a = left.getBoundingClientRect();
-            const b = right.getBoundingClientRect();
-            return b.width * b.height - a.width * a.height;
-          })[0],
-        validate,
-      },
+      { source: "semantic:dream-home-game-source", find: () => query(shellMain, '.dream-home:has([data-feature="game-source"])'), validate },
+      { source: "semantic:role-main-game-source", find: () => query(shellMain, '[role="main"]:has([data-feature="game-source"])'), validate },
+      { source: "semantic:dream-home-icon", find: () => query(shellMain, '.dream-home:has([data-testid="home-icon"])'), validate },
+      { source: "semantic:role-main-home-icon", find: () => query(shellMain, '[role="main"]:has([data-testid="home-icon"])'), validate },
     ]);
   };
 
@@ -1324,10 +1435,71 @@ html.codex-spider-gwen-immersive * {
         box.bottom >= innerHeight * .58;
     };
     return resolveAnchor("composer", [
-      { source: "semantic:data-codex-composer-root", find: () => query(scope, "[data-codex-composer-root].composer-surface-chrome, [data-codex-composer-root] .composer-surface-chrome"), validate },
-      { source: "compat:composer-surface-chrome", find: () => query(scope, ".composer-surface-chrome"), validate },
-      { source: "geometry:editor-ancestor", find: () => findComposerFromEditor(scope), validate },
+      {
+        source: "semantic:data-codex-composer-root",
+        find: () => {
+          const root = query(scope, "[data-codex-composer-root]");
+          return root?.matches(".composer-surface-chrome")
+            ? root
+            : query(root, ".composer-surface-chrome") || root;
+        },
+        validate,
+      },
     ]);
+  };
+
+  const findThreadComposerAccessoryLayers = (composer) => {
+    const fail = () => {
+      markMissing("threadComposerAccessory", "threadComposerAccessorySurface");
+      return { host: null, surface: null };
+    };
+    if (!composer || composer.getAttribute("data-composer-placement") !== "thread") return fail();
+
+    const layoutRoot = query(composer, '[class*="ComposerLayoutRoot"]');
+    if (!layoutRoot) return fail();
+    let bodyBranch = layoutRoot;
+    while (bodyBranch.parentElement && bodyBranch.parentElement !== composer) {
+      bodyBranch = bodyBranch.parentElement;
+    }
+    if (bodyBranch.parentElement !== composer) return fail();
+
+    const directChildren = [...composer.children];
+    const bodyIndex = directChildren.indexOf(bodyBranch);
+    const host = directChildren.slice(0, bodyIndex).reverse().find((node) =>
+      isVisible(node) && node.textContent?.trim()
+    );
+    if (!host) return fail();
+
+    const composerBox = composer.getBoundingClientRect();
+    const hostBox = host.getBoundingClientRect();
+    const validHost = hostBox.width >= composerBox.width - 48 &&
+      hostBox.height >= 24 && hostBox.height <= 96 &&
+      hostBox.top <= bodyBranch.getBoundingClientRect().top;
+    if (!validHost) return fail();
+
+    const surface = queryAll(host, "div, button").filter((node) => {
+      if (!isVisible(node) || !node.textContent?.trim()) return false;
+      const box = node.getBoundingClientRect();
+      if (node.getAttribute(ROLE_ATTR) === "thread-composer-accessory-surface") {
+        return box.height >= 24 && box.height <= 72 && box.width <= hostBox.width;
+      }
+      const style = getComputedStyle(node);
+      const radius = Number.parseFloat(style.borderRadius) || 0;
+      const hasMaterial = style.backgroundImage !== "none" ||
+        !["transparent", "rgba(0, 0, 0, 0)"].includes(style.backgroundColor) ||
+        Number.parseFloat(style.borderTopWidth) > 0;
+      return hasMaterial && radius >= 12 && box.height >= 24 && box.height <= 72 &&
+        box.width <= hostBox.width;
+    }).sort((left, right) => {
+      const a = left.getBoundingClientRect();
+      const b = right.getBoundingClientRect();
+      return a.width * a.height - b.width * b.height;
+    })[0] || null;
+    if (!surface) return fail();
+
+    anchorSources.set("threadComposerAccessory", "semantic:thread-composer-leading-slot");
+    anchorSources.set("threadComposerAccessorySurface", "geometry:validated-status-capsule");
+    return { host, surface };
   };
 
   const findHomeUtility = (home, composer) => {
@@ -1492,66 +1664,98 @@ html.codex-spider-gwen-immersive * {
     ]);
   };
 
-  const findHomeBannersHost = (home, rawTitle = null) => {
-    const contentSelector = [
-      '[data-feature="game-source"]',
-      '[data-codex-composer-root]',
-      '.ProseMirror',
-    ].join(",");
-    const containsCoreContent = (node) => Boolean(node && (
-      node.matches?.(contentSelector) || query(node, contentSelector)
-    ));
-    const isHostCandidate = (node) => Boolean(
-      home && node && node !== home && home.contains(node) && !containsCoreContent(node)
+  const findHomeBannersHost = (home) => {
+    const validate = (node) => Boolean(
+      home && node && node !== home && home.contains(node) &&
+      (node.matches?.("[data-home-banners]") || query(node, ".home-banners, [data-home-banners]"))
     );
-    const isLegacyFirstChildSpacer = (node) => {
-      if (!home || !node || node !== home.firstElementChild || !node.nextElementSibling) return false;
-      if (containsCoreContent(node)) return false;
-
-      const laterHasCoreContent = [...home.children]
-        .slice(1)
-        .some(containsCoreContent);
-      if (!laterHasCoreContent) return false;
-
-      const meaningfulText = (node.textContent || "").trim();
-      const meaningfulMedia = query(node, "img, picture, video, canvas, iframe");
-      if (meaningfulText || meaningfulMedia) return false;
-
-      const box = node.getBoundingClientRect();
-      const homeBox = home.getBoundingClientRect();
-      const visibleTop = Math.max(0, homeBox.top);
-      const visibleBottom = Math.min(innerHeight, homeBox.bottom);
-      const visibleHeight = Math.max(1, visibleBottom - visibleTop);
-      const titleBox = rawTitle?.getBoundingClientRect();
-      const titleWasPushedBelowHero = !titleBox || titleBox.top > visibleTop + visibleHeight * .65;
-      const style = getComputedStyle(node);
-      const minHeight = Number.parseFloat(style.minHeight) || 0;
-      const fillsLegacyViewport = box.height >= visibleHeight * .55 || minHeight >= visibleHeight * .55;
-      const startsWithHome = Math.abs(box.top - homeBox.top) <= 24;
-      return titleWasPushedBelowHero && startsWithHome && fillsLegacyViewport;
-    };
     return resolveAnchor("homeBannersHost", [
       {
-        source: "owned:home-banners-host",
-        find: () => query(home, `[${ROLE_ATTR}="home-banners-host"]`),
-        validate: isHostCandidate,
-      },
-      {
-        source: "compat:home-banners",
+        source: "semantic:home-banners",
         find: () => query(home, ".home-banners")?.parentElement,
-        validate: isHostCandidate,
+        validate,
       },
       {
         source: "semantic:data-home-banners",
-        find: () => query(home, "[data-home-banners]")?.parentElement,
-        validate: isHostCandidate,
-      },
-      {
-        source: "geometry:legacy-first-child-spacer",
-        find: () => home.firstElementChild,
-        validate: isLegacyFirstChildSpacer,
+        find: () => {
+          const node = query(home, "[data-home-banners]");
+          return node?.parentElement && node.parentElement !== home ? node.parentElement : node;
+        },
+        validate,
       },
     ]);
+  };
+
+  const findNativeHomeComposerLayers = (home, composer) => {
+    const contained = (node) => Boolean(
+      home && composer && node && home.contains(composer) && composer.contains(node)
+    );
+    if (!home || !composer || !home.contains(composer)) {
+      anchorSources.set("nativeHomeUtility", "missing");
+      anchorSources.set("nativeHomeComposerBody", "missing");
+      return { utility: null, body: null };
+    }
+
+    const utility = resolveAnchor("nativeHomeUtility", [
+      {
+        source: "semantic:data-home-utility",
+        find: () => query(composer, "[data-home-utility], [data-composer-home-utility]"),
+        validate: contained,
+      },
+      {
+        source: "compat:ComposerHomeUtilityBar",
+        find: () => query(composer, '[class*="ComposerHomeUtilityBar"], .dream-home-utility'),
+        validate: contained,
+      },
+    ]);
+    const body = resolveAnchor("nativeHomeComposerBody", [
+      {
+        source: "semantic:data-composer-layout-body",
+        find: () => query(composer, "[data-composer-layout-body]"),
+        validate: contained,
+      },
+      {
+        source: "compat:ComposerLayoutBody",
+        find: () => query(composer, '[class*="ComposerLayoutBody"]'),
+        validate: contained,
+      },
+    ]);
+    return { utility, body };
+  };
+
+  const findChatGptHomeComposerLayers = (shellMain) => {
+    const fail = () => {
+      markMissing("chatGptHomeComposer", "chatGptHomeSurface");
+      return { composer: null, surface: null };
+    };
+    if (!shellMain) return fail();
+
+    const modeButton = query(document, 'button[aria-label="切换模式，当前模式：ChatGPT"]');
+    const modeGroup = query(shellMain, '[role="group"][aria-label="撰写器模式"]');
+    const chatToggle = queryAll(modeGroup, 'button[aria-pressed="true"]')
+      .find((button) => button.textContent?.trim() === "聊天" && isVisible(button));
+    if (!isVisible(modeButton) || !chatToggle) return fail();
+
+    const editors = queryAll(shellMain, '[role="textbox"][aria-label="给 ChatGPT 发消息"]')
+      .filter(isVisible);
+    if (editors.length !== 1) return fail();
+
+    const editor = editors[0];
+    const composer = editor.closest('form[data-composer-placement="home"][data-thread-find-composer="true"]');
+    const layoutRoot = query(composer, '[class*="ComposerLayoutRoot"][data-composer-utility-bar-variant="home"]');
+    const surface = query(layoutRoot, '[class*="ComposerLayoutBody"][data-composer-layout="single-line"]');
+    if (!composer || !layoutRoot || !surface || !shellMain.contains(composer)) return fail();
+
+    const composerBox = composer.getBoundingClientRect();
+    const surfaceBox = surface.getBoundingClientRect();
+    const validGeometry = composerBox.width >= Math.min(320, innerWidth * .24) &&
+      surfaceBox.width >= composerBox.width - 2 && surfaceBox.height >= 36 && surfaceBox.height <= 160 &&
+      surfaceBox.top >= 0 && surfaceBox.bottom <= innerHeight;
+    if (!validGeometry) return fail();
+
+    anchorSources.set("chatGptHomeComposer", "semantic:chatgpt-chat-home-form");
+    anchorSources.set("chatGptHomeSurface", "compat:ComposerLayoutBody-single-line");
+    return { composer, surface };
   };
 
   const findTopFade = (shellMain) => {
@@ -1578,6 +1782,55 @@ html.codex-spider-gwen-immersive * {
       width: Math.round(box.width),
       height: Math.round(box.height),
     } : null;
+  };
+
+  const snapshotHomeLayout = (home, composer) => {
+    if (!home || !composer || !home.contains(composer)) return null;
+    const homeBox = home.getBoundingClientRect();
+    const composerBox = composer.getBoundingClientRect();
+    const viewport = {
+      left: Math.max(0, homeBox.left),
+      top: Math.max(0, homeBox.top),
+      right: Math.min(innerWidth, homeBox.right),
+      bottom: Math.min(innerHeight, homeBox.bottom),
+    };
+    const intersectionWidth = Math.max(0,
+      Math.min(composerBox.right, viewport.right) - Math.max(composerBox.left, viewport.left));
+    const intersectionHeight = Math.max(0,
+      Math.min(composerBox.bottom, viewport.bottom) - Math.max(composerBox.top, viewport.top));
+    const composerArea = Math.max(1, composerBox.width * composerBox.height);
+    const overlaps = queryAll(home, "button, [data-feature='game-source'], h1, [role='heading']")
+      .filter((node) => !composer.contains(node) && !node.contains(composer) && isVisible(node))
+      .filter((node) => {
+        const box = node.getBoundingClientRect();
+        const width = Math.max(0, Math.min(box.right, composerBox.right) - Math.max(box.left, composerBox.left));
+        const height = Math.max(0, Math.min(box.bottom, composerBox.bottom) - Math.max(box.top, composerBox.top));
+        return width > 2 && height > 2;
+      }).length;
+    return {
+      viewport: { width: innerWidth, height: innerHeight },
+      home: {
+        clientWidth: home.clientWidth,
+        clientHeight: home.clientHeight,
+        scrollWidth: home.scrollWidth,
+        scrollHeight: home.scrollHeight,
+        scrollTop: home.scrollTop,
+      },
+      composer: {
+        left: Math.round(composerBox.left),
+        top: Math.round(composerBox.top),
+        right: Math.round(composerBox.right),
+        bottom: Math.round(composerBox.bottom),
+        width: Math.round(composerBox.width),
+        height: Math.round(composerBox.height),
+        visibleRatio: Math.round((intersectionWidth * intersectionHeight / composerArea) * 1000) / 1000,
+        fullyVisible: composerBox.left >= viewport.left - 1 && composerBox.top >= viewport.top - 1 &&
+          composerBox.right <= viewport.right + 1 && composerBox.bottom <= viewport.bottom + 1,
+      },
+      requiresVerticalScroll: home.scrollHeight > home.clientHeight + 2,
+      horizontalOverflow: home.scrollWidth > home.clientWidth + 2,
+      overlapCount: overlaps,
+    };
   };
 
   const syncRole = (role, node, classes = []) => {
@@ -1645,7 +1898,7 @@ html.codex-spider-gwen-immersive * {
     document.getElementById(STYLE_ID)?.remove();
     document.getElementById(CHROME_ID)?.remove();
     document.getElementById("codex-spider-gwen-titlebar-tint")?.remove();
-    updateDiagnostics({ mode: "inactive", reason, route: "unknown", capabilities: {}, anchors: {}, geometry: null });
+    updateDiagnostics({ mode: "inactive", reason, route: "unknown", capabilities: {}, anchors: {}, geometry: null, homeLayout: null });
   };
 
   const writeStyle = (style) => {
@@ -1750,6 +2003,12 @@ html.codex-spider-gwen-immersive * {
         syncRole("suggestions", null);
         syncRole("home-banners-host", null);
         syncRole("composer", null);
+        syncRole("thread-composer-accessory", null);
+        syncRole("thread-composer-accessory-surface", null);
+        syncRole("native-home-utility", null);
+        syncRole("native-home-composer-body", null);
+        syncRole("chatgpt-home-composer", null);
+        syncRole("chatgpt-home-surface", null);
         syncRole("home-utility", null);
         syncRole("home-composer-group", null);
         syncRole("top-fade", null);
@@ -1763,6 +2022,7 @@ html.codex-spider-gwen-immersive * {
           capabilities: { shellMain: false },
           anchors: Object.fromEntries(anchorSources),
           geometry: null,
+          homeLayout: null,
           lastError: null,
         });
         return runtime.diagnostics;
@@ -1772,33 +2032,52 @@ html.codex-spider-gwen-immersive * {
       const sidebar = syncRole("sidebar", findSidebar(shellMain));
       const header = syncRole("shell-header", findShellHeader(shellMain));
       const home = syncRole("home", findHome(shellMain));
-      const rawHomeTitle = home ? findRawHomeTitle(home) : null;
-      /* Neutralize Dream Skin v3's legacy first-child expansion before any
-         viewport-sensitive homepage anchors are measured. */
+      /* Preserve Codex's native homepage flow. Dream Skin's legacy hero assumes
+         the first child is the hero, but current Codex inserts a semantic
+         banners host there. Give that host natural height and do not modify any
+         other homepage geometry. */
       const homeBannersHost = syncRole(
         "home-banners-host",
-        home ? findHomeBannersHost(home, rawHomeTitle) : null,
+        home ? findHomeBannersHost(home) : null,
+        [NATIVE_HOME_BANNERS_CLASS],
       );
       const composer = syncRole("composer", findComposer(home || shellMain));
-      const homeUtility = syncRole("home-utility", home ? findHomeUtility(home, composer) : null);
-      const composerGroup = syncRole(
-        "home-composer-group",
-        home ? findComposerGroup(home, homeUtility, composer) : null,
+      const threadAccessoryLayers = findThreadComposerAccessoryLayers(composer);
+      const threadComposerAccessory = syncRole(
+        "thread-composer-accessory",
+        threadAccessoryLayers.host,
       );
-      const homeTitle = syncRole(
-        "home-title",
-        home ? findHomeTitle(home, rawHomeTitle, homeBannersHost) : null,
+      const threadComposerAccessorySurface = syncRole(
+        "thread-composer-accessory-surface",
+        threadAccessoryLayers.surface,
       );
-      const hero = findHeroParts(home, homeTitle);
-      const heroPanel = syncRole("home-hero-panel", hero.panel);
-      const heroStage = syncRole("home-hero-stage", hero.stage);
-      const heroContent = syncRole("home-hero-content", hero.content);
-      const suggestions = syncRole("suggestions", home ? findSuggestions(home, homeTitle, homeUtility) : null);
+      const nativeHomeLayers = findNativeHomeComposerLayers(home, composer);
+      const nativeHomeUtility = syncRole(
+        "native-home-utility",
+        nativeHomeLayers.utility,
+        [NATIVE_HOME_UTILITY_CLASS],
+      );
+      const nativeHomeComposerBody = syncRole(
+        "native-home-composer-body",
+        nativeHomeLayers.body,
+        [NATIVE_HOME_BODY_CLASS],
+      );
+      const chatGptHomeLayers = findChatGptHomeComposerLayers(shellMain);
+      syncRole("chatgpt-home-composer", chatGptHomeLayers.composer);
+      syncRole("chatgpt-home-surface", chatGptHomeLayers.surface);
+      const rawHomeTitle = home ? findRawHomeTitle(home) : null;
+      syncRole("home-title", null);
+      syncRole("home-hero-panel", null);
+      syncRole("home-hero-stage", null);
+      syncRole("home-hero-content", null);
+      syncRole("suggestions", null);
+      syncRole("home-utility", null);
+      syncRole("home-composer-group", null);
       const topFade = syncRole("top-fade", findTopFade(shellMain));
 
       setClass(shellMain, HOME_SHELL_CLASS, Boolean(home));
       setClass(shellMain, TASK_SHELL_CLASS, !home);
-      ensureChrome(shellMain, home);
+      ensureChrome(shellMain, Boolean(home || chatGptHomeLayers.composer));
 
       const topFadeStyle = topFade ? getComputedStyle(topFade) : null;
       const capabilities = {
@@ -1807,15 +2086,14 @@ html.codex-spider-gwen-immersive * {
         sidebar: Boolean(sidebar),
         header: Boolean(header),
         home: Boolean(home),
-        homeTitle: Boolean(homeTitle),
-        heroPanel: Boolean(heroPanel),
-        heroStage: Boolean(heroStage),
-        heroContent: Boolean(heroContent),
-        suggestions: Boolean(suggestions),
+        homeTitle: Boolean(rawHomeTitle),
+        nativeHomeLayout: true,
         homeBannersHost: Boolean(homeBannersHost),
+        nativeHomeUtility: Boolean(nativeHomeUtility),
+        nativeHomeComposerBody: Boolean(nativeHomeComposerBody),
         composer: Boolean(composer),
-        homeUtility: Boolean(homeUtility),
-        composerGroup: Boolean(composerGroup),
+        threadComposerAccessory: Boolean(threadComposerAccessory),
+        threadComposerAccessorySurface: Boolean(threadComposerAccessorySurface),
         topFade: Boolean(topFade),
         topFadeNeutralized: !topFade || (
           topFadeStyle.display === "none" &&
@@ -1826,7 +2104,7 @@ html.codex-spider-gwen-immersive * {
         capabilities.shellMain,
         capabilities.header,
         capabilities.composer,
-        ...(home ? [capabilities.homeTitle, capabilities.heroPanel, capabilities.heroStage, capabilities.heroContent] : []),
+        ...(home ? [capabilities.homeTitle] : []),
       ];
       const mode = !dreamSkinReady ? "base-only" : required.every(Boolean) ? "full" : "degraded";
       if (["base-only", "degraded"].includes(runtime.diagnostics.mode) && mode === "full") {
@@ -1841,6 +2119,7 @@ html.codex-spider-gwen-immersive * {
         capabilities,
         anchors: Object.fromEntries(anchorSources),
         geometry: snapshotGeometry(shellMain),
+        homeLayout: snapshotHomeLayout(home, composer),
         lastError: null,
       });
       return runtime.diagnostics;
@@ -1884,6 +2163,14 @@ html.codex-spider-gwen-immersive * {
     if (activeTheme && bodyStyle?.backgroundPosition !== "50% 50%") issues.push(`wallpaper-position:${bodyStyle?.backgroundPosition}`);
     if (activeTheme && topStyle && (topStyle.boxShadow !== "none" || topStyle.borderBottomWidth !== "0px")) {
       issues.push("top-continuity-edge-present");
+    }
+    const homeLayout = diagnostics.homeLayout;
+    if (activeTheme && diagnostics.route === "home" && homeLayout) {
+      if (homeLayout.horizontalOverflow) issues.push("home-horizontal-overflow");
+      if (homeLayout.overlapCount > 0) issues.push(`home-composer-overlap:${homeLayout.overlapCount}`);
+      const commonViewport = innerWidth >= 1200 && innerHeight >= 780;
+      if (commonViewport && !homeLayout.composer.fullyVisible) issues.push("home-composer-not-fully-visible");
+      if (commonViewport && homeLayout.requiresVerticalScroll) issues.push("home-unexpected-vertical-scroll");
     }
     Object.entries(roleCounts).forEach(([role, count]) => {
       if (count > 1) issues.push(`duplicate-role:${role}:${count}`);
@@ -2000,12 +2287,18 @@ html.codex-spider-gwen-immersive * {
       "data-appearance",
       "data-color-mode",
       "aria-hidden",
+      "aria-label",
+      "aria-pressed",
       "hidden",
       "data-app-shell-main-surface",
       "data-app-shell-application-menu-bar",
       "data-app-shell-main-content-top-fade",
       "data-app-shell-left-panel",
       "data-codex-composer-root",
+      "data-composer-placement",
+      "data-thread-find-composer",
+      "data-composer-layout",
+      "data-composer-utility-bar-variant",
       "data-feature",
       "data-testid",
       "role",
