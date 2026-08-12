@@ -3,16 +3,13 @@
   const STYLE_ID = "codex-spider-gwen-immersive-style";
   const CHROME_ID = "codex-spider-gwen-immersive-chrome";
   const ROOT_CLASS = "codex-spider-gwen-immersive";
-  const HOME_CLASS = "spider-gwen-home";
   const HOME_SHELL_CLASS = "spider-gwen-home-shell";
   const TASK_SHELL_CLASS = "spider-gwen-task-shell";
-  const HOME_COMPOSER_GROUP_CLASS = "spider-gwen-home-composer-group";
   const NATIVE_HOME_BANNERS_CLASS = "spider-gwen-native-home-banners";
   const NATIVE_HOME_UTILITY_CLASS = "spider-gwen-native-home-utility";
   const NATIVE_HOME_BODY_CLASS = "spider-gwen-native-home-body";
-  const SHELL_HEADER_CLASS = "spider-gwen-shell-header";
-  const VERSION = "1.6.4";
-  const COMPATIBILITY_REVISION = 12;
+  const VERSION = "1.6.5";
+  const COMPATIBILITY_REVISION = 15;
   const ICON_DATA_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAA1K0lEQVR42u19eZxcV3Xmd+69771auqq12ki2NhuEkWyDwSEBBuiGgIkwtmS5amYgQEKCPGi1Ycj8kmFSVYCBhDhYkiWwwxIMYUKVJG+BhBDSzWIzBi/YlmSQbam1WbZlLd1d21vuPfPHe9UqSVWtlt0ttaDvP7Kleu/d9+45537nO8sFJsbEmBgTY2JMjIkxMSbGxJgYE2NcD2amU/4Gp/7NaT8XOCvPnRin/4HpHJjjxDjdkcvlBADsW3P3qzlTlMP9dseqb6VHcyEeuKkY3/WxLa851QLvXL5pzkit1HgZ4lyYZDFTlIVCwfStvuudPusrqJTVnOOWcz/wx3cmHSQ+MlrayGB605cydaH4qgOf+EGSQHzSb6K5SClet3vVlncTEbeb34QAvIQ9f9uCbbxjVXE6sVmeCPS/MDOhcPxCFDNFyWDyp6TfzQbnE4iR65Uv9/m9uV5JICZCyner72IwnWiBqEDMYBrUwY+YeeVzq+85/1yxBONeAHrzeVkoFIzD6k4Cfe/8jdkySiVBwHECkMkABGI25v0Q2AcAvaPw/K7tB8PnGHqaYf6MQFxqZSiKJXHpxmwZoPtcDr5KBTK9+ZcvgL/ToyfXowCgb9WWv969astTzEzFFvs/R/hgz033XbB75eaB3ctLC5v//mVZoMiU715RunL3ys313SvuntmMSU62QqC+lVue6Fux+X8CABeLcsICvMR9v7vQHey44VsLUna8ACM+QUQ8fcH0k8xqL7oEALDvfRgkEipwdgEA8nl+2RMphJZmcBo/DiKCNB9igPLRM4+zQqELwlLxmlQs+cWnlpcWUjari5nihCU4XeDFmaJkZtq/5p4n9q6+65cNoWj7+xyLvpWb9u5eteVXo73/NizJ7pVb7u9buenXw92/YRn2rLpr+7Nr7n2ccywa7zJhAUbs8/VKKmX1rlWb/u685ORLAx18sqFhJy1OpigJhD1H7nrzjNT0C4npgRA7jOb+G2k78f2v6Jj26n1rtrwJFD77xF8u3L6QACAAf2xaovOynYc2fZlKWT1e8cC4E4Cet/coKnQHu1ZuWjyzY/rH9w+88G/zNmR6OceCSll90gULMgyA2WCFJMEa/NNRB6LH8P5DSkgODP8FgTh69nEjW8pqzhTlReuv+/H+gYPfm9s5Y9kzK0t/3F3oDhqYZkIAhjG13T/uDvbcdM8rHWl/rRa4APBZAMD2ErVyEalApu/GzTOIcM3B6lGCoScBoAu9ZtT0H10GAIymHS9Uj5Ak8Y49N9x3ARXIDGfajaTC0fqgn5DO2gMr75nXXegORgOY/lYKADMTFi4kXvaQZYLg21Pi6SmHav0/nTP1iZ9zLtdS+xtmlTT+65R4OuEGXj9gPTfqk4uAoHT8PW7gvzg13plm2/9QCDRPNu0UWYGL1y39ZX+9/G/TEpOmuPC/w5mixPaFNJ7o4nEjAL35XknZrN5l9/3tpFjq9w/VBnRCxj5BhYJBtK+epJn5Lh0CLHyYACaiHfM2Xv0cg4kKhVGzAISQ6JmV3nZUEO3SxrBh898fWna7hUKXbnVNCWEAKQbr0wdrR9zJ8fQf9J0nP0elrB4Nguq3SgA4cvl2riq9O66cNdpo9gL/+zPXXfNLzhRlK+3nTFESEfqmibfZ0nqdpwMyjB2RPzbq79Wby0sqFAyDtvsckKPsy6aoqW8CqCUYzJayupQpipkbFj/kBcE92hhO2M5fPLOidDUVugMeJ67hWRcAzuUEihmz56biBY6wv8Vg1HzPxCz1lwCodIrLhaKP2tICgyEYvwyBYe8YmNiuxl61jZlhCwVBtJwALp3CpdXC3Fz161qzYUdZX+27cfMMFDNmPOCBsz0B6gUEEbHxra/b0jrPEop8E3xnxq3XbuNMUWRbaH8uwgTbb9w8g0BXV/0aa2PAxE+EgPEgj/ryR/c0hF8ERqPquyykeO/uFXfPzJayutViZktZjUxJXLwu87hvgu/awiJH2udD0zeJiHvRJfgsh6/PqgD05Hpkd6EQ7FxR+l+TY8l3V7xa4AVeIC31aQZTKzcrQuUCABKB+GDa6UgZZq75rguokAFcsG3UBSAf3ZM82l0PPM+w4U4n2QGhP9jMRrZyUxlMROpznvH9ilcLJsc63vX0yuJfdBe6A+R6zupWcNakr7G371pxV1fCsv7T1b6fjiXsw9WBr120IfPnnGFJJWoFsIgBPLXq+7bFte2Osi8iAK72dsx5Ti+gUlYzQCcGi0ZrbM0U7Y7zxROOsucDhHrg/qbyvLl8YSnjU/g5ud277ly56UuTY6kbB9yK70hb1vzaO+dtyPQWM0XZytL91lqAULu38fPLezqUxNc5TLiSVa9ekxZ9jgHCgtY8PmeKggBOov72lB2/yAs8P6ZsANjecL/GavGLmaK8tJT1APEbR9pwted3WPFXd0y33kohGGxjBbYxg0lZ5u/KXrVKJASDyZLWt/d//N5pmQXbOHeW8MDZ2QJyvZIKBVMVhzem7OS8mu96nU5Sukb/w5xbr9/Zm8vJdm5cA3D5MCsECRBgBBEI+H/hx54+ZlatEYgi8KNSCBBIW1KBhf5TDCN0VCgYZEpi9pey+7XWt3c6SVn3XS/lJC7wPP8rVCiYfLst5LdNADhTlFToDnau2LRscjz1wX637FtSWf31SkWY+t8wmHoB085jyJayeveNmy6SJP+o7NWYAWmYwcAzx9O2Y+AHLOziyIQ9HBgNZrYGvRorkoufWV2cTW3AYLMVYDZ/O+BW+i2p7KP1QX9yLLV058rSR+ksUcVnVAAafP6u5Xe9Lqbs9WWvphmMtJMUAet/mLPh/c8iUxKFtiROFPYN8P60k7QYHBCRGvSqGtDbR5sCPmlsC7clx3K2VryaJ4SQhk3QGetIKlYfbJ5jKyvQm+uV8zZmnwt0sC7tJIkBlL2aiavYLTtXbn5tSBWf2VSyM/YwBlNpe4l2fbgnpiTfaUllBzpgSyjV71YOsbC+wMyUHw7BF7o0L3vIAuiP64EHAGRLBTb8Ag9Udoa/KfCYvUR07/M7k3sM87O2UABAVd+FYf5Iz4e/EUOhW7cD173oNQymmKbb+t3yEUsoFZjAKCFTikSJbyrGhzDSb5sA9OZ6Q6SbOrQ+Heu4rOzVNADqsOOkTbD+4nXXPt9I/2opQMWiBAh7Y/uuTjmJV9d8TwMgK1yEXXO/+ScuM48Z+o9cptClK3QHIOxVQoIBqvmuSTuJiy5KT3pXONfWWlyIsMCMryx9QZtgY8pOEANU8apBZyz5qj5PrqUCmTNJFYszY/p7VHehO9i5vJSdHEv/+dFaORAgsqUS/fXKC9oztzIzdeXzbV2hUilcAG2CD4fgj5mZ2ZYWwPwzAjHORMx9aHHop5ZUADMLIhPGC8wKAhjbhhHCYsbkcjnRQcm/PVIv73eUJQAhjtbLQTqW/OjO5aVrzyRVLMZ+8XOCCt3BzuWb5sQtZ2M1cDWDJYNNh5MgNubLF9+R7e/N90oi4mHB36otF1tCvXvQqzITSQJg2MAI+s1YA8CTrAHhhYalZ4Is+zUokm/f/bFNF1GB2tK8RMRd6BLT1i8a0EZ/MWnFiENhlnXfNTHbuXPnmuKrh0t9P2cEgMGE7QuJM0WppPiWo+ypbuABBDjSEkdrg8+TnVwXan9XW+0fyvlj/rO0k4wbYzQBBJCoa58J+tfNdO3YjjA3AFrcX3arhkJBJGOMTjmJGJT802GZQQBdhS6dy+VElc3XjtQHn40pWwCAZwKOSTstWX2dcz0K6B1zqnhMBaA3Su3aeZ7Y0BlLvXXArQSCSIKhk3ZcBOC/m/2l9xzuzefbaz+Yugvdwf5l9yYA+mDFr4FAgsEshRD1wKsEvni6YV7HfP3zoXlPJPAb3wRHlJDEYCaQqPkuGPzBPTcV492Fbt1u8QjE+YUL6dKN2bIAPhdTNnHIZ8gBtxxMdtJv7jt06PN0BqjiMRMALoYh3r5Vm6+fHO+44Wh9MCAixQzjKEseqQ/uDRC/I5fLia5C+72/N9cbFnzYwXWdscSFbuBrEAQY7CgbBHri4i9fdzDk24nH3vSHuQHTv7h4EIRnQgwCBkHUA0+n7cQcE9jvBcC9wy1eNmMYTLPcOXcMuJVdcWULZhgiIfvdwSChYh/fuWLTVWONB8ZEADiXE8hmzN5Vmy+0SN1e9z3D3HgWm6QVJzb0xfnrFw10oUu0KrcaMpfoMgRiA/MB5lB7IkRuLKnAbJ4kGp0qoNMFggQ8YUsFNIgrIjCYwXp5w+1r71EQI1MSdMeVPmC+GFMOMZgBkDZGaBjhKPVPT674zsyxDB2PyU170SUEiDXTV+OWM8XVPhNBMLOJWY48XBt4hsuT/iHU/vZ7fwggyRxYec88W6q3lf0aM2FooYkBEB450wBwaH4Gv2Y+zk0UZa8GS6r/snf1fa8qFArDL1wpY5iZzMDgN/rrgzvjVsMKkHADXyes2NQ4OV8nIm6XFTXuBKDh8j29oviXU+Kpq4b2/eifHWkRCLl53+yu57cvpOG0vwGkPAo+lrKTiWPgL8z/0mwgWOxv/LqdsnGmKE/HjHKmKHtyPao9IRMCQUH0kyhxVQ49i1l32HHLsP/nADDcwhGIUYKY980/rTNxPi6dkGoI7y3765Vgcjx11a4Vm/6SSlk9FlTxqApAg+d/6mOlNyet+KcH3EqAY4uvE1ZM9LuDj+16fMp3OcdCDBMCZTB1Fbr1gU/8IMlM76/6NQDUmC8LIln2qj6MvzXcKk6OH0SFJEylrKZSVhNal3QNPZOZmJmolNXdhe6AQNxacPIAAF8Ez3naq0shCccIKFnx6gDwJ09+8u5UGJ5uz+yJLGnOsXjRPfTPR+qDjybsmACgoy1FDrhVHbdiN/etuuvN3WOAB8ToaX5OhCHef3lF3Lb+LwAVGC2GNJYZllTEhgrdP+4OekMXZ3gPAmDPrSxKO4kL3MDXRIjcQbAtLTCj74XgyO4TKeBGZVEjxr53zd2rd6/a8nGO2LieXE61FF4iJiLeu/quZQduvK/w5EfCBWwSpuMo4dpkPAfGc5aQCONRABGRpwOddhLnJT1zdeNd2gs60IteceUdN/gkkVckqbGtEECB0UQEkkTfeH55sSM/yqHjUbQAXYIKBVMT3saUnZxdC7yAaEhjdYedkEfrg4/MnTblPs6x6C50B8Pd7eBQCpb5ME7s0ELgmLTBbJ648o4bfF52u9VMAROIqZTVz95079sP3HjfTzus+NpJsY5bnltz3707lv3fi7sLhYAzRZnL5QTncqIRpNq5fNOcZ1ffc1fSit+eUM5fd6bF4/vW3P2RHHLHpaYRwA8tu926tJD1mPGIo2yAjmf/DAPa8EcaQHa4d+0udAfFTFHOnvT4v/S7lQfSTkJyZAUEkaj6ru6w4/PrUv1zoVAwXb2jt26jAix6ju37y6bE07cP1CsBETVpGemE5aDi1d4997al/8mrvu/guXKAUta04u5D8Fcw+z6+ZT588SsNE2ueb+hKKtJsdh7m6lsuX/f+53tyPapBJvX9j7vn2I4oENGHbKVQdmsBAHTGkqoe+IcC1h+ftXbxnc3P3LvmrhsUqZtj0pra71U1mNlRtrKlgqeDR/0g+PSs2xbfAw5L1rsLheChZf80bWY89SNBdFk9CIFuswwoIX3NwZWz1y3d2ninlmRZpiSeekWHmr9+kbtz+aa3dTjxH9UCV5ygoP7UeNp6oXLkkxdtyPwd58IKqrNuARpVvLtX3/WGDhW/tea7ugkUgcEsiWTNd2uSJDMz0fpFbrQnc08upzhq7tBsTQAg8Pi/XtB5XpyZmZv2eCIIN/DZkfbF00XHf+5auemS7kJ30JfvdYiIpcMfnpGe9iFP+8GgWzNEpIhIHa1XtGEzNaGcbz53432bd625a+6+FVvmH1hz791JK/EVw2bqUbeiCZBEpNzAN4Ne1U87ySuYOKSAbnhYdRcKwa9XFufNjKf+05bW5bXAO27xGdDMzDM7pjnG4L81v1PzFtWT61ENazV//SKXV33fcaQdc7VXkSQENykHg9XRejmI285nd68uvoFGKXT8siwAg6mUKYm3TI452tGPxix7fsWrG3HM9A/tc5IISigYY35FAj9kgx/OnJzuaZbiIYCzIMP5Qh4fWHX5zATJ5YLETTFlx/rdCkcAsEEN6w47Ln2jn696tesv3pj9GedY7D2yZYGE+mXA2jnxHSNh4smxlDhaHxwASE6KJZNH3YoGsyCiE38fTI6lxBG3XJgzZclnqUCmb8Xm1zuWfZcl1eyyW9UUAV3DbAiglJMgN/ADZr7dN+4tc6Zu2w3kh8rbmuscdqz6vpMk/21M9D4Y8x5LWa/ytA/N5qTFMcymw46JWuD9GtJ//ax98FDMmJdDgNFomP5dK0u3T4l3LjtSGzzB9J8kMBxXDsWUDVf7cANvuyDxEwLda9nmZ9O/uHjwOFAWfajdy0sLLWV/Vkm1mIhQ8WoNN0xoZh1XtmRQua7r18xbf31Pz9tzat5llz+csGKXV33XnGCaGwurlZCSAWijhxbxBMFlAYIgCgz062evW7r16f9RfEcyFt8iiDqrvqslkTTMBgB32HEZGA3N/G+eMX81b/3iRxtWshlDPPmRu1OTU7I7YN3NwCJHWvNtZaHuu6gHHp8ohCcJZDytDtX6N1x02/Ur2xXOjLkANB78zPLN16ec2HfrgesZwGqlRce/AAzABiARt2zhKBue9uEF/n4QvkfgLZRwHpn5+UUHT7x276q7u4UUeUdYb9OsUfVdHRJMYFsqoYT0Kl5t2UUbMt/cs/KujZMTqY8dqva3FcqIeQOh9XyZoTtjCXm0XvnRvNuW/mHfqs0fiEn7q4Y55ga+CaPSMHHLkba0UPfd+zXr3IXrlvzoxHsdWdMzqWKOvpUELWXGO2PKvlBJFS26bwhsGCRaCWuz9QKRkSDfUbZd9ipLLtqQvfflCMFLEgDO5QQKed63evMrBdTjnbFUzDcBNBu4gQdfBwwiQ+GECQzi8CvTicIQvjiErSwRVw4Co1EP3BcVyR7N5l9jbP9w2vpF+5rn/Ozqe68TAvm4Fbu07NXg6UADICUEJawYVbz6R5Wtf0ja/o1vtG3YtF3kUwydshNy0KteBcJr0nby1rJXQ2C0IYBtqWTCiqHqu1sJfMtX1j5yZwHHgN4LN/7rjEDX/5BJXM/gN8aU/QopJGqBCy/wDQHtFp2j+EK0YxEBLGxpkS0VBAnY0kK/Wy67cK+cd2tmB/L5l1QP+dIEIJrRnpuKU+IidXnFq76SiC4XoMuZ8RpHWedZIpyobwIEJoBvNAyzRpNQoEkoOKyz1gwISyqRsGIAGBXPHQTMQ0KIfxaQ//GKW6/e2ZjH/tX3rBREf51yEtOP1MsIdBBIIUXCckTZq36DQe+MKXu2ewqzOkzgB8aYAMD9MWW/3dM+G+ZACmF1xlKouLUXAxPcPGv9klsb1zy7ZstrmOU7DZtrQPTGpBXrBIBa4MLXgYkgUbOVZIThRB5qO0KkLKlgCwVLKBhwY8t8AcAuMG8zbH6ZcOKP12v9T8758geOvNRaiFHnl3etuWtSQloLXD+YB/B/EYQrmGiG1npm2kkqKSS00aHZ134DOJnIkRYgjjxqMiBAkpAJy4EggYpXqwH0oIb+roD1o1nr3vdUz9tz6pLXXfkpBn885SRSR2oDEVhKiLJf5Zeo+ceNhBVDxasbIoip8TQG6tUaC/77HY8+ku/+cSF4ds2W1wCyS7O5DqCuDjuuDBvUfBcBGx3FLYiJCUyMaLERSoG0pQVHWpBCgJnR71YgiPYDeIYgfgXmx5QQT9agn5y3dsnRUY1uvjwvAIRMUfRG+fJd6DUtfd1VO5x99PhswL4cMH/AjEuEwKu1Nhcn7bgIc+s4EooA2mgDwFDE+VNkB6UQMq4cKCFR9moegF8BVIRS93FQY0nOGob5MAEdng4MneCNvIz31JKEFCTKgnB7PfC+Glcxzzf6vwmi92mjr0w7SRXWDNbBbAKOLAgPRYtICEHCkRYsoSCFQGA0yl6NJYk+A7OVGTsE41cQ+nFlpZ+ZcctVlVZ0dW8+L4EuHNx+kDNtuJSzZgEaruH0BdsI6EJXoVu3JHuWPWTtdva9KmaJGa7vXykgr2A2l4FoTtxykrZUYAZ848MNfATGGCJobhAGBDthxeBIC1W/Dk/7DxHkvxFxB5G4ltnM0mzkKL2jcaTluYH3IIO/L4VcKkm8scNOwNU+qn4dYHjhooOYIZWUQ4tNBNQDD27g+QzaFYaw8YRtxR70A9M3a3LH01Torrde7JBGDhc7Y4YLno0LAWgnFMjlCQsXErZNJ6DLUIFasmL7Vv3rBRbxawzpNwVGX8jgN4Dx6rjlJB1lgZnh6QCu9qGNDqLAiYxbjkpYMRypDcKwGSCiBIEUj1KSMDN7Qgh7ciyFqu8iJLw4ACCVkMqWFiypIEmgFnhwg/pRZjwjhXqUCE8Lw7/wYPbMnrJkV6t3L2aKMrNgOvU2qOMCeLQXe8wEgHMssL1EvQumU1cY3ECjnr6rzTUPH9hBsRmTyT7cQdZAnOama9w75UHdXSicRG8+u3zTHF9Z85mD10rIK0C4DOCL4iqWdJQFAsHTPsp+DWBACAFtRrfWUhCBOfwzbjmwpQVCqNk13x0EYa9h3iZIPMLEj5qaeXzuHUsPtHKfn3pFh7KmxGnu4RpjSpkfPnCE3zBjPrcOiYffsBHsbvx31/aDTKNQUHrOtjbn3Fb7UHnPK33fv8g1wRWSxBUMvAnAFANjjQb4O5EzIFDAjOcJ2AqBrUpaDzgW/Xpq/L2/aaXV58J4uR+JGMDelVv+3rbsC+uB+yIx+waIEwkPgCTAjcgfijRpxB/KsKGGP0YYch0ZBI+ZAzZwiXBYkGCGOQ8QbxCES4wxs4hIjbL9DJjxXJSBtFUwakw4ZNh0Ssg0k1HEZDFBMIgF2ICJATMUxGgg0ub/b/VvQ38fvrfFbDQIDoEMM9dtaac94/XPmXLdX7xcwXtZGSacKQoqZXUfwT4vMen6w/VBRLHx0CmN/gzljEfN6FCEsKnpXmFrGRee9qPcvFEfSglxoaPsCx1pXSOO5aaAo3yHsdmwuUGagQgIjMGUeBp7jh64gwpkzhoV3ABtBOLnlxc7XKmeUkJN9U3AYBZ8wrK/7EWPAh4c0ooMMOO4IAiDeYhVU2O0FJoYAYiPz09gJoCIiakhlGPRGlYQGSUUtNFHAoFL5q1dcpT55WVDq5enicQ9uZw6v5At71q1+auddvxTR2oDAREpGqGEhVm0xBG/yBQ5ztx0LYepYIJAkEJCkoCK/iQiCCIIEhBEqAceyl5t9BefGR12QsaVLQ0Y2piG7iMwBtpoaDbQbBq+v2m8DzdTiw3FYBYgnBZFbZiDpB1Xh+sDd85bu/RoT65HEVFw1raACKUaZqZnb7hv7QDKyy2pJgdaG9DIcg0USZJSkhQCksJFDb8VhkgUTweoBS4MG2bDAww+4gb+QSJ+XpAy2gS7AOwEuCJA86SUH2SDC03IJb1csosVCUBgf8Wtfm3QL+8RRqZAuFQKMS1M2aJXCKLzjOFOBjqVENKxbCEjoWywvg2hMczwdRg7MWxGam1ZSSUH6uXDlqG/YWbK5/MvG3iOakbQrpWb/2pqPH3zodqAFi3Cq624dmZTBegggQ4ZmIME7CESYDZHAO6TpI5oNoe1H+w2tjAyMINzX3vRIbrhSr/5Xgc+cWcSetKfMPNHDeMyzQFhlDwBBrMSEgLicbD5yozJr/w6FS71jvdKetRThw9OdqDSUlDK9/VMIsSFoBiY5kkpZwRGzwA4BUYKwFwQpQiUGAl6YOZgaqJTHaweufmi2zKfGqaH0lngASKEv/emH0xGUNsmhTjf1wHaBWDCLCFJhk2ZIX6fBzp3zvvmyUzYiGIPKzddYivro2DcMCnWkax4dVQDt/FiDGbNYYYPne6iA2Qoym5iMBIqhoTlYNCrDoDxjTr0P85bu+RXL2XeT37y7lTS1ZeAxf0gWIbNcHELo4Qkw/x8jb3LX7Uu82IzLhoXPEAjR233qs2fmRxLf+pwrT8gEmoYiTYJK4aa718157bF/9GT61Fd6DK96BU4kfzYfpCbW7/lAXzkyOuusCBu0OAPpJ1EYsCtNphB2UBFkgRSdgIVvwZfBy2TPtrMTQshZIcdR8WrwXADiTMD0EpIlXISGHSrniR5Z93UN86dsvWx0vaFlFmwjRvZP70NOjy6b2n7Qc4syDDQK6jQHexevfldcRn793ZJK83aPyWeVoeq/Z+Yt+H6vx+tfMDRFYAI9R5YXZoWwNquhJjqa83tsEDjpY7Uy/8wZ/2SZSN9qYbn0bdyyxMzUlMvfa58CMwcgCAbGsTMbElFvg5eJKKvE4k/S9uJqf31sjFgiDZBImY2AGFSLCkG3KpnYDaDcbUSMqWb9uqwnBuGQDSr8zyxt/+FH8697bp3j9QlO6YsWzZMjqeWH64OtM+kYhhLSgqMOciBdcnsje89GoHHUXGwRi+9mIiRLYmZ67MHDZvPxK14o9at3RWiGtTBbLp3rFrr0DDVtMeBzqG6PNNT8+sBwH7odTSbT2IVKnv/nPXX/S+43mvLXvVbcdsRSTsmTLgtnLCgHMQtRyQsR9QCd4tPwe/NXb/0/UT0ogq5DdPk/ZAgkkTQg24lIJiwPG0EHcoYIBS6NS+73WLmd9Z8F00FLyfbfjCnnCQFMH8/58tXH+nNh6eYjZprOaq+UilrOJcTc6ZOuaO/PrjHiSpeWwsMRN33OGbZr4xj7hUAuNSuz17T6BpaBPFzBivmkz8ehR8ORLCfX17smH17dv+F6xZ/qOa7VwVa/2JyLBWW8jA0M7QgQZPjKaWNedr1g6Uzbr1m6cXrMo8/s6zYaRgxE7p7Lc4rgDBgJYT85RBxf6oR9TncZ533lrjlvLrme23NPzNMTNniSG2gL0D1y6eqpTzrAkAA96JLUKG7ToQvJa0Yhfl/bYeOKweG9WIAyIyox19YZBGAtzeSNE76cMRk2ACMlJYdcWYmzvWoOeuv+/ffTHr4LTW/VnCkFXQ4cZl2ElIJ4Va8eu6wX79i1m3XbuFcj+JcTgiFuACSxpiWtkkQRMWrB5r98JCKrq5Tu2XhOxIkvzemHB7++7BJWA6xwd/MX//BU1ZSn30LgLD7BTOTEeIf++vl/Y6yJdpaASJPBzAw7+JiUeYLI2jxFh0YGdC+Xwes9zrSolb3D4EbOUxBnIg4j14TtqUvBDPWXpuv6fob64H7w5rv3huY4MqZa6/59KUbs+UwNT1MbBG2SIAQ5+Noqea9WZFm/YJQCHsUF0bgz4UazIEx73C1R229k6iPQn+9fCDGwbeZw1rJUWcXRz+6RNybz8t5a5cc1ay/EFcOmfZYQFb9OiuhXtfXo+YXUDCnKnYggDmXE/PXr3EJ2G5LC3wC9U8gMmxARHHPINHwHCKARsVMUc5bn3n0wrWL333Bumuvnb1u6VYuhsUpzSBOs7EAWIYZJyW0EtiRNgB6aPaXsrVieHgVDw/+WBCI96zefKktrEvrvsvt1sCAOa5iZNh87vyN2XJvPj8mLXDHpD9AV6GgQyxg7uh3y79OWI4IEXZrlyvlJIRQ+KMI5o1gTlHPIIPvCSEa8ZiWRJMRrn3MeQwfmY0aMIVbQ1gfSNmsPnEBbTlMQJFDcogMPTry7Svs+WM0ulOxhG2YW/YUZIaJK1sMuOWdPHXqV8O9vzAmzaTHRACOYYGsR8zrox443M59iNquLok+0qm3gUbhKPjpQAcAuFXhByshIQ2lQh/8+EOnqECGiJgKBdMunTrwhaK2jkk0b+L9If4bCQLsMtHRNu/xtR6KDbQioRJWjJjwxXmF7nq4949NsHHMegR1Fbp1LpcTh49Wvnm0Vt4db+sRsKj5LkB4fd+Nm2dQoWBOVf7c6CYa1/Roxa/3K6lEc8ylcWMpBAyjA2h95mB7AYuaOrCeF7ccoFGv3xQfEILkoFf1LaF+EHknZnjzH3Y72XPTfReA8PaqX2/5/UPtd8SR+uCuwSD4No8B8j8jAkAA5xcupNd9+0MVIehzjrJb8gIEIs1adzodCQS8qN2xrMfhqFBjacZXlr7AzLvCPj3Hm28iMpaQkEJ0hj76thGTXo3fMiOlhIjW/HgVdaQFBp7Z8djDz4YW5RRFGZFQae29Ne0kk5q1pta8B9tSkWH9vy/dmC1j4fBdVMatAAAAZcPu2Rce8L92tD64NWnFWmKBML4PgGgRATySI196jnXgeizMzzvhvhymD4E5djyDMCL7FSJUIToIAifKLYGNI20Q+KfdPy6cVpdvwXRt5KlyK+13lCX63fKB2NHavcxMyI5t67sx70TZi67wzD+mmy2pWuaIMLEMTaJ4+/YVW6aeqq3K8dfST8JsnNb7KQlhvWR6ux1BAyIDA2b6yQgDS0SlrD74ybtTzNxd811isGyFLGPKJgB/NePbH6ogWxJjnRk85gLQXegOcrmcmDttyqb+emVrwj7ZChCIfK112klM7ZD8tmbKt72ORmBR4Odlr6YF4YR6+kZpl55xuvp/jKbieGvTxqLme1CGtgLHupm0Z/9KAgCqdfOmpB0/39O+aVGGbsIeSpVtc58338rlcgKl7Jgnmp6RZtFdgKBCd8BAToWdVVtgAWZBxAx654huWgh79/smtl8bc0gJRSdDDIIgMeUlzDf0xQmvOrHgjsEcnmzmHyoH1X0hu3sKM91wERlXH9dX8AT1t6QiwfpmKmX1WCL/My4A3YVCwLmc6Js6+d5+t/xEwnbkicgaYatVYmOuPfCJHyS7Q4EZtsUa51jMX79oAMAjMWUD1KrYBKffVSvSaMGmk0MSqPnJJqZsENPjl9zxgRc5lxOnisuH3Tx6FIPfHZ5zcEIDDWYTtxx5tF5+qk7JLcxM7xilcO+4EAAAwMI8dRe6A0His5ZQOMlrC9u+mIQVv9Bzq68PTeepgkMRaUT4uRQCJ92UGcxshVjkpaDYFgsb8QsMfryZlGq7/0ddT/YcPPIHjrJfXQ9ODv5wiPwhBN08f/0iFyUIPkPLcsYEgLKkOZcTs6c8tqm/Xnmow44PdcJq+hTGUTaTMFcdZzrbAszeaP3No77RYXXxMQsRJmgC541on24N9iQ3nNomqTDMgOGHR0QANd5B4OqkFcOJ+IeZTdKKiX63/NjsyY99K2Ql6YwdIXdmD43avpCoUDASIt+GFCRP+2QM/nAkrOAQ+RJgW8Wr+VI0NVYiRPEAzAKAbadxmGTTUbApDqtRhxKUBZEcdCuBsdQvRkIAodCtGUxMeE90zI04EVHa0iICf264g7J/KwSASlldzGTkrNsWf2/Qq/4sZSck83FWoBEcunLP6s2XUmH44FCDfJl93tI+Zn7aCU8POXGhT1ubMo1TQgnJ5jBD1IoGDOyfN6nzmVMRQGHwB7xn+aYFisTCWuByc8k6A7rDicsj9cGfPfgcb270K/ytFQAAyGRCUlaQ+Iw22pzovTOzTjsJaQwtPm6fH2aPpQIZAj1iSwWiYxoZFRhYAJDP509/C+AT0uYJbIUo/imK3NtTbFEiMhuLUk5SIQz+ND+AjDFGsfg/2VJWY2HpjNdqnnEBoGxWFzNFOWf9df9e8Ws9KTtxPBaIcgQAvgoA8qcKDkV7LDM/KEkOeYLMTGGbnXARR5pBywCFlqdHEeH8wGiAj5X7WNICE/0wnNvwALDRuJIgFvthyRo1a3/KSYiyX3tg1oYlvcVMUVL2zB8fe1ZOq4wCM2Qp9QUdZu40S76o+XWWQlzZt7I475Qt1xsuG3jH8S5W2H6KgThnWDYWdyRqDwB73EoKwHmB0QA1WvdAVtxqoA33AmGWb/vbhCVb+z5+1ywQXVELPHBz1JKZDDMsIT/f9E3wOyEA0YFIdOGti/9j0K3+a9pJiIYVIIA0G512kjGG/KNTuloRCaNE4pGqXx9UQoow6MSkYUCg9LbppXjTpjCiURn0BLip+yczW8IiV/tHaybYHhJ8wxBAUWcP7ZnutJOIh8GfRtYydMpOiIpX+8msdUu+z7ncGd/7z6oAhNoT7ncC9ClX+2HrpKZtQBsDIrrqVJrWOMJl5vpFB0F4MmoYYdAoLSMkVODHTnP9kY6ksamuz0Qt2p5aOH1blXO54Xn6oTnT+8CM44M/TAYMySLX8I7wu2QBACBbCrHA3A1LH6n77vc7nDg1YQER9d15V9+Nm2dkS1k9bLVtI27AeDjsLRSuvAlr8RLxRGc61Mr86VUHNT2TmFkJBcP8IBUKZrhTwRpnDuxbsWUqA++qBi6Yom2IodNOUlT82t2zNizpfbnl3eesADTve0KKLzAzodEmD6CAjU45iTg03gJgqFnScENCPtqgbgkgE/L2FvzalNCSjEDTIiHxyUwXRAkTZW0xEYUN/fjBBsYfhkgIm11LvKnDjnX6OjDH6haYNGsA4osYB+OsCkDjtO3Zk5c8MOhWf5yyj2EBMLMUxNE2wEMnd7d2uAwAGOU/MOBWGUQyLDsHKyERDOUEjGRramQDmcmWtJQJe0uDAFHxakzAjpAAal+Z27stFCJivsYK8wrNkIsbS4pBt/a9ueuXPFA8y9p/1gXgGDtIRkD9T98EpoEFiEhUPZfY8NVPfvLuFGWpfeVQFBm0ZbrPwBywpAor8yNK2JJKjhRpD1kloVJKiBBPMLEjLfK17itP01tDAqjdOYeg7kIh2HNTMW4YV1V9lxqeCRGRF/iBAP312UT+40oAqJTVnCnKORsWP1T16/emY0nBIWEiPO2bpB1/Rbymfy9cndbBIQJxMVOUM265qgKmB+PKQVhwEYqMhjnt9zSGkwJiyKG0lQVJePzSQtZrnEXUWoLCOQaGLo8pe7YX+CY6MU2nnaSoBu59czcsfYTHgfaPDwsAAAsyYSdQy/5UPXBdQaKh6SZKzX5vM+nTmr6d3rAcD1LUI4iIWJCAiDKDRzJ6h+4jpjRSzsNKYwkIbG1+1nDXSyOWHhPEUPvrgaelkDfzOOrONi4EgApkUCyKObdeu60eeJvSTlIwcwBAuNongP6QM0WJYbJjG66iFvrnXkQIhb67AoS46FQCNMTeHbMBSREeBAkGhK8DGIOfH+/infwq3YVuzbmcYMZiV3vgcB6600mKeuB+b866JQ+XouZaEwLQvIClMHdOsLq1GtSZQAIEqvkuKyEu23uhtaCRBNLq+ka0j9nuqwdeXQoSRCGFxwT79D+MsCisB2IlpKh4tQob/XA42dYEEOfCx/UdvuK1tlTz6oHHICZBgmqB54E4j3HWm3HcCEC2lNWlTEnM2bD4ITfwNqVjSUEMHVUOkfbN+yIj23LO+UKBGaA9jz38LDPvjI6VC4Fgo9/g6XAAZCY1OpKFEUDeM/cgDoaMcOvbNYI/ks17k3YiDP4wTNpJiHrg/WDe+syjnGPKjhPtH1cC0DyU4M/WA0+DwjZgvg4gmBaFmcKtg0MEMDJF0f3jQsCEXzjSPhYZ5LA+8DQlIMombqSA0/1UymouFkU7ANgo4DDANZ72wUQkSVDVd+vCmL8M55/HhAUYxgpwsShnrcs8Xgu873Y6SQFmrvp1FpLeuHf5vRfTMMGhIQBn+OcNRi7swkULTrF3N2lxw50zTkQBh6wSRSlg21rjiAY1fGDlPfOEwOW1wAWYOeUkhRu4xTkbM9uQKYmXcqrH75YF2BZ6BJaw89Wg7kqSgoEg7SQtyOCqSNdazruR9sWGt9aCOoaSL2jkx6t1NYSExAwT5hSqileDMbi/GWy2uFIwQC4F70zbHY4xJhAkRNWv+VDyCwwmLMjwePvc404AqEAGmaKYte59T9UD7+spJy7AbAKjYUDXNjN/J7mCEThzEunHXN97XpCwokYRsZChPa0RN8wQQihP+4c6RPzp5me08kIorFO+OiqB1J1OUrja/+a8tdc9GWr/+GsoPS4xABZsYwZTQOJzZbdWEyStWuCCmH9vz03FKVQomFaVQ6GXkBMzbrmqQkI86UgLYQVvGNw7Zf5+9OwIU3Ro1ohJG0T0xLT1iwZybSKAjBDY7V/2T9MAemvFr0OQsAb9qitIfIEBwmnkJP7OCwAVCgaZkpi/fuk+35g707GECLR2U05ykvZVFwPUvnIo3B6I+X5LKpgwFJtkjPDcqIhWZg5bw1hSgYgeAobJACqG39Gz429LO4kpgdZu2kkKbfSdc9Zf9wwyxXG3949vCzDEDjI5bH9+0K1WBAkZ9gXG1QRw18KDbQ5YCGGcBj2ijQGzAYPT+Vw+6gvV3g/nxokvRZYETG+0cjVopIC3ZTEaH3MxgVgQyapfr7mgvxmve/+4F4AQC5TEzI1X7w6M/mpnLKkGvSoDWHR42Q87Kdu6gLQrirwJZX5V8WquFBIArD/pmztyMug/7hAACykkKl7d05EAtDoFnMFE2azec1MxbsDvKPs1SjtJ5Rrvzvnrr3tmvO79498CNGEBX4tbBtzKIDM4acXP77cH3xyhPtHOhM/uvGQfiJ+N/nZmkExeCADI5YbZB0JFfUFNdgBSjrRgYH7zyAGzM0wWbbGQjTkE6o1xZV9g2HDVr1eJrUj7t/F4/sTjWgAaWOBVX16y1zfBt1N2QhCBBXF3KCDTWwPBTFFGzZwftaUFIuKYEiNmA+ucsEBQllAA44lsKavblqk1spLBi2ypkLITVNfeV+bedu0uFEvjdu8/NyxAwwowk9bq8xWveiTK9b8qPL62TXCoKVW8cbIH6ZELQKCrhsFRzQL1NpNMJwtpty5mitIwX22YueJVj0q2bmEw5beNb+0/JwSACgXTm++Vr/rykr0BzDpbKCISC/cduvyydsGhBllDRjxQC+pgsPKNe+oq4Wi5UolUAoyOWuBBUJgB1Kq2sJEX8PsX2FdYUr3KkhZp5q/P2bD42d5cXhbGufafGxYgRPaGmSlmY+ORevmFqYlOETBdHf2raEcIGYu21nzviC0tCkhFv8u3x/LZqJGDX52RtGLpslt9vo7Ko+0IoOkN6lmbRZNjaavfLR/UQv0tM1PvqWoGJwRg5KNQKJjefF7OuGXpCwbmDkdaBHBYM5A/eRsID+9kmrd2yVFBtN0WFuIk/VMJwFCKljST41YMRNg5f/0HBxodyk/yOKItSLO+Oow+mo0Xr7v2+d587zmh/eeMAABAVz6vmZmSEhufLx8+GrfsN+y56Z5XEoXs30kXHCOKHk5YDjR0+lQC0OgOJiDSCSsGMN0PgNCCdGoEf3at3HRJXMVf+3z5UH9MO18JW7r2njNnCJ4zAkBE3JvvlefduvSAp/3PnJ+aFmNfXx8SOy0YukYzSTY9trQAkvOi7WSYd+6KLIgQDAYTPwiAe9szjiRIdJ+fmmr7Rq89f+PVz4WNnQoTAjAmViBqRF1hc8eBgYNHNMw1YfFOC42L2DfDYnvFrwGgEfcKMuCOF6tHQUY+EIpFK43uMqGjwZkXBg/VpnSk1zEz5ReMf+R/zgpA2Ii6V166MVv2jHdryk68qV130QZpc9ELwTNHa+UDID6NZlFiStVza4PTvBebyaWh3SXq+vnM6nvOjym7q+pXP9P5hXcdOpf2/nNSAIasAJiU6dxgjKlTgGsYTF0ttgEuhqnXDDxmDE86ZuRPYQGMcYSgxy8tZL1Gh+/jN4ow9q+g3+ObwLOnxdaGe3+XPte+5zknAARiFEviwg3vOlQJal9iwrUEah0c2tZI8eYnpKBXnFK4Gh+FMIs5ygBugRm6otg/M/93zXzLBYVrqiiNfVPHsRgK5+LIZgzncuLXe63Px5Pmh7tXfGcmZbPPnnSMaiNDCPgFwO85Nd9wzMUH8T0RaDzeqoTP0HtuKk5hH9OSFAs5/yzOydPDxbk4aQIxFi6k13x98SCYv8PCCYND2ROCQ1ECCIEe5Yaw59ub6aFoH/MgSfWrhvt5vPCFzyBfdRHhn6etXzSAzLmp/eesAIQLkTUMJtL1bwGYFCL/bSd2DA89gYH+/Qz05U7V1DGq9yOBnxG5O5vvccy7CCOUTDzD83EngwmljMHEOHtj6/JiR7t/a+QM9K3e8sd7birGT3UvBtOuVZv/YLhm1TtWfd/Ztbz4umh7oYkVONs7wgjG7o/9y+RG187RGhOLP07G2ViIYTuWTIzxKCQTCzYxJsbEmBgTY2JMjIkxMSYGAOD/A07AXZrrVrVLAAAAAElFTkSuQmCC";
 
   const CSS = String.raw`
@@ -480,128 +477,6 @@ html.codex-spider-gwen-immersive
   box-shadow: none !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-panel"] {
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-panel"]::before {
-  content: none !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-stage"] {
-  justify-content: flex-end !important;
-  padding: 30px 24px 28px 24px !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-content"] {
-  width: min(48%, 760px) !important;
-  align-items: flex-end !important;
-  text-align: right !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] {
-  position: relative;
-  color: white !important;
-  font-size: clamp(27px, 2.15vw, 36px) !important;
-  line-height: 1.08 !important;
-  font-weight: 760 !important;
-  letter-spacing: -.025em !important;
-  text-align: right !important;
-  white-space: nowrap !important;
-  text-shadow:
-    0 2px 3px rgb(1 7 18 / .90),
-    0 0 14px rgb(4 12 29 / .72),
-    1px 0 0 rgb(89 215 240 / .18),
-    -1px 0 0 rgb(255 92 168 / .14) !important;
-  opacity: 1 !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"]::before {
-  content: "EARTH-65  /  DIMENSION WORKSPACE";
-  display: block;
-  margin-bottom: 10px;
-  color: var(--sg-cyan-bright);
-  font-size: 10px;
-  line-height: 1;
-  font-weight: 760;
-  letter-spacing: .21em;
-  text-shadow:
-    1px 0 var(--sg-pink),
-    0 0 12px rgb(89 215 240 / .58);
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] button {
-  --sg-control-ring: var(--sg-content-ring);
-  --sg-control-ring-opacity: 1;
-  margin: 0 4px !important;
-  padding: 2px 8px 3px !important;
-  white-space: nowrap !important;
-  color: var(--sg-cyan-bright) !important;
-  border: 0 !important;
-  border-radius: 5px 11px 5px 11px !important;
-  background:
-    linear-gradient(115deg, rgb(6 24 45 / .88), rgb(42 21 74 / .82)) !important;
-  box-shadow:
-    2px -2px 0 rgb(255 92 168 / .24),
-    -1px 1px 0 rgb(89 215 240 / .16),
-    inset 0 0 14px rgb(89 215 240 / .10) !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button {
-  --sg-control-ring: var(--sg-passive-ring);
-  --sg-control-ring-opacity: 1;
-  color: var(--sg-paper) !important;
-  border: 0 !important;
-  border-radius: 8px 18px 8px 18px !important;
-  background:
-    radial-gradient(circle at 88% 10%, rgb(255 92 168 / .15), transparent 30%),
-    linear-gradient(145deg, rgb(8 27 49 / .78), rgb(14 18 49 / .70)) !important;
-  box-shadow:
-    0 12px 28px var(--sg-shadow),
-    inset 0 1px 0 var(--sg-material-highlight),
-    inset 0 -1px 0 rgb(1 7 18 / .32) !important;
-  backdrop-filter: blur(10px) saturate(1.08) !important;
-  transition: transform 170ms cubic-bezier(.22, 1, .36, 1), border-color 170ms ease, box-shadow 170ms ease !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button:hover {
-  --sg-control-ring: var(--sg-focus-ring-both);
-  border-color: transparent !important;
-  background:
-    radial-gradient(circle at 88% 10%, rgb(255 92 168 / .30), transparent 34%),
-    linear-gradient(145deg, rgb(24 58 91 / .94), rgb(48 34 91 / .90)) !important;
-  box-shadow:
-    -5px 5px 24px rgb(89 215 240 / .16),
-    5px -5px 24px rgb(255 92 168 / .18),
-    0 16px 32px var(--sg-shadow),
-    inset 0 1px 0 rgb(220 249 255 / .12) !important;
-  transform: translateY(-3px) skewX(-.5deg) !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button > span:first-child > span:first-child {
-  color: #04111d !important;
-  border-radius: 5px 12px 5px 12px !important;
-  background: linear-gradient(135deg, var(--sg-cyan) 0 52%, var(--sg-pink) 54% 100%) !important;
-  box-shadow: 3px 3px 0 rgb(120 71 232 / .30), 0 0 18px rgb(89 215 240 / .24) !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-utility"] {
-  position: relative;
-  color: var(--sg-paper) !important;
-  margin-inline: 0 !important;
-  border: 0 !important;
-  border-bottom: 0 !important;
-  border-radius: 22px 22px 0 0 !important;
-  background: var(--sg-surface-soft) !important;
-  box-shadow:
-    inset 0 1px 0 var(--sg-material-highlight) !important;
-  backdrop-filter: blur(14px) saturate(1.04) !important;
-  overflow: hidden !important;
-}
-
 html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="composer"] {
   --sg-composer-base: var(--sg-surface);
   --sg-composer-focus-ring: var(--sg-focus-ring-both);
@@ -625,12 +500,9 @@ html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gw
 
 html.codex-dream-skin.codex-spider-gwen-immersive [data-spider-gwen-role="chatgpt-home-composer"] [data-spider-gwen-role="chatgpt-home-surface"]::after,
 html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::after,
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-utility"]::after,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button::after,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"]::after,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"]::after,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] button::after,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button::after {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"]::after {
   content: "" !important;
   position: absolute;
   inset: 0;
@@ -650,74 +522,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button::a
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] button,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"] {
   position: relative;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-composer-group"] {
-  --sg-home-composer-base: var(--sg-surface-soft);
-  position: relative;
-  isolation: isolate;
-  border-radius: 22px !important;
-  background: var(--sg-home-composer-base) !important;
-  box-shadow:
-    0 16px 36px var(--sg-shadow),
-    inset 0 1px 0 var(--sg-material-highlight),
-    inset 0 -1px 0 var(--sg-material-depth) !important;
-  backdrop-filter: blur(14px) saturate(1.04) !important;
-  overflow: hidden !important;
-  transition: background 170ms ease, box-shadow 170ms ease !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-composer-group"]::after {
-  content: "" !important;
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  padding: 1px;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background: var(--sg-focus-ring-both);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  transition: opacity 170ms ease !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-composer-group"]:has([data-spider-gwen-role="composer"]:focus-within)::after {
-  opacity: 1;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-composer-group"]:has([data-spider-gwen-role="composer"]:focus-within) {
-  box-shadow:
-    0 18px 40px var(--sg-shadow),
-    -8px 8px 28px rgb(89 215 240 / .10),
-    8px -8px 28px rgb(255 92 168 / .10),
-    inset 0 1px 0 rgb(220 249 255 / .12),
-    inset 0 -1px 0 var(--sg-material-depth) !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-composer-group"] [data-spider-gwen-role="home-utility"]::after,
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home-composer-group"] [data-spider-gwen-role="composer"]::after {
-  content: none !important;
-  opacity: 0 !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"]:has([data-spider-gwen-role="home-utility"]) [data-spider-gwen-role="composer"] {
-  --sg-composer-base: var(--sg-surface-soft);
-  --sg-composer-focus-ring: var(--sg-focus-ring-cyan);
-  border-top: 0 !important;
-  border-radius: 0 0 22px 22px !important;
-  background: var(--sg-composer-base) !important;
-  box-shadow:
-    0 16px 36px var(--sg-shadow),
-    inset 0 -1px 0 var(--sg-material-depth) !important;
-  overflow: hidden !important;
 }
 
 html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within {
@@ -731,8 +537,7 @@ html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gw
 }
 
 html.codex-dream-skin.codex-spider-gwen-immersive [data-spider-gwen-role="chatgpt-home-composer"] [data-spider-gwen-role="chatgpt-home-surface"]:focus-within::after,
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within::after,
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"]:has([data-spider-gwen-role="composer"]:focus-within) [data-spider-gwen-role="home-utility"]::after {
+html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within::after {
   opacity: 1;
 }
 
@@ -766,42 +571,6 @@ html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive
   [data-spider-gwen-role="thread-composer-accessory-surface"] {
   border: 0 !important;
   border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"]:has([data-spider-gwen-role="composer"]:focus-within) [data-spider-gwen-role="home-utility"] {
-  background: var(--sg-surface-soft) !important;
-  box-shadow:
-    7px -7px 24px rgb(255 92 168 / .07),
-    inset 0 1px 0 var(--sg-material-highlight) !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"]:has([data-spider-gwen-role="home-utility"]) [data-spider-gwen-role="composer"]:focus-within {
-  background: var(--sg-composer-base) !important;
-}
-
-/* The homepage project bar and editor are one material. The extra attribute
-   selector deliberately outranks Codex's focus-state utility selectors. */
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"] [data-spider-gwen-role="home-composer-group"] [data-spider-gwen-role="home-utility"],
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"] [data-spider-gwen-role="home-composer-group"] [data-spider-gwen-role="composer"] {
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
-
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"] [data-spider-gwen-role="home-composer-group"] [data-spider-gwen-role="composer"] {
-  --sg-composer-base: transparent;
-  border-radius: 0 !important;
-  overflow: visible !important;
-}
-
-/* Focus belongs to the merged homepage material, not to either internal
-   layer. This higher-specificity rule prevents Codex/Dream Skin focus styles
-   from painting a second surface whose lower edge looks like a divider. */
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"] [data-spider-gwen-role="home-composer-group"]:has([data-spider-gwen-role="composer"]:focus-within) [data-spider-gwen-role="home-utility"],
-html.codex-dream-skin.dream-art-wide.codex-spider-gwen-immersive [data-spider-gwen-role="home"] [data-spider-gwen-role="home-composer-group"]:has([data-spider-gwen-role="composer"]:focus-within) [data-spider-gwen-role="composer"] {
   background: transparent !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
@@ -979,9 +748,7 @@ html.codex-spider-gwen-immersive :focus-visible {
     5px -5px 20px rgb(255 92 168 / .18) !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:focus-visible,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] button:focus-visible,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="suggestions"] button:focus-visible {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:focus-visible {
   --sg-control-ring: var(--sg-focus-ring-both);
   --sg-control-ring-opacity: 1;
   outline: none !important;
@@ -1157,37 +924,15 @@ html.codex-spider-gwen-immersive * {
 @media (max-width: 1120px) {
   .sg-status { display: none !important; }
   .sg-print-dots { width: 46%; opacity: .08; }
-  html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-stage"] {
-    padding-right: 24px !important;
-  }
-  html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-content"] {
-    width: min(54%, 620px) !important;
-  }
 }
 
 @media (max-width: 900px) {
   .sg-brand small { display: none; }
   .sg-web-corner { opacity: .07; }
-  html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] {
-    font-size: clamp(24px, 3.4vw, 32px) !important;
-  }
 }
 
 @media (max-width: 680px) {
   .sg-brand, .sg-status, .sg-web-corner { display: none !important; }
-  html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-stage"] {
-    justify-content: center !important;
-    padding: 24px !important;
-  }
-  html.codex-spider-gwen-immersive [data-spider-gwen-role="home-hero-content"] {
-    width: min(90%, 460px) !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-  html.codex-spider-gwen-immersive [data-spider-gwen-role="home-title"] {
-    text-align: center !important;
-    white-space: normal !important;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1252,6 +997,7 @@ html.codex-spider-gwen-immersive * {
       mode: "inactive",
       reason: "initializing",
       route: "unknown",
+      pageKind: "unknown",
       themeId: "",
       dreamSkinReady: false,
       capabilities: {},
@@ -1413,30 +1159,6 @@ html.codex-spider-gwen-immersive * {
     ]);
   };
 
-  const findComposerFromEditor = (scope) => {
-    const editors = queryAll(scope, "[data-codex-composer], [contenteditable='true'].ProseMirror")
-      .filter(isVisible)
-      .sort((left, right) => right.getBoundingClientRect().bottom - left.getBoundingClientRect().bottom);
-    for (const editor of editors) {
-      const composerRoot = editor.closest("[data-codex-composer-root]") || scope;
-      if (!composerRoot) continue;
-      const rootBox = composerRoot.getBoundingClientRect();
-      let fallback = null;
-      for (let node = editor.parentElement; node && node !== composerRoot.parentElement; node = node.parentElement) {
-        const box = node.getBoundingClientRect();
-        if (box.width < Math.min(320, rootBox.width * .55) || box.height < 52 || box.height > 260) continue;
-        if (box.bottom < innerHeight * .52) continue;
-        fallback = node;
-        const style = getComputedStyle(node);
-        const hasMaterial = style.backgroundImage !== "none" ||
-          !["transparent", "rgba(0, 0, 0, 0)"].includes(style.backgroundColor);
-        if (hasMaterial) return node;
-      }
-      if (fallback) return fallback;
-    }
-    return null;
-  };
-
   const findComposer = (scope) => {
     const validate = (node) => {
       const box = node.getBoundingClientRect();
@@ -1511,56 +1233,6 @@ html.codex-spider-gwen-immersive * {
     return { host, surface };
   };
 
-  const findHomeUtility = (home, composer) => {
-    const validate = (node) => {
-      if (!home || !composer || !isVisible(node)) return false;
-      const box = node.getBoundingClientRect();
-      const composerBox = composer.getBoundingClientRect();
-      return Math.abs(box.left - composerBox.left) <= 32 && Math.abs(box.width - composerBox.width) <= 64 &&
-        box.height >= 24 && box.height <= 100 && box.top <= composerBox.top && box.bottom >= composerBox.top - 100;
-    };
-    return resolveAnchor("homeUtility", [
-      { source: "compat:dream-home-utility", find: () => query(home, ".dream-home-utility"), validate },
-      { source: "compat:homeUtility-class", find: () => query(home, '[class*="homeUtility"]'), validate },
-      {
-        source: "geometry:composer-toolbar",
-        find: () => [...home.querySelectorAll("div")]
-          .filter((node) => validate(node) && node.querySelector("button"))
-          .sort((left, right) => right.getBoundingClientRect().top - left.getBoundingClientRect().top)[0],
-        validate,
-      },
-    ]);
-  };
-
-  const findComposerGroup = (home, utility, composer) => {
-    if (!home || !utility || !composer) {
-      markMissing("composerGroup");
-      return null;
-    }
-    let group = utility.parentElement;
-    while (group && group !== home && !group.contains(composer)) group = group.parentElement;
-    if (!group || group === home) {
-      markMissing("composerGroup");
-      return null;
-    }
-
-    const utilityBox = utility.getBoundingClientRect();
-    const composerBox = composer.getBoundingClientRect();
-    const groupBox = group.getBoundingClientRect();
-    const union = {
-      left: Math.min(utilityBox.left, composerBox.left),
-      top: Math.min(utilityBox.top, composerBox.top),
-      right: Math.max(utilityBox.right, composerBox.right),
-      bottom: Math.max(utilityBox.bottom, composerBox.bottom),
-    };
-    const closeToUnion = Math.abs(groupBox.left - union.left) <= 24 &&
-      Math.abs(groupBox.top - union.top) <= 24 &&
-      Math.abs(groupBox.right - union.right) <= 24 &&
-      Math.abs(groupBox.bottom - union.bottom) <= 24;
-    anchorSources.set("composerGroup", closeToUnion ? "geometry:validated-common-ancestor" : "missing");
-    return closeToUnion ? group : null;
-  };
-
   const findRawHomeTitle = (home) => {
     if (!home) return null;
     return queryAll(home, '[data-feature="game-source"]')
@@ -1570,107 +1242,6 @@ html.codex-spider-gwen-immersive * {
         return box.width >= 180 && box.height >= 28 && box.height <= 180;
       })
       .sort((left, right) => left.getBoundingClientRect().top - right.getBoundingClientRect().top)[0] || null;
-  };
-
-  const findHomeTitle = (home, preferredTitle = null, bannersHost = null) => {
-    const validate = (node) => {
-      if (!home || !isVisible(node)) return false;
-      const box = node.getBoundingClientRect();
-      const homeBox = home.getBoundingClientRect();
-      const visibleTop = Math.max(0, homeBox.top);
-      const visibleBottom = Math.min(innerHeight, homeBox.bottom);
-      const visibleHeight = Math.max(1, visibleBottom - visibleTop);
-      return box.width >= 180 && box.height >= 28 && box.height <= 180 &&
-        box.top >= visibleTop && box.top <= visibleTop + visibleHeight * .65 &&
-        (!bannersHost || !bannersHost.contains(node));
-    };
-    return resolveAnchor("homeTitle", [
-      {
-        source: "semantic:preferred-game-source",
-        find: () => preferredTitle,
-        validate,
-      },
-      {
-        source: "semantic:data-feature-game-source",
-        find: () => queryAll(home, '[data-feature="game-source"]').filter(validate)
-          .sort((left, right) => left.getBoundingClientRect().top - right.getBoundingClientRect().top)[0],
-        validate,
-      },
-      {
-        source: "semantic:home-heading",
-        find: () => queryAll(home, "h1, [role='heading'][aria-level='1']").filter(validate)
-          .sort((left, right) => left.getBoundingClientRect().top - right.getBoundingClientRect().top)[0],
-        validate,
-      },
-    ]);
-  };
-
-  const findHeroParts = (home, title) => {
-    if (!home || !title) {
-      markMissing("homeHeroPanel", "homeHeroStage", "homeHeroContent");
-      return { panel: null, stage: null, content: null };
-    }
-    const titleBox = title.getBoundingClientRect();
-    const content = title.parentElement && home.contains(title.parentElement) ? title.parentElement : null;
-    const ancestors = [];
-    for (let node = content?.parentElement; node && node !== home; node = node.parentElement) ancestors.push(node);
-    const stage = ancestors.find((node) => {
-      const box = node.getBoundingClientRect();
-      return box.width >= titleBox.width * 1.25 && box.height >= titleBox.height + 24 && box.height <= 240;
-    }) || null;
-    const panel = stage?.parentElement && stage.parentElement !== home && stage.parentElement !== content ? stage.parentElement : null;
-    const validPanel = panel && home.contains(panel) && stage !== content &&
-      panel.getBoundingClientRect().width >= stage.getBoundingClientRect().width;
-    anchorSources.set("homeHeroContent", content ? "geometry:title-parent" : "missing");
-    anchorSources.set("homeHeroStage", stage ? "geometry:title-ancestor" : "missing");
-    anchorSources.set("homeHeroPanel", validPanel ? "geometry:stage-parent" : "missing");
-    return { panel: validPanel ? panel : null, stage, content };
-  };
-
-  const findSuggestions = (home, title, utility) => {
-    if (!home) {
-      anchorSources.set("suggestions", "missing");
-      return null;
-    }
-    const titleBox = title?.getBoundingClientRect();
-    const utilityBox = utility?.getBoundingClientRect();
-    const qualifies = (button) => {
-        const box = button.getBoundingClientRect();
-        return isVisible(button) && box.width >= 140 && box.height >= 48 && box.height <= 220 &&
-          (!titleBox || box.top >= titleBox.bottom - 24) && (!utilityBox || box.bottom <= utilityBox.top + 28);
-    };
-    const validate = (node) => {
-      const buttons = queryAll(node, "button").filter(qualifies);
-      return buttons.length >= 2 && buttons.length <= 8;
-    };
-    const byGeometry = () => {
-      const candidates = new Map();
-      for (const button of queryAll(home, "button").filter(qualifies)) {
-        for (let node = button.parentElement; node && node !== home; node = node.parentElement) {
-          if (node.tagName !== "DIV") continue;
-          if (!candidates.has(node)) candidates.set(node, new Set());
-          candidates.get(node).add(button);
-        }
-      }
-      return [...candidates.entries()]
-        .filter(([, buttons]) => buttons.size >= 2 && buttons.size <= 8)
-        .map(([node]) => node)
-        .filter(validate)
-        .sort((left, right) => {
-          const a = left.getBoundingClientRect();
-          const b = right.getBoundingClientRect();
-          return a.width * a.height - b.width * b.height;
-        })[0];
-    };
-    return resolveAnchor("suggestions", [
-      { source: "semantic:data-home-suggestions", find: () => query(home, "[data-home-suggestions], [data-feature='home-suggestions']"), validate },
-      { source: "compat:group-home-suggestions", find: () => query(home, ".group\\/home-suggestions"), validate },
-      {
-        source: "geometry:suggestion-button-cluster",
-        find: byGeometry,
-        validate,
-      },
-    ]);
   };
 
   const findHomeBannersHost = (home) => {
@@ -1898,11 +1469,9 @@ html.codex-spider-gwen-immersive * {
   };
 
   const clearRouteClasses = () => {
-    document.querySelectorAll(`.${HOME_CLASS}`).forEach((node) => node.classList.remove(HOME_CLASS));
     document.querySelectorAll(`.${HOME_SHELL_CLASS}`).forEach((node) => node.classList.remove(HOME_SHELL_CLASS));
     document.querySelectorAll(`.${TASK_SHELL_CLASS}`).forEach((node) => node.classList.remove(TASK_SHELL_CLASS));
-    document.querySelectorAll(`.${HOME_COMPOSER_GROUP_CLASS}`).forEach((node) => node.classList.remove(HOME_COMPOSER_GROUP_CLASS));
-    document.querySelectorAll(`.${SHELL_HEADER_CLASS}`).forEach((node) => node.classList.remove(SHELL_HEADER_CLASS));
+    document.querySelectorAll(".dream-task-shell").forEach((node) => node.classList.remove("dream-task-shell"));
   };
 
   const updateDiagnostics = (next) => {
@@ -1925,7 +1494,7 @@ html.codex-spider-gwen-immersive * {
     document.getElementById(STYLE_ID)?.remove();
     document.getElementById(CHROME_ID)?.remove();
     document.getElementById("codex-spider-gwen-titlebar-tint")?.remove();
-    updateDiagnostics({ mode: "inactive", reason, route: "unknown", capabilities: {}, anchors: {}, geometry: null, homeLayout: null });
+    updateDiagnostics({ mode: "inactive", reason, route: "unknown", pageKind: "unknown", capabilities: {}, anchors: {}, geometry: null, homeLayout: null });
   };
 
   const writeStyle = (style) => {
@@ -2005,7 +1574,13 @@ html.codex-spider-gwen-immersive * {
       const currentTheme = themeId();
       const avatarOverlay = isAvatarOverlay();
       if (!root || !document.body) {
-        updateDiagnostics({ mode: "base-only", reason: "document-not-ready", themeId: currentTheme });
+        updateDiagnostics({
+          mode: "base-only",
+          reason: "document-not-ready",
+          route: "unknown",
+          pageKind: "unknown",
+          themeId: currentTheme,
+        });
         return runtime.diagnostics;
       }
       if (avatarOverlay || currentTheme !== "spider-gwen") {
@@ -2023,11 +1598,6 @@ html.codex-spider-gwen-immersive * {
         syncRole("sidebar", null);
         syncRole("shell-header", null);
         syncRole("home", null);
-        syncRole("home-title", null);
-        syncRole("home-hero-panel", null);
-        syncRole("home-hero-stage", null);
-        syncRole("home-hero-content", null);
-        syncRole("suggestions", null);
         syncRole("home-banners-host", null);
         syncRole("composer", null);
         syncRole("thread-composer-accessory", null);
@@ -2036,14 +1606,13 @@ html.codex-spider-gwen-immersive * {
         syncRole("native-home-composer-body", null);
         syncRole("chatgpt-home-composer", null);
         syncRole("chatgpt-home-surface", null);
-        syncRole("home-utility", null);
-        syncRole("home-composer-group", null);
         syncRole("top-fade", null);
         ensureChrome(null, null);
         updateDiagnostics({
           mode: "base-only",
           reason: dreamSkinReady ? "shell-main-missing" : "dream-skin-pending",
           route: "unknown",
+          pageKind: "unknown",
           themeId: currentTheme,
           dreamSkinReady,
           capabilities: { shellMain: false },
@@ -2093,36 +1662,54 @@ html.codex-spider-gwen-immersive * {
       const chatGptWorkHomeComposer = findChatGptWorkHomeComposer(shellMain);
       syncRole("chatgpt-home-composer", chatGptHomeLayers.composer);
       syncRole("chatgpt-home-surface", chatGptHomeLayers.surface);
-      const visualHome = Boolean(home || chatGptHomeLayers.composer || chatGptWorkHomeComposer);
+      /* Prefer the explicit ChatGPT mode detectors over the shared Codex-home
+         anchor. ChatGPT Work can expose game-source too, so detector truth alone
+         is not a mutually exclusive page classification. */
+      const pageKind = chatGptHomeLayers.composer
+        ? "chatgpt-chat-home"
+        : chatGptWorkHomeComposer
+          ? "chatgpt-work-home"
+          : home
+            ? "codex-home"
+            : "task";
+      const visualHome = pageKind !== "task";
       const rawHomeTitle = home ? findRawHomeTitle(home) : null;
-      syncRole("home-title", null);
-      syncRole("home-hero-panel", null);
-      syncRole("home-hero-stage", null);
-      syncRole("home-hero-content", null);
-      syncRole("suggestions", null);
-      syncRole("home-utility", null);
-      syncRole("home-composer-group", null);
       const topFade = syncRole("top-fade", findTopFade(shellMain));
 
       setClass(shellMain, HOME_SHELL_CLASS, visualHome);
       setClass(shellMain, TASK_SHELL_CLASS, !visualHome);
       setClass(shellMain, "dream-home-shell", visualHome);
-      setClass(shellMain, "dream-task-shell", !visualHome);
+      /* rev13 wrote this unused compatibility marker on task pages. Nothing in
+         Spider-Gwen or Dream Skin consumes it, so remove stale copies instead
+         of creating a second route-state owner. */
+      setClass(shellMain, "dream-task-shell", false);
       ensureChrome(shellMain, visualHome);
 
       const topFadeStyle = topFade ? getComputedStyle(topFade) : null;
+      const activeComposerReady = pageKind === "chatgpt-chat-home"
+        ? Boolean(chatGptHomeLayers.composer && chatGptHomeLayers.surface)
+        : pageKind === "chatgpt-work-home"
+          ? Boolean(chatGptWorkHomeComposer)
+          : Boolean(composer);
       const capabilities = {
         shellMain: true,
         nativeMenu: Boolean(nativeMenu),
         sidebar: Boolean(sidebar),
         header: Boolean(header),
-        home: Boolean(home),
+        home: pageKind === "codex-home",
+        visualHome,
+        chatGptChatHome: pageKind === "chatgpt-chat-home",
+        chatGptWorkHome: pageKind === "chatgpt-work-home",
         homeTitle: Boolean(rawHomeTitle),
         nativeHomeLayout: true,
         homeBannersHost: Boolean(homeBannersHost),
         nativeHomeUtility: Boolean(nativeHomeUtility),
         nativeHomeComposerBody: Boolean(nativeHomeComposerBody),
         composer: Boolean(composer),
+        chatGptHomeComposer: Boolean(chatGptHomeLayers.composer),
+        chatGptHomeSurface: Boolean(chatGptHomeLayers.surface),
+        chatGptWorkHomeComposer: Boolean(chatGptWorkHomeComposer),
+        activeComposer: activeComposerReady,
         threadComposerAccessory: Boolean(threadComposerAccessory),
         threadComposerAccessorySurface: Boolean(threadComposerAccessorySurface),
         topFade: Boolean(topFade),
@@ -2134,8 +1721,8 @@ html.codex-spider-gwen-immersive * {
       const required = [
         capabilities.shellMain,
         capabilities.header,
-        capabilities.composer,
-        ...(home ? [capabilities.homeTitle] : []),
+        capabilities.activeComposer,
+        ...(pageKind === "codex-home" ? [capabilities.homeTitle] : []),
       ];
       const mode = !dreamSkinReady ? "base-only" : required.every(Boolean) ? "full" : "degraded";
       if (["base-only", "degraded"].includes(runtime.diagnostics.mode) && mode === "full") {
@@ -2144,13 +1731,14 @@ html.codex-spider-gwen-immersive * {
       updateDiagnostics({
         mode,
         reason: mode === "full" ? "ready" : mode === "degraded" ? "core-anchor-missing" : "dream-skin-pending",
-        route: home ? "home" : "task",
+        route: visualHome ? "home" : "task",
+        pageKind,
         themeId: currentTheme,
         dreamSkinReady,
         capabilities,
         anchors: Object.fromEntries(anchorSources),
         geometry: snapshotGeometry(shellMain),
-        homeLayout: snapshotHomeLayout(home, composer),
+        homeLayout: snapshotHomeLayout(pageKind === "codex-home" ? home : null, composer),
         lastError: null,
       });
       return runtime.diagnostics;
@@ -2159,6 +1747,8 @@ html.codex-spider-gwen-immersive * {
       updateDiagnostics({
         mode: document.documentElement?.classList.contains(ROOT_CLASS) ? "degraded" : "base-only",
         reason: "ensure-error",
+        route: "unknown",
+        pageKind: "unknown",
         lastError: String(error?.stack || error),
       });
       return runtime.diagnostics;
@@ -2196,7 +1786,7 @@ html.codex-spider-gwen-immersive * {
       issues.push("top-continuity-edge-present");
     }
     const homeLayout = diagnostics.homeLayout;
-    if (activeTheme && diagnostics.route === "home" && homeLayout) {
+    if (activeTheme && diagnostics.pageKind === "codex-home" && homeLayout) {
       if (homeLayout.horizontalOverflow) issues.push("home-horizontal-overflow");
       if (homeLayout.overlapCount > 0) issues.push(`home-composer-overlap:${homeLayout.overlapCount}`);
       const commonViewport = innerWidth >= 1200 && innerHeight >= 780;
@@ -2280,7 +1870,6 @@ html.codex-spider-gwen-immersive * {
       `[${ROLE_ATTR}="sidebar"]`,
       `[${ROLE_ATTR}="shell-header"]`,
       `[${ROLE_ATTR}="composer"]`,
-      `[${ROLE_ATTR}="home-composer-group"]`,
     ].join(","))) scheduleEnsure("structural-transition");
   };
 
