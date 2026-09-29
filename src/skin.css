@@ -248,7 +248,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav {
   background: transparent !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button {
   color: var(--sg-paper) !important;
   border-radius: 7px 15px 7px 15px !important;
   transition:
@@ -258,7 +259,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button {
     box-shadow 150ms ease !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:hover {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav button:hover,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button:hover {
   --sg-control-ring: var(--sg-focus-ring-both);
   --sg-control-ring-opacity: 1;
   color: white !important;
@@ -271,19 +273,44 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:hover 
   transform: translateX(2px);
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"] {
-  --sg-control-ring: var(--sg-focus-ring-both);
-  --sg-control-ring-opacity: 1;
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-id] {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  transition: background 150ms ease !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-selected="true"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row][aria-current="page"] {
   color: white !important;
   background:
-    linear-gradient(104deg, rgb(89 215 240 / .23), rgb(68 50 144 / .24) 56%, rgb(255 92 168 / .17)) !important;
+    linear-gradient(104deg, rgb(89 215 240 / .20), rgb(68 50 144 / .22) 56%, rgb(255 92 168 / .14)) !important;
   border: 0 !important;
-  border-radius: 7px 17px 7px 17px !important;
   box-shadow:
-    -4px 4px 22px rgb(89 215 240 / .10),
-    4px -4px 20px rgb(255 92 168 / .12),
-    inset 3px 0 var(--sg-cyan) !important;
+    -4px 4px 22px rgb(89 215 240 / .08),
+    4px -4px 20px rgb(255 92 168 / .10),
+    inset 2px 0 var(--sg-cyan) !important;
+}
+
+/* Row-level action buttons (pin, delete, more) stay native in size & alignment without shifts */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="codex-session-action"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[class*="_Button_f5tnh_2"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button.codex-session-action-button {
+  transform: none !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] button:hover,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="codex-session-action"]:hover,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[class*="_Button_f5tnh_2"]:hover,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button.codex-session-action-button:hover {
+  transform: none !important;
+  background: rgb(89 215 240 / .16) !important;
+  color: var(--sg-cyan-bright) !important;
+  box-shadow: none !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="text-token-description"],
@@ -425,9 +452,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::before {
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="chatgpt-home-composer"] [data-spider-gwen-role="chatgpt-home-surface"]::after,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::after,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button::after,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"]::after,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"]::after {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav button::after,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button::after {
   content: "" !important;
   position: absolute;
   inset: 0;
@@ -445,9 +471,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current
   transition: opacity 170ms ease !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"] {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button {
   position: relative;
 }
 
@@ -686,6 +711,46 @@ html[data-dream-skin="active"].codex-spider-gwen-immersive
   main[data-app-shell-main-surface]
   [data-app-shell-main-content-top-fade]:has(> [data-app-shell-focus-area="main"]) {
   display: flex !important;
+}
+
+/* Codex 26.924 Home Layout:
+   Dream Skin in Codex++ 1.4 imposes flex: 0 0 440px / min-height: 440px on the
+   home first-child container, which in 26.924 is an empty slot.
+   Neutralize this 440px empty space so the homepage composer is completely visible in the viewport. */
+html[data-dream-skin="active"].codex-spider-gwen-immersive
+  [role="main"]
+  [class*="group/home-composer-layout"] > div:first-child,
+html[data-dream-skin="active"].codex-spider-gwen-immersive
+  [data-app-shell-main-surface]
+  [class*="group/home-composer-layout"] > div:first-child,
+html[data-dream-skin="active"].codex-spider-gwen-immersive
+  [role="main"]:has([data-testid="home-icon"]) > div:first-child > div:first-child {
+  flex: 0 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* Codex 26.924 bottom ambient gradient:
+   Replace the 328px opaque black gradient behind the composer with a subtle ambient fade. */
+html.codex-spider-gwen-immersive [class*="bg-gradient-to-t"][class*="from-surface"],
+html.codex-spider-gwen-immersive .bg-gradient-to-t.from-surface {
+  background: linear-gradient(
+    to top,
+    rgba(5, 14, 30, 0.72) 0%,
+    rgba(7, 18, 38, 0.42) 55%,
+    transparent 100%
+  ) !important;
+}
+
+/* System banners styling: compact, dark blue-purple glass cards instead of opaque black slabs */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] aside[class*="rounded-3xl"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class*="rounded-3xl"].bg-surface,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] div[class*="rounded-3xl"][class*="bg-surface"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] div:has(> button[data-variant="primary"])[class*="rounded-3xl"] {
+  background: var(--sg-surface) !important;
+  border: 1px solid rgb(89 215 240 / .28) !important;
+  box-shadow: 0 8px 24px rgb(1 7 18 / .38) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 /* Only material changes on the recognized native composer; layout stays native. */
