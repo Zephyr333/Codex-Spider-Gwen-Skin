@@ -360,12 +360,15 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwe
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-task-shell {
-  background:
-    linear-gradient(90deg,
-      rgb(5 14 30 / .28) 0%,
-      rgb(7 18 38 / .18) 42%,
-      rgb(9 20 43 / .10) 66%,
-      transparent 85%) !important;
+  background: transparent !important;
+}
+
+html.codex-spider-gwen-immersive main,
+html.codex-spider-gwen-immersive main._MainContentSurface_gs442_2,
+html[data-dream-skin="active"].codex-spider-gwen-immersive main,
+html[data-dream-skin="active"]:is([data-dream-task-mode], [data-dream-art-task-mode]).codex-spider-gwen-immersive main:is(.main-surface, [data-app-shell-main-surface], [class*="_MainContentSurface_"]) {
+  background: transparent !important;
+  background-image: none !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] {
@@ -748,15 +751,11 @@ html[data-dream-skin="active"].codex-spider-gwen-immersive
 }
 
 /* Codex 26.924 bottom ambient gradient:
-   Replace the 328px opaque black gradient behind the composer with a subtle ambient fade. */
+   Neutralize the opaque black gradient behind the composer that cuts across Gwen's leg and foot. */
 html.codex-spider-gwen-immersive [class*="bg-gradient-to-t"][class*="from-surface"],
 html.codex-spider-gwen-immersive .bg-gradient-to-t.from-surface {
-  background: linear-gradient(
-    to top,
-    rgba(5, 14, 30, 0.72) 0%,
-    rgba(7, 18, 38, 0.42) 55%,
-    transparent 100%
-  ) !important;
+  background: transparent !important;
+  background-image: none !important;
 }
 
 /* System banners styling: compact, dark blue-purple glass cards instead of opaque black slabs */
@@ -773,7 +772,7 @@ html.codex-spider-gwen-immersive [data-app-shell-page-banner] {
   padding-bottom: 6px !important;
 }
 
-/* Neutralize Dream Skin heavy dark background on collapsed tool activity bars and turn items */
+/* Activity headers: make the 736px-wide outer container completely transparent and blur-free */
 html.codex-spider-gwen-immersive .thread-scroll-container [data-local-conversation-item-target-ids],
 html[data-dream-skin="active"].codex-spider-gwen-immersive .thread-scroll-container [data-local-conversation-item-target-ids],
 html.codex-spider-gwen-immersive div.outline-none:has([class*="activity-header"]),
@@ -781,26 +780,66 @@ html.codex-spider-gwen-immersive div.outline-none[data-local-conversation-item-t
   background: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
-  border: 1px solid rgb(89 215 240 / .14) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(8px) !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Compact activity header pill styling */
+html.codex-spider-gwen-immersive [class*="activity-header"] {
+  padding: 4px 10px !important;
+  border-radius: 8px !important;
+  background: rgb(8 23 45 / .38) !important;
+  border: 1px solid rgb(89 215 240 / .16) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
   transition: background-color 150ms ease, border-color 150ms ease !important;
 }
 
-html.codex-spider-gwen-immersive .thread-scroll-container [data-local-conversation-item-target-ids]:hover,
-html.codex-spider-gwen-immersive div.outline-none[data-local-conversation-item-target-ids]:hover {
-  background: rgb(89 215 240 / .06) !important;
-  border-color: rgb(89 215 240 / .28) !important;
+html.codex-spider-gwen-immersive [class*="activity-header"]:hover {
+  background: rgb(89 215 240 / .10) !important;
+  border-color: rgb(89 215 240 / .30) !important;
 }
 
-/* File edit resource cards / diff containers */
-html.codex-spider-gwen-immersive [class*="bg-surface-elevated-secondary"],
-html.codex-spider-gwen-immersive [class*="extension:bg-background-primary-soft"] {
-  background: rgb(8 23 45 / .40) !important;
+/* File edit resource cards / diff containers: style container, NOT individual rows */
+html.codex-spider-gwen-immersive div[class*="bg-surface-elevated-secondary/50"],
+html.codex-spider-gwen-immersive div:has(> [class*="group/turn-diff-header"]),
+html.codex-spider-gwen-immersive [class*="extension:border-default"][class*="extension:bg-background-primary-soft"] {
+  background: rgb(8 23 45 / .42) !important;
   border: 1px solid rgb(89 215 240 / .18) !important;
   border-radius: 12px !important;
   backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
   box-shadow: 0 8px 24px rgb(1 7 18 / .24) !important;
+}
+
+/* File edit internal rows: clean transparent rows without nested borders or blurs */
+html.codex-spider-gwen-immersive [class*="group/turn-diff-file-row"] button,
+html.codex-spider-gwen-immersive [class*="group/turn-diff-file-row"],
+html.codex-spider-gwen-immersive button:has(> [class*="turn-diff"]) {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background-color 150ms ease !important;
+}
+
+html.codex-spider-gwen-immersive [class*="group/turn-diff-file-row"] button:hover {
+  background: rgb(89 215 240 / .08) !important;
+}
+
+/* "Show more files" expand button */
+html.codex-spider-gwen-immersive button[class*="rounded-b-lg"] {
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.codex-spider-gwen-immersive button[class*="rounded-b-lg"]:hover {
+  background: rgb(89 215 240 / .08) !important;
 }
 
 /* Right summary panel: only style container, NEVER all elements matching substring summary-panel */
@@ -996,7 +1035,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
 }
 
 #codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-print-dots { opacity: 0; }
-#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-speed-lines { opacity: .025; }
+#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-speed-lines { display: none !important; opacity: 0 !important; }
 #codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-web-corner { opacity: .04; }
 
 @media (max-width: 1120px) {
