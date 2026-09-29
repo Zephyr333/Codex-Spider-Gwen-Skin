@@ -25,7 +25,7 @@
   --sg-glass: rgb(7 18 38 / .76);
   --sg-glass-strong: rgb(8 22 43 / .90);
   --sg-shadow: rgb(1 7 18 / .56);
-  --sg-shell-left: 275px;
+  --sg-shell-left: 340px;
   --sg-shell-top: 36px;
   --sg-surface-soft:
     radial-gradient(circle at 100% 0%, rgb(255 72 151 / .12), transparent 34%),
@@ -180,14 +180,14 @@ html.codex-spider-gwen-immersive body::before {
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgb(6 17 35 / .82), oklab(0.214349 -0.00978811 -0.0490709 / .82)) 0 0 / var(--sg-shell-left, 275px) 100% no-repeat,
-    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .82), oklab(0.214349 -0.00978811 -0.0490709 / .74) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .60)) var(--sg-shell-left, 275px) 0 / calc(100% - var(--sg-shell-left, 275px)) 100% no-repeat;
+    linear-gradient(90deg, rgb(6 17 35 / .82), oklab(0.214349 -0.00978811 -0.0490709 / .82)) 0 0 / var(--sg-shell-left, 340px) 100% no-repeat,
+    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .82), oklab(0.214349 -0.00978811 -0.0490709 / .74) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .60)) var(--sg-shell-left, 340px) 0 / calc(100% - var(--sg-shell-left, 340px)) 100% no-repeat;
 }
 
 html.codex-spider-gwen-immersive:has([data-spider-gwen-role="shell-main"].spider-gwen-home-shell) body::before {
   background:
-    linear-gradient(90deg, rgb(6 17 35 / .66), oklab(0.214349 -0.00978811 -0.0490709 / .43)) 0 0 / var(--sg-shell-left, 275px) 100% no-repeat,
-    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .43), oklab(0.214349 -0.00978811 -0.0490709 / .27) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .16)) var(--sg-shell-left, 275px) 0 / calc(100% - var(--sg-shell-left, 275px)) 100% no-repeat;
+    linear-gradient(90deg, rgb(6 17 35 / .66), oklab(0.214349 -0.00978811 -0.0490709 / .43)) 0 0 / var(--sg-shell-left, 340px) 100% no-repeat,
+    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .43), oklab(0.214349 -0.00978811 -0.0490709 / .27) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .16)) var(--sg-shell-left, 340px) 0 / calc(100% - var(--sg-shell-left, 340px)) 100% no-repeat;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"],
@@ -244,7 +244,11 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] > * {
   z-index: 1;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-navigation,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="ConversationSidebar"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="sidebar-rail"] {
   background: transparent !important;
 }
 
@@ -274,9 +278,10 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-id] {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-id],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item {
   border-radius: 8px !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   transition: background 150ms ease !important;
 }
 
@@ -292,22 +297,40 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-act
     inset 2px 0 var(--sg-cyan) !important;
 }
 
-/* Row-level action buttons (pin, delete, more) stay native in size & alignment without shifts */
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] button,
+/* Precise sidebar action buttons constraint: compact 20px size, centered, no row overflow */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .codex-session-action-button,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="codex-session-action"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[class*="_Button_f5tnh_2"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button.codex-session-action-button {
-  transform: none !important;
-  border-radius: 6px !important;
-  box-shadow: none !important;
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[class*="_Button_f5tnh_2"] {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  align-self: center !important;
+  border-radius: 4px !important;
   background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item:not(:hover):not([data-app-action-sidebar-thread-selected="true"]) .codex-session-action-button {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item:hover .codex-session-action-button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item[data-app-action-sidebar-thread-selected="true"] .codex-session-action-button {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] button:hover,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="codex-session-action"]:hover,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[class*="_Button_f5tnh_2"]:hover,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button.codex-session-action-button:hover {
-  transform: none !important;
   background: rgb(89 215 240 / .16) !important;
   color: var(--sg-cyan-bright) !important;
   box-shadow: none !important;
@@ -337,11 +360,10 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwe
 html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-task-shell {
   background:
     linear-gradient(90deg,
-      rgb(5 14 30 / .90) 0%,
-      rgb(7 18 38 / .82) 42%,
-      rgb(9 20 43 / .68) 66%,
-      rgb(17 14 47 / .38) 84%,
-      rgb(33 12 66 / .20) 100%) !important;
+      rgb(5 14 30 / .28) 0%,
+      rgb(7 18 38 / .18) 42%,
+      rgb(9 20 43 / .10) 66%,
+      transparent 85%) !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] {
@@ -751,6 +773,24 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] div:has(> 
   border: 1px solid rgb(89 215 240 / .28) !important;
   box-shadow: 0 8px 24px rgb(1 7 18 / .38) !important;
   backdrop-filter: blur(12px) !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* Neutralize heavy dark background on collapsed tool activity bars (run command, view image) */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] div:has(> .group\/activity-header),
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] div.outline-none:has([class*="activity-header"]) {
+  background: transparent !important;
+  background-image: none !important;
+  border-color: rgb(89 215 240 / .14) !important;
+}
+
+/* Right summary panel (AI / Playwright) glass styling */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class*="summary-panel"],
+html.codex-spider-gwen-immersive [class*="summary-panel"] {
+  background: var(--sg-surface) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgb(89 215 240 / .20) !important;
 }
 
 /* Only material changes on the recognized native composer; layout stays native. */
