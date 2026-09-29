@@ -1,0 +1,13 @@
+{
+  "name": "codex-spider-gwen-skin",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "check": "node scripts/build.mjs --check && node --check codex-plus-plus/spider-gwen-immersive.js",
+    "inspect": "node scripts/manage.mjs inspect"
+  },
+  "engines": { "node": ">=22" }
+}

@@ -36,6 +36,15 @@
 - 增强脚本优先使用 Codex 的 `data-*` 语义属性，再使用受控兼容回退；侧栏、顶栏、首页或输入框中的单个锚点缺失时会独立降级，不再让整套皮肤退出。
 - 普通程序更新不会覆盖用户数据目录中的主题和脚本。Codex/Codex++ 若彻底移除现有语义结构，增强层会进入降级模式并保留基础主题，而不是显示空白背景。
 
+## v2.0 兼容与重构架构
+
+v2.0 针对 Codex 26.924+ 及 Codex++ 1.4+ 进行了深度重构，支持完整的模块化构建与自动化回归测试：
+
+- **Codex 26.924+ 结构适配**：新版 Codex 将主聊天视图包入 `[data-app-shell-main-content-top-fade]`，旧版基础皮肤将其设为 `display: none` 导致整个对话与输入框消失。v2.0 精确定向覆盖该规则，恢复内容层弹性布局。
+- **Codex++ 现代引擎适配**：直接对接 Codex++ 的 `data-dream-skin="active"` 与 `data-ds-part` 标记，解除对旧版 `codex-dream-skin` class 的单一依赖。
+- **全模式支持**：覆盖 Codex 首页/任务页、ChatGPT 聊天模式（首页/对话页）、ChatGPT 工作模式（首页/对话页）。
+- **工程化与自动化**：源码拆分为 `src/skin.css` 与 `src/runtime.js`，提供 `npm run build` 打包构建、`npm test` 隔离无头浏览器回归测试，以及 `node scripts/manage.mjs inspect|deploy|restore` 一键备份部署工具。
+
 ## v1.5 低维护架构
 
 v1.5 将容易随 Codex 更新失效的 DOM 定位集中到一个适配层，视觉 CSS 只依赖脚本自己写入的 `data-spider-gwen-role`。后续若上游再次改版，通常只需调整少量锚点解析，而不必重写整套主题。

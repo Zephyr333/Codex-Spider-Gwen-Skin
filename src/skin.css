@@ -1,0 +1,866 @@
+:root.codex-spider-gwen-immersive {
+  color-scheme: dark !important;
+  --sg-void: #06101f;
+  --sg-navy: #0a1930;
+  --sg-navy-raised: #102442;
+  --sg-cyan: #59d7f0;
+  --sg-cyan-bright: #baf7ff;
+  --sg-pink: #ff5ca8;
+  --sg-violet: #7847e8;
+  --sg-paper: #effbff;
+  --sg-muted: #a9bdd6;
+  --sg-line: rgb(89 215 240 / .34);
+  --sg-line-hot: rgb(255 92 168 / .46);
+  /* Directional hierarchy: cyan rises from lower-left; pink cuts from upper-right. */
+  --sg-edge-cyan-soft: rgb(89 215 240 / .17);
+  --sg-edge-pink-soft: rgb(255 92 168 / .23);
+  --sg-edge-cyan: rgb(89 215 240 / .30);
+  --sg-edge-pink: rgb(255 92 168 / .42);
+  --sg-edge-cyan-strong: rgb(89 215 240 / .48);
+  --sg-edge-pink-strong: rgb(255 92 168 / .60);
+  --sg-material-highlight: rgb(220 249 255 / .09);
+  --sg-material-depth: rgb(1 7 18 / .52);
+  --sg-focus-cyan: rgb(89 215 240 / .62);
+  --sg-focus-pink: rgb(255 92 168 / .68);
+  --sg-glass: rgb(7 18 38 / .76);
+  --sg-glass-strong: rgb(8 22 43 / .90);
+  --sg-shadow: rgb(1 7 18 / .56);
+  --sg-shell-left: 275px;
+  --sg-shell-top: 36px;
+  --sg-surface-soft:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .12), transparent 34%),
+    radial-gradient(circle at 0% 100%, rgb(43 158 255 / .12), transparent 38%),
+    linear-gradient(to top right, rgb(5 22 45 / .78), rgb(12 22 53 / .76) 58%, rgb(36 15 64 / .76));
+  --sg-surface:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .16), transparent 32%),
+    radial-gradient(circle at 0% 100%, rgb(43 158 255 / .15), transparent 38%),
+    linear-gradient(to top right, rgb(5 23 48 / .91), rgb(12 23 55 / .89) 58%, rgb(39 15 66 / .89));
+  --sg-surface-strong:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .20), transparent 30%),
+    radial-gradient(circle at 0% 100%, rgb(43 158 255 / .18), transparent 36%),
+    linear-gradient(to top right, rgb(5 22 46 / .98), rgb(13 23 55 / .97) 58%, rgb(38 15 65 / .97));
+  --sg-control-surface:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .16), transparent 28%),
+    radial-gradient(circle at 0% 100%, rgb(43 158 255 / .13), transparent 34%),
+    linear-gradient(to top right, rgb(6 25 50 / .94), rgb(12 24 55 / .93) 62%, rgb(34 17 62 / .92));
+  --sg-passive-ring:
+    linear-gradient(45deg,
+      var(--sg-edge-cyan-soft) 0%,
+      transparent 38%,
+      transparent 62%,
+      var(--sg-edge-pink-soft) 100%);
+  --sg-content-ring:
+    linear-gradient(45deg,
+      var(--sg-edge-cyan) 0%,
+      rgb(89 215 240 / .12) 30%,
+      transparent 44%,
+      transparent 56%,
+      rgb(255 92 168 / .16) 70%,
+      var(--sg-edge-pink) 100%);
+  --sg-focus-ring-both:
+    linear-gradient(45deg,
+      var(--sg-focus-cyan) 0%,
+      rgb(89 215 240 / .52) 24%,
+      rgb(120 71 232 / .48) 50%,
+      rgb(255 92 168 / .54) 76%,
+      var(--sg-focus-pink) 100%);
+  --sg-focus-ring-cyan:
+    linear-gradient(45deg, var(--sg-focus-cyan) 0%, rgb(89 215 240 / .30) 28%, transparent 48%);
+  --sg-focus-ring-pink:
+    linear-gradient(45deg, transparent 52%, rgb(255 92 168 / .34) 72%, var(--sg-focus-pink) 100%);
+  --dream-accent: var(--sg-cyan) !important;
+  --dream-accent-ink: #04111d !important;
+  --dream-canvas: var(--sg-void) !important;
+  --dream-surface: var(--sg-navy) !important;
+  --dream-surface-raised: var(--sg-navy-raised) !important;
+  --dream-sidebar: #07162b !important;
+  --dream-text: var(--sg-paper) !important;
+  --dream-text-muted: var(--sg-muted) !important;
+  --dream-line: var(--sg-line) !important;
+  --dream-line-soft: rgb(89 215 240 / .16) !important;
+  --dream-accent-soft: rgb(89 215 240 / .14) !important;
+  --dream-accent-hover: rgb(89 215 240 / .22) !important;
+  --dream-hero-shade: rgb(5 13 29 / .76) !important;
+  --dream-immersive-sidebar: rgb(6 17 35 / .66) !important;
+  --dream-task-immersive-sidebar: rgb(6 17 35 / .82) !important;
+  --dream-immersive-composer: rgb(8 23 44 / .88) !important;
+  --dream-immersive-line: rgb(89 215 240 / .28) !important;
+  --codex-base-surface: #08172d !important;
+  --color-background-surface: rgb(7 19 39 / .92) !important;
+  --color-background-surface-under: #07162c !important;
+  --color-background-control: rgb(8 27 51 / .92) !important;
+  --color-background-control-opaque: #0b203b !important;
+  --color-background-elevated-primary: rgb(13 27 56 / .96) !important;
+  --color-background-elevated-primary-opaque: #0f1e3b !important;
+  --color-background-elevated-secondary: rgb(11 27 53 / .88) !important;
+  --color-background-elevated-secondary-opaque: #0d1d39 !important;
+  --color-background-panel: #0b1b36 !important;
+  --color-background-editor-opaque: #07182f !important;
+  --color-token-bg-primary: #07162c !important;
+  --color-token-bg-secondary: rgb(8 23 46 / .92) !important;
+  --color-token-bg-tertiary: rgb(14 23 53 / .86) !important;
+  --color-token-main-surface-primary: #08182f !important;
+  --color-token-main-surface-secondary: #0b1c38 !important;
+  --color-token-main-surface-tertiary: #101d42 !important;
+  --color-token-side-bar-background: #07162b !important;
+  --color-token-input-background: rgb(7 25 49 / .92) !important;
+  --color-token-dropdown-background: #0b1c38 !important;
+  --color-token-menu-background: rgb(12 27 55 / .96) !important;
+  --color-token-editor-widget-background: rgb(12 27 55 / .96) !important;
+  --color-token-editor-background: #07182f !important;
+  --color-token-terminal-background: #07172e !important;
+  --color-token-diff-surface: color-mix(in oklab, var(--sg-navy) 94%, white) !important;
+  --color-token-checkbox-background: rgb(15 31 61 / .94) !important;
+  --color-token-input-border: rgb(89 215 240 / .28) !important;
+  --color-token-border-default: rgb(89 215 240 / .16) !important;
+  --color-token-border-light: rgb(89 215 240 / .10) !important;
+  --color-token-border-heavy: rgb(89 215 240 / .28) !important;
+  --color-token-toolbar-hover-background: rgb(89 215 240 / .12) !important;
+  --color-token-button-background: var(--sg-cyan) !important;
+  --color-token-button-foreground: #04111d !important;
+  --color-background-button-primary: var(--sg-cyan) !important;
+  --color-background-button-primary-hover: #8beafa !important;
+  --color-text-button-primary: #04111d !important;
+  --color-background-button-secondary: rgb(89 215 240 / .10) !important;
+  --color-background-button-secondary-hover: rgb(89 215 240 / .17) !important;
+  --color-background-button-tertiary: rgb(120 71 232 / .10) !important;
+  --color-background-button-tertiary-hover: rgb(120 71 232 / .18) !important;
+  --vscode-input-background: rgb(7 25 49 / .94) !important;
+  --vscode-dropdown-background: #0b1c38 !important;
+  --vscode-dropdown-listBackground: rgb(11 28 56 / .97) !important;
+  --vscode-menu-background: rgb(12 27 55 / .97) !important;
+  --vscode-quickInput-background: rgb(12 27 55 / .97) !important;
+  --vscode-quickInputTitle-background: rgb(15 26 58 / .97) !important;
+  --vscode-quickInputList-focusBackground: rgb(89 215 240 / .14) !important;
+  --vscode-editorWidget-background: rgb(12 27 55 / .97) !important;
+  --vscode-editor-background: #07182f !important;
+  --vscode-panel-background: rgb(11 27 54 / .96) !important;
+  --vscode-notifications-background: rgb(12 27 55 / .97) !important;
+  --vscode-editorHoverWidget-background: rgb(12 27 55 / .97) !important;
+  --vscode-editorSuggestWidget-background: rgb(12 27 55 / .97) !important;
+  --vscode-inlineChatInput-background: rgb(7 25 49 / .94) !important;
+  --vscode-settings-textInputBackground: rgb(7 25 49 / .94) !important;
+  --vscode-settings-numberInputBackground: rgb(7 25 49 / .94) !important;
+  --vscode-settings-dropdownBackground: #0b1c38 !important;
+  --vscode-settings-checkboxBackground: rgb(15 31 61 / .94) !important;
+  --vscode-sideBar-background: #07162b !important;
+  --vscode-sideBarTitle-background: #07162b !important;
+  --vscode-sideBarSectionHeader-background: rgb(12 27 55 / .92) !important;
+  --vscode-list-hoverBackground: rgb(89 215 240 / .11) !important;
+  --vscode-button-background: #10334f !important;
+  --vscode-button-hoverBackground: #184d68 !important;
+  --vscode-button-foreground: var(--sg-paper) !important;
+  --vscode-input-border: rgb(89 215 240 / .24) !important;
+  --vscode-dropdown-border: rgb(89 215 240 / .22) !important;
+  --vscode-widget-border: rgb(89 215 240 / .22) !important;
+  --vscode-focusBorder: rgb(89 215 240 / .72) !important;
+}
+
+html.codex-spider-gwen-immersive body {
+  color: var(--sg-paper) !important;
+  background-color: var(--sg-void) !important;
+  background-image: var(--dream-skin-art, var(--dream-art, none)) !important;
+  background-repeat: no-repeat !important;
+  background-position: var(--dream-skin-art-position, var(--dream-art-position, 50% 50%)) !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  font-family: "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif !important;
+}
+
+/*
+ * Continue each route's existing material through Electron's 36px native menu
+ * row. This deliberately adds no blur, shadow, border or extra texture, so the
+ * wallpaper and Gwen's vertical silhouette remain visually continuous.
+ */
+html.codex-spider-gwen-immersive body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--sg-shell-top, 36px);
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(6 17 35 / .82), oklab(0.214349 -0.00978811 -0.0490709 / .82)) 0 0 / var(--sg-shell-left, 275px) 100% no-repeat,
+    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .82), oklab(0.214349 -0.00978811 -0.0490709 / .74) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .60)) var(--sg-shell-left, 275px) 0 / calc(100% - var(--sg-shell-left, 275px)) 100% no-repeat;
+}
+
+html.codex-spider-gwen-immersive:has([data-spider-gwen-role="shell-main"].spider-gwen-home-shell) body::before {
+  background:
+    linear-gradient(90deg, rgb(6 17 35 / .66), oklab(0.214349 -0.00978811 -0.0490709 / .43)) 0 0 / var(--sg-shell-left, 275px) 100% no-repeat,
+    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .43), oklab(0.214349 -0.00978811 -0.0490709 / .27) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .16)) var(--sg-shell-left, 275px) 0 / calc(100% - var(--sg-shell-left, 275px)) 100% no-repeat;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] {
+  position: relative;
+  z-index: 2;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="native-menu"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] {
+  color: var(--sg-paper) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="native-menu"] button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="native-menu"] svg,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] svg {
+  color: var(--sg-paper) !important;
+  filter: drop-shadow(1px 0 rgb(89 215 240 / .20)) drop-shadow(-1px 0 rgb(255 92 168 / .16));
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] {
+  color: var(--sg-paper) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .13), transparent 31%),
+    radial-gradient(circle at 0% 100%, rgb(43 158 255 / .19), transparent 35%),
+    linear-gradient(to top right, rgb(5 23 43 / .84), rgb(9 17 43 / .75) 58%, rgb(32 13 62 / .72)) !important;
+  border: 0 !important;
+  border-right: 1px solid rgb(89 215 240 / .22) !important;
+  box-shadow:
+    inset -1px 0 rgb(255 92 168 / .10),
+    12px 0 36px rgb(1 6 18 / .18) !important;
+  backdrop-filter: blur(13px) saturate(1.16) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .13;
+  background-image: radial-gradient(circle, var(--sg-cyan-bright) 0 1px, transparent 1.35px);
+  background-size: 13px 13px;
+  mask-image: linear-gradient(180deg, black, transparent 28%, transparent 68%, black);
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav {
+  background: transparent !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button {
+  color: var(--sg-paper) !important;
+  border-radius: 7px 15px 7px 15px !important;
+  transition:
+    transform 150ms cubic-bezier(.22, 1, .36, 1),
+    color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:hover {
+  --sg-control-ring: var(--sg-focus-ring-both);
+  --sg-control-ring-opacity: 1;
+  color: white !important;
+  background:
+    linear-gradient(100deg, rgb(89 215 240 / .38), rgb(120 71 232 / .32) 56%, rgb(255 92 168 / .36)) !important;
+  box-shadow:
+    -3px 3px 22px rgb(89 215 240 / .18),
+    3px -3px 20px rgb(255 92 168 / .20),
+    inset 0 1px 0 rgb(220 249 255 / .14) !important;
+  transform: translateX(2px);
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"] {
+  --sg-control-ring: var(--sg-focus-ring-both);
+  --sg-control-ring-opacity: 1;
+  color: white !important;
+  background:
+    linear-gradient(104deg, rgb(89 215 240 / .23), rgb(68 50 144 / .24) 56%, rgb(255 92 168 / .17)) !important;
+  border: 0 !important;
+  border-radius: 7px 17px 7px 17px !important;
+  box-shadow:
+    -4px 4px 22px rgb(89 215 240 / .10),
+    4px -4px 20px rgb(255 92 168 / .12),
+    inset 3px 0 var(--sg-cyan) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="text-token-description"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="text-token-text-secondary"] {
+  color: var(--sg-muted) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] {
+  color: var(--sg-paper) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-home-shell {
+  background:
+    linear-gradient(90deg, rgb(4 16 34 / .14), transparent 35%, transparent 78%, rgb(35 11 67 / .08)) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-home-shell .dream-task::before {
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-task-shell {
+  background:
+    linear-gradient(90deg,
+      rgb(5 14 30 / .90) 0%,
+      rgb(7 18 38 / .82) 42%,
+      rgb(9 20 43 / .68) 66%,
+      rgb(17 14 47 / .38) 84%,
+      rgb(33 12 66 / .20) 100%) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] {
+  color: var(--sg-paper) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"]::before,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"]::after {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-home-shell [data-spider-gwen-role="shell-header"] {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Codex 26.727 renders this independent fade above both the homepage brand
+   header and task title. It is not a header shadow, so neutralize the stable
+   semantic hook instead of chasing the generated CSS-module class. */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="top-fade"] {
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] svg {
+  color: var(--sg-paper) !important;
+  filter: drop-shadow(0 1px 2px var(--sg-shadow));
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="home"] {
+  color: var(--sg-paper) !important;
+  background: transparent !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="home"] {
+  background: transparent !important;
+}
+
+/* A recognized Codex composer already has one Spider-Gwen outer material.
+   ComposerLayoutRoot and ComposerLayoutBody trade native surface ownership
+   between home, task and pending-instruction states. Neutralize both semantic
+   inner layers without changing their layout; unknown composers remain native. */
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  [class*="ComposerLayoutRoot"],
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  [class*="ComposerLayoutBody"],
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  .spider-gwen-native-home-utility,
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"]
+  .spider-gwen-native-home-body {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* The current work home keeps its project utility and ComposerLayoutBody
+   inside one data-codex-composer-root. Their native nested backdrop filters
+   split the otherwise transparent layers at the utility/body boundary. Let
+   the recognized home composer own the only blur; thread composers are not
+   affected. */
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"][data-composer-placement="home"]
+  [data-spider-gwen-role="native-home-utility"],
+html.codex-spider-gwen-immersive
+  [data-spider-gwen-role="composer"][data-composer-placement="home"]
+  [data-spider-gwen-role="native-home-composer-body"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"] {
+  --sg-composer-base: var(--sg-surface);
+  --sg-composer-focus-ring: var(--sg-focus-ring-both);
+  position: relative;
+  color: var(--sg-paper) !important;
+  border: 0 !important;
+  border-radius: 18px !important;
+  background: var(--sg-composer-base) !important;
+  box-shadow:
+    0 16px 36px var(--sg-shadow),
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 var(--sg-material-depth) !important;
+  backdrop-filter: blur(14px) saturate(1.04) !important;
+  overflow: visible !important;
+  transition: background 170ms ease, box-shadow 170ms ease !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::before {
+  content: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="chatgpt-home-composer"] [data-spider-gwen-role="chatgpt-home-surface"]::after,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::after,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button::after,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"]::after,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"]::after {
+  content: "" !important;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--sg-control-ring-opacity, 0);
+  background: var(--sg-control-ring, var(--sg-composer-focus-ring, var(--sg-focus-ring-pink)));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 170ms ease !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class~="bg-token-list-hover-background"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [aria-current="page"] {
+  position: relative;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within {
+  background: var(--sg-composer-base) !important;
+  box-shadow:
+    0 18px 40px var(--sg-shadow),
+    -8px 8px 28px rgb(89 215 240 / .10),
+    8px -8px 28px rgb(255 92 168 / .10),
+    inset 0 1px 0 rgb(220 249 255 / .12),
+    inset 0 -1px 0 var(--sg-material-depth) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="chatgpt-home-composer"] [data-spider-gwen-role="chatgpt-home-surface"]:focus-within::after,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within::after {
+  opacity: 1;
+}
+
+html.codex-spider-gwen-immersive .ProseMirror {
+  color: var(--sg-paper) !important;
+  caret-color: var(--sg-cyan) !important;
+}
+
+html.codex-spider-gwen-immersive .ProseMirror p.is-editor-empty:first-child::before,
+html.codex-spider-gwen-immersive textarea::placeholder,
+html.codex-spider-gwen-immersive input::placeholder {
+  color: rgb(169 189 214 / .68) !important;
+}
+
+html.codex-spider-gwen-immersive input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.codex-spider-gwen-immersive textarea,
+html.codex-spider-gwen-immersive select,
+html.codex-spider-gwen-immersive [role="combobox"] {
+  color: var(--sg-paper) !important;
+  border-color: transparent !important;
+  background: var(--sg-control-surface) !important;
+  box-shadow:
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 var(--sg-material-depth),
+    0 6px 18px rgb(1 7 18 / .16) !important;
+  transition: background 160ms ease, box-shadow 160ms ease !important;
+}
+
+html.codex-spider-gwen-immersive input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+html.codex-spider-gwen-immersive textarea:focus,
+html.codex-spider-gwen-immersive select:focus,
+html.codex-spider-gwen-immersive [role="combobox"]:focus,
+html.codex-spider-gwen-immersive [role="combobox"][aria-expanded="true"] {
+  border-color: transparent !important;
+  background: var(--sg-control-surface) !important;
+  box-shadow:
+    -5px 5px 18px rgb(89 215 240 / .09),
+    5px -5px 18px rgb(255 92 168 / .09),
+    inset 0 1px 0 rgb(220 249 255 / .12),
+    inset 0 -1px 0 var(--sg-material-depth) !important;
+}
+
+html.codex-spider-gwen-immersive input[type="checkbox"],
+html.codex-spider-gwen-immersive input[type="radio"] {
+  accent-color: var(--sg-cyan) !important;
+}
+
+html.codex-spider-gwen-immersive button[class~="bg-token-foreground"] {
+  color: #04111d !important;
+  border: 1px solid rgb(220 253 255 / .62) !important;
+  background: linear-gradient(to top right, #59d7f0 0%, #76c7ff 58%, #ff79b8 100%) !important;
+  box-shadow:
+    inset 1px -1px 0 rgb(186 247 255 / .48),
+    inset -1px 1px 0 rgb(255 166 207 / .72),
+    0 0 0 1px rgb(4 17 29 / .24),
+    0 4px 12px rgb(1 7 18 / .32) !important;
+  filter: none !important;
+  overflow: hidden !important;
+}
+
+html.codex-spider-gwen-immersive button[class~="bg-token-foreground"] svg {
+  color: #04111d !important;
+  filter: none !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [data-message-author-role="user"] {
+  color: var(--sg-paper) !important;
+  border: 0 !important;
+  border-radius: 7px 17px 7px 17px !important;
+  background: var(--sg-surface-soft) !important;
+  box-shadow:
+    0 8px 22px rgb(1 7 18 / .16),
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 rgb(1 7 18 / .28) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] article,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [data-message-author-role] {
+  color: var(--sg-paper) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre,
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class*="code-block"] {
+  color: #e9fbff !important;
+  border: 0 !important;
+  border-radius: 6px 15px 6px 15px !important;
+  background: var(--sg-surface-strong) !important;
+  box-shadow:
+    inset 2px 0 rgb(89 215 240 / .16),
+    0 10px 24px rgb(1 7 18 / .28),
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 rgb(1 7 18 / .36) !important;
+}
+
+html.codex-spider-gwen-immersive [role="dialog"],
+html.codex-spider-gwen-immersive [role="menu"],
+html.codex-spider-gwen-immersive [role="listbox"],
+html.codex-spider-gwen-immersive [role="tooltip"],
+html.codex-spider-gwen-immersive [data-radix-popper-content-wrapper] > div {
+  color: var(--sg-paper) !important;
+  border: 0 !important;
+  border-radius: 8px 18px 8px 18px !important;
+  background: var(--sg-surface-strong) !important;
+  box-shadow:
+    -5px 5px 26px rgb(89 215 240 / .08),
+    5px -5px 26px rgb(255 92 168 / .10),
+    0 22px 52px rgb(1 6 18 / .62),
+    inset 0 1px 0 var(--sg-material-highlight) !important;
+  backdrop-filter: blur(22px) saturate(1.12) !important;
+}
+
+html.codex-spider-gwen-immersive [class~="bg-token-main-surface-secondary"],
+html.codex-spider-gwen-immersive [class~="bg-token-main-surface-primary"] {
+  border-color: rgb(89 215 240 / .14);
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-dropdown-background"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-dropdown-background/50"] {
+  color: var(--sg-paper) !important;
+  border-color: rgb(89 215 240 / .20) !important;
+  background: var(--sg-surface-soft) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-main-surface-primary/70"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-main-surface-secondary"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-bg-secondary"],
+html.codex-spider-gwen-immersive [data-sonner-toast] {
+  color: var(--sg-paper) !important;
+  border-color: rgb(89 215 240 / .18) !important;
+  background: var(--sg-control-surface) !important;
+}
+
+html.codex-spider-gwen-immersive [role="menuitem"]:hover,
+html.codex-spider-gwen-immersive [role="option"]:hover {
+  color: white !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .28), transparent 46%),
+    linear-gradient(to top right, rgb(43 158 255 / .36), rgb(120 71 232 / .31) 64%, rgb(255 72 151 / .26)) !important;
+}
+
+html.codex-spider-gwen-immersive [role="option"][aria-selected="true"] {
+  background:
+    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .14), transparent 42%),
+    linear-gradient(to top right, rgb(43 158 255 / .18), rgb(120 71 232 / .16) 64%, rgb(255 72 151 / .12)) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-dropdown-background"] {
+  backdrop-filter: blur(16px) saturate(1.06) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-dropdown-background"]:has([class~="group/summary-panel-item"]) {
+  border: 0 !important;
+  background: var(--sg-surface-soft) !important;
+  box-shadow:
+    0 18px 44px rgb(1 7 18 / .34),
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 rgb(1 7 18 / .34) !important;
+  backdrop-filter: blur(18px) saturate(1.04) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="bg-token-dropdown-background/50"] {
+  box-shadow:
+    0 12px 28px rgb(1 7 18 / .22),
+    inset 0 1px 0 var(--sg-material-highlight),
+    inset 0 -1px 0 rgb(1 7 18 / .30) !important;
+}
+
+html.codex-spider-gwen-immersive :focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow:
+    -5px 5px 20px rgb(89 215 240 / .16),
+    5px -5px 20px rgb(255 92 168 / .18) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:focus-visible {
+  --sg-control-ring: var(--sg-focus-ring-both);
+  --sg-control-ring-opacity: 1;
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow:
+    -4px 4px 20px rgb(89 215 240 / .10),
+    4px -4px 20px rgb(255 92 168 / .12),
+    0 10px 24px rgb(1 7 18 / .28) !important;
+}
+
+html.codex-spider-gwen-immersive button[class~="bg-token-foreground"]:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow:
+    inset 1px -1px 0 rgb(186 247 255 / .48),
+    inset -1px 1px 0 rgb(255 166 207 / .72),
+    0 0 0 2px rgb(220 253 255 / .24),
+    -4px 4px 18px rgb(89 215 240 / .13),
+    4px -4px 18px rgb(255 92 168 / .15),
+    0 4px 12px rgb(1 7 18 / .32) !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"] .ProseMirror:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+html.codex-spider-gwen-immersive input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible,
+html.codex-spider-gwen-immersive textarea:focus-visible,
+html.codex-spider-gwen-immersive select:focus-visible,
+html.codex-spider-gwen-immersive [role="combobox"]:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+html.codex-spider-gwen-immersive * {
+  scrollbar-color: rgb(89 215 240 / .30) rgb(4 13 28 / .16);
+}
+
+/* Codex 26.924 moved the real content inside what used to be a fade-only node.
+   Codex++ 1.4 still hides that attribute wholesale. Restore only the observed
+   content-bearing structure; hidden cached pages and standalone fades stay native. */
+html[data-dream-skin="active"].codex-spider-gwen-immersive
+  main[data-app-shell-main-surface]
+  [data-app-shell-main-content-top-fade]:has(> [data-app-shell-focus-area="main"]) {
+  display: flex !important;
+}
+
+/* Only material changes on the recognized native composer; layout stays native. */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer-body"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer-footer"] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+html.codex-spider-gwen-immersive button:focus-visible,
+html.codex-spider-gwen-immersive a:focus-visible,
+html.codex-spider-gwen-immersive input:focus-visible,
+html.codex-spider-gwen-immersive select:focus-visible {
+  outline: 2px solid var(--sg-cyan-bright) !important;
+  outline-offset: 2px !important;
+}
+
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+#codex-spider-gwen-immersive-chrome {
+  position: fixed;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none !important;
+  color: var(--sg-paper);
+}
+
+#codex-spider-gwen-immersive-chrome,
+#codex-spider-gwen-immersive-chrome * {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+#codex-spider-gwen-immersive-chrome .sg-brand {
+  position: absolute;
+  left: 24px;
+  top: 8px;
+  display: none;
+  align-items: center;
+  gap: 9px;
+  height: 38px;
+  color: white;
+  text-shadow: 1px 0 rgb(89 215 240 / .42), -1px 0 rgb(255 92 168 / .32), 0 2px 8px var(--sg-shadow);
+}
+
+#codex-spider-gwen-immersive-chrome.spider-gwen-home-shell .sg-brand {
+  display: flex;
+}
+
+#codex-spider-gwen-immersive-chrome .sg-brand-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  object-fit: contain;
+  filter:
+    drop-shadow(2px 1px 0 rgb(255 92 168 / .24))
+    drop-shadow(-1px 0 0 rgb(89 215 240 / .20))
+    drop-shadow(0 0 10px rgb(89 215 240 / .28));
+}
+
+#codex-spider-gwen-immersive-chrome .sg-brand b {
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 820;
+  letter-spacing: .17em;
+}
+
+#codex-spider-gwen-immersive-chrome .sg-brand small {
+  display: block;
+  margin-top: 5px;
+  color: var(--sg-cyan-bright);
+  font-size: 8px;
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: .23em;
+}
+
+#codex-spider-gwen-immersive-chrome .sg-status {
+  position: absolute;
+  right: clamp(250px, 15vw, 340px);
+  top: 17px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  color: var(--sg-cyan-bright);
+  font-size: 9px;
+  font-weight: 720;
+  letter-spacing: .20em;
+  text-shadow: 1px 0 var(--sg-pink), 0 0 10px rgb(89 215 240 / .44);
+}
+
+#codex-spider-gwen-immersive-chrome.spider-gwen-home-shell .sg-status {
+  display: flex;
+}
+
+#codex-spider-gwen-immersive-chrome .sg-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sg-cyan);
+  box-shadow: 2px 0 var(--sg-pink), 0 0 12px var(--sg-cyan);
+}
+
+#codex-spider-gwen-immersive-chrome .sg-print-dots {
+  position: absolute;
+  right: -40px;
+  top: 46px;
+  width: 54%;
+  height: 48%;
+  opacity: .12;
+  background-image: radial-gradient(circle, var(--sg-cyan-bright) 0 1.1px, transparent 1.6px);
+  background-size: 12px 12px;
+  mask-image: radial-gradient(ellipse at 78% 18%, black, transparent 68%);
+  mix-blend-mode: screen;
+}
+
+#codex-spider-gwen-immersive-chrome .sg-speed-lines {
+  position: absolute;
+  left: 6%;
+  bottom: 8%;
+  width: 48%;
+  height: 27%;
+  opacity: .14;
+  background: repeating-linear-gradient(164deg, transparent 0 17px, var(--sg-pink) 18px, transparent 19px 34px);
+  mask-image: linear-gradient(90deg, black, transparent 86%);
+  transform: skewX(-10deg);
+}
+
+#codex-spider-gwen-immersive-chrome .sg-web-corner {
+  position: absolute;
+  right: -100px;
+  top: -96px;
+  width: 410px;
+  height: 340px;
+  opacity: .13;
+  background:
+    repeating-radial-gradient(circle at 100% 0%, transparent 0 41px, var(--sg-cyan-bright) 42px 43px),
+    repeating-conic-gradient(from 181deg at 100% 0%, transparent 0deg 13deg, var(--sg-pink) 14deg 14.7deg);
+  mask-image: radial-gradient(circle at 100% 0%, black, transparent 72%);
+}
+
+#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-brand,
+#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-status {
+  display: none;
+}
+
+#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-print-dots { opacity: 0; }
+#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-speed-lines { opacity: .025; }
+#codex-spider-gwen-immersive-chrome.spider-gwen-task-shell .sg-web-corner { opacity: .04; }
+
+@media (max-width: 1120px) {
+  .sg-status { display: none !important; }
+  .sg-print-dots { width: 46%; opacity: .08; }
+}
+
+@media (max-width: 900px) {
+  .sg-brand small { display: none; }
+  .sg-web-corner { opacity: .07; }
+}
+
+@media (max-width: 680px) {
+  .sg-brand, .sg-status, .sg-web-corner { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codex-spider-gwen-immersive *,
+  html.codex-spider-gwen-immersive *::before,
+  html.codex-spider-gwen-immersive *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
