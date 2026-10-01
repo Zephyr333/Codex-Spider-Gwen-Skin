@@ -958,7 +958,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]::after {
     content: "" !important;
     position: absolute;
-    inset: 0 0 calc(-1 * var(--sg-composer-extension, 0px)) !important;
+    inset: calc(-1 * var(--sg-composer-top-extension, 0px)) 0 calc(-1 * var(--sg-composer-extension, 0px)) !important;
     border-radius: inherit;
     padding: 1px;
     pointer-events: none;

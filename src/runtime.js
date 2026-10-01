@@ -372,8 +372,8 @@
       for (const child of card.children) if (child !== header) mark(child, 'file-content');
       for (const row of all(card, '[class~="group/turn-diff-file-row"]')) mark(row, 'file-row');
     }
-    for (const node of scoped('[data-summary-panel-variant], [data-user-message-bubble="true"], [data-message-author-role="user"], [data-app-shell-page-banner]')) {
-      mark(node, node.matches('[data-summary-panel-variant]') ? 'summary-card' : node.matches('[data-app-shell-page-banner]') ? 'banner' : 'user-message');
+    for (const node of scoped('[data-summary-panel-variant], [data-user-message-bubble="true"], [data-message-author-role="user"], [data-app-shell-page-banner], [data-codex-composer-root] aside')) {
+      mark(node, node.matches('[data-summary-panel-variant]') ? 'summary-card' : node.matches('[data-app-shell-page-banner], aside') ? 'banner' : 'user-message');
     }
     if (composerWork && composer.host?.getAttribute('data-composer-placement') === 'home') {
       for (const node of all(main, '[data-ds-part="home-hero"]')) mark(node, 'home-title');
@@ -387,7 +387,7 @@
         let common = composer.surface.parentElement;
         while (common && common !== composer.host && !common.contains(utility[0])) common = common.parentElement;
         const nativeRail = utility[0].hasAttribute('data-composer-rail-item') && !utility[0].querySelector(EDITORS);
-        const protectedContent = common && all(common, '[role="alert"], [data-above-composer-portal]')
+        const protectedContent = common && all(common, '[role="alert"], [data-above-composer-portal], [data-home-beacon-banner], [data-codex-composer-root] aside')
           .some(node => node.textContent.trim() || node.querySelector(INTERACTIVE));
         const extraContent = common === composer.host && [...common.children].some(node =>
           !node.contains(composer.surface) && !node.contains(utility[0]) && (node.textContent.trim() || node.querySelector(INTERACTIVE)));
@@ -398,9 +398,9 @@
           (getComputedStyle(common).position === 'relative' || common === composer.host && nativeRail)) frame = common;
         if (frame === composer.surface && !frame.contains(utility[0]) && nativeRail) {
           const base = rect(frame), rail = rect(utility[0]);
-          const notices = all(composer.host, '[data-above-composer-portal], [role="alert"], [data-home-beacon-banner]').filter(visible);
+          const notices = all(composer.host, '[data-above-composer-portal], [role="alert"], [data-home-beacon-banner], [data-codex-composer-root] aside').filter(visible);
           const overlapsNotice = notices.some(node => { const n = rect(node); return n.bottom > rail.y + 1 && n.y < base.bottom && n.right > base.x && n.x < base.right; });
-          if (!overlapsNotice && rail.x >= base.x - 1 && rail.right <= base.right + 1 && rail.bottom <= base.y + 1 && base.y - rail.y <= 128) {
+          if (!overlapsNotice && rail.x >= base.x - 1 && rail.right <= base.right + 1 && rail.bottom <= base.y + 10 && base.y - rail.y <= 128) {
             topExtension = base.y - rail.y; detachedRail = true;
           }
         }
