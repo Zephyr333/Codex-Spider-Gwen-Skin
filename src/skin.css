@@ -9,6 +9,7 @@
   --sg-violet: #7847e8;
   --sg-paper: #effbff;
   --sg-muted: #a9bdd6;
+  --sg-reading-muted: #a9bdd6;
   --sg-line: rgb(89 215 240 / .34);
   --sg-line-hot: rgb(255 92 168 / .46);
   /* Directional hierarchy: cyan rises from lower-left; pink cuts from upper-right. */
@@ -172,23 +173,7 @@ html.codex-spider-gwen-immersive body {
  * row. This deliberately adds no blur, shadow, border or extra texture, so the
  * wallpaper and Gwen's vertical silhouette remain visually continuous.
  */
-html.codex-spider-gwen-immersive body::before {
-  content: "";
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: var(--sg-shell-top, 36px);
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgb(6 17 35 / .48), oklab(0.214349 -0.00978811 -0.0490709 / .48)) 0 0 / var(--sg-shell-left, 340px) 100% no-repeat,
-    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .48), oklab(0.214349 -0.00978811 -0.0490709 / .38) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .25)) var(--sg-shell-left, 340px) 0 / calc(100% - var(--sg-shell-left, 340px)) 100% no-repeat;
-}
 
-html.codex-spider-gwen-immersive:has([data-spider-gwen-role="shell-main"].spider-gwen-home-shell) body::before {
-  background:
-    linear-gradient(90deg, rgb(6 17 35 / .38), oklab(0.214349 -0.00978811 -0.0490709 / .32)) 0 0 / var(--sg-shell-left, 340px) 100% no-repeat,
-    linear-gradient(90deg, oklab(0.214349 -0.00978811 -0.0490709 / .32), oklab(0.214349 -0.00978811 -0.0490709 / .20) 64%, oklab(0.214349 -0.00978811 -0.0490709 / .10)) var(--sg-shell-left, 340px) 0 / calc(100% - var(--sg-shell-left, 340px)) 100% no-repeat;
-}
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"],
 html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] {
@@ -213,36 +198,17 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] svg {
   filter: drop-shadow(1px 0 rgb(89 215 240 / .20)) drop-shadow(-1px 0 rgb(255 92 168 / .16));
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"],
-html.codex-spider-gwen-immersive aside.app-shell-left-panel {
-  color: var(--sg-paper) !important;
-  background:
-    radial-gradient(circle at 100% 0%, rgb(255 72 151 / .14), transparent 35%),
-    radial-gradient(circle at 0% 100%, rgb(43 158 255 / .18), transparent 40%),
-    linear-gradient(to top right, rgb(5 23 43 / .42), rgb(9 17 43 / .34) 58%, rgb(32 13 62 / .28)) !important;
-  border: 0 !important;
-  border-right: 1px solid rgb(89 215 240 / .20) !important;
-  box-shadow:
-    inset -1px 0 rgb(255 92 168 / .12),
-    12px 0 36px rgb(1 6 18 / .25) !important;
-  backdrop-filter: blur(20px) saturate(1.22) !important;
-}
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"]::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   opacity: .13;
   background-image: radial-gradient(circle, var(--sg-cyan-bright) 0 1px, transparent 1.35px);
   background-size: 13px 13px;
   mask-image: linear-gradient(180deg, black, transparent 28%, transparent 68%, black);
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] > * {
-  position: relative;
-  z-index: 1;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav,
@@ -254,7 +220,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="side
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav button:not(.sidebar-item):not(.sidebar-item button),
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button:not(._Button_f5tnh_2) {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button:not([aria-haspopup]) {
   color: var(--sg-paper) !important;
   border-radius: 8px !important;
   transition:
@@ -265,7 +231,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] nav button:not(.sidebar-item):not(.sidebar-item button):hover,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button:not(._Button_f5tnh_2):hover {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button:not([aria-haspopup]):hover {
   color: white !important;
   background:
     linear-gradient(100deg, rgb(89 215 240 / .30), rgb(120 71 232 / .24) 56%, rgb(255 92 168 / .28)) !important;
@@ -275,12 +241,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] header button
     inset 0 1px 0 rgb(220 249 255 / .14) !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-id],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item {
-  border-radius: 8px !important;
-  overflow: visible !important;
-  transition: background 150ms ease, box-shadow 150ms ease !important;
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] {
+  transition: background-color 150ms ease !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item:hover {
@@ -301,10 +263,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-act
 
 /* Precise sidebar action buttons constraint: compact 20px size, centered, no row overflow.
    DO NOT match header title dropdown button! */
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .codex-session-action-button,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [class*="codex-session-action"],
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] button,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .sidebar-item div.flex button {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] .codex-session-action-button {
   width: 20px !important;
   height: 20px !important;
   min-width: 20px !important;
@@ -349,10 +308,6 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] {
   box-shadow: none !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-home-shell {
-  background:
-    linear-gradient(90deg, rgb(4 16 34 / .14), transparent 35%, transparent 78%, rgb(35 11 67 / .08)) !important;
-}
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-home-shell .dream-task::before {
   background-image: none !important;
@@ -363,10 +318,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwe
   background: transparent !important;
 }
 
-html.codex-spider-gwen-immersive main,
-html.codex-spider-gwen-immersive main._MainContentSurface_gs442_2,
-html[data-dream-skin="active"].codex-spider-gwen-immersive main,
-html[data-dream-skin="active"]:is([data-dream-task-mode], [data-dream-art-task-mode]).codex-spider-gwen-immersive main:is(.main-surface, [data-app-shell-main-surface], [class*="_MainContentSurface_"]) {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"],
+html[data-dream-skin="active"]:is([data-dream-task-mode], [data-dream-art-task-mode]).codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"][data-app-shell-main-surface] {
   background: transparent !important;
   background-image: none !important;
 }
@@ -414,6 +367,13 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-header"] svg {
 html.codex-spider-gwen-immersive [data-spider-gwen-role="home"] {
   color: var(--sg-paper) !important;
   background: transparent !important;
+}
+
+/* Settings navigation lives outside main in the rebuilt shell. Keep its large
+   content surface readable without overriding the native cards or layout. */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="settings-surface"] {
+  color: var(--sg-paper) !important;
+  background: var(--sg-glass-strong) !important;
 }
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="home"] {
@@ -473,9 +433,6 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"] {
   transition: background 170ms ease, box-shadow 170ms ease !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::before {
-  content: none !important;
-}
 
 html.codex-spider-gwen-immersive [data-spider-gwen-role="chatgpt-home-composer"] [data-spider-gwen-role="chatgpt-home-surface"]::after,
 html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]::after {
@@ -511,7 +468,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"]:focus-within
   opacity: 1;
 }
 
-html.codex-spider-gwen-immersive .ProseMirror {
+html.codex-spider-gwen-immersive [data-spider-gwen-role="composer-editor"] {
   color: var(--sg-paper) !important;
   caret-color: var(--sg-cyan) !important;
 }
@@ -589,36 +546,6 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [data-mess
   color: var(--sg-paper) !important;
 }
 
-html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre,
-html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class*="code-block"] {
-  color: #e9fbff !important;
-  border: 0 !important;
-  border-radius: 6px 15px 6px 15px !important;
-  background: var(--sg-surface-strong) !important;
-  box-shadow:
-    inset 2px 0 rgb(89 215 240 / .16),
-    0 10px 24px rgb(1 7 18 / .28),
-    inset 0 1px 0 var(--sg-material-highlight),
-    inset 0 -1px 0 rgb(1 7 18 / .36) !important;
-}
-
-html.codex-spider-gwen-immersive [role="dialog"],
-html.codex-spider-gwen-immersive [role="menu"],
-html.codex-spider-gwen-immersive [role="listbox"],
-html.codex-spider-gwen-immersive [role="tooltip"],
-html.codex-spider-gwen-immersive [data-radix-popper-content-wrapper] > div {
-  color: var(--sg-paper) !important;
-  border: 0 !important;
-  border-radius: 8px 18px 8px 18px !important;
-  background: var(--sg-surface-strong) !important;
-  box-shadow:
-    -5px 5px 26px rgb(89 215 240 / .08),
-    5px -5px 26px rgb(255 92 168 / .10),
-    0 22px 52px rgb(1 6 18 / .62),
-    inset 0 1px 0 var(--sg-material-highlight) !important;
-  backdrop-filter: blur(22px) saturate(1.12) !important;
-}
-
 html.codex-spider-gwen-immersive [class~="bg-token-main-surface-secondary"],
 html.codex-spider-gwen-immersive [class~="bg-token-main-surface-primary"] {
   border-color: rgb(89 215 240 / .14);
@@ -675,202 +602,25 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] [class~="b
     inset 0 -1px 0 rgb(1 7 18 / .30) !important;
 }
 
-html.codex-spider-gwen-immersive :focus-visible {
-  outline: none !important;
-  outline-offset: 0 !important;
-  box-shadow:
-    -5px 5px 20px rgb(89 215 240 / .16),
-    5px -5px 20px rgb(255 92 168 / .18) !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button:focus-visible {
-  --sg-control-ring: var(--sg-focus-ring-both);
-  --sg-control-ring-opacity: 1;
-  outline: none !important;
-  outline-offset: 0 !important;
-  box-shadow:
-    -4px 4px 20px rgb(89 215 240 / .10),
-    4px -4px 20px rgb(255 92 168 / .12),
-    0 10px 24px rgb(1 7 18 / .28) !important;
-}
-
-html.codex-spider-gwen-immersive button[class~="bg-token-foreground"]:focus-visible {
-  outline: none !important;
-  outline-offset: 0 !important;
-  box-shadow:
-    inset 1px -1px 0 rgb(186 247 255 / .48),
-    inset -1px 1px 0 rgb(255 166 207 / .72),
-    0 0 0 2px rgb(220 253 255 / .24),
-    -4px 4px 18px rgb(89 215 240 / .13),
-    4px -4px 18px rgb(255 92 168 / .15),
-    0 4px 12px rgb(1 7 18 / .32) !important;
-}
-
-html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"] .ProseMirror:focus-visible {
-  outline: none !important;
-  outline-offset: 0 !important;
-  box-shadow: none !important;
-}
-
-html.codex-spider-gwen-immersive input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible,
-html.codex-spider-gwen-immersive textarea:focus-visible,
-html.codex-spider-gwen-immersive select:focus-visible,
-html.codex-spider-gwen-immersive [role="combobox"]:focus-visible {
-  outline: none !important;
-  outline-offset: 0 !important;
-}
-
 html.codex-spider-gwen-immersive * {
-  scrollbar-color: rgb(89 215 240 / .30) rgb(4 13 28 / .16);
+  scrollbar-color: rgb(89 215 240 / .45) rgb(4 13 28 / .16);
 }
 
-/* Codex 26.924 moved the real content inside what used to be a fade-only node.
-   Codex++ 1.4 still hides that attribute wholesale. Restore only the observed
-   content-bearing structure; hidden cached pages and standalone fades stay native. */
-html[data-dream-skin="active"].codex-spider-gwen-immersive
-  main[data-app-shell-main-surface]
-  [data-app-shell-main-content-top-fade]:has(> [data-app-shell-focus-area="main"]) {
-  display: flex !important;
-}
-
-/* Codex 26.924 Home Layout:
-   Dream Skin in Codex++ 1.4 imposes flex: 0 0 440px / min-height: 440px on the
-   home first-child container, which in 26.924 is an empty slot.
-   Neutralize this 440px empty space so the homepage composer is completely visible in the viewport. */
-html[data-dream-skin="active"].codex-spider-gwen-immersive
-  [role="main"]
-  [class*="group/home-composer-layout"] > div:first-child,
-html[data-dream-skin="active"].codex-spider-gwen-immersive
-  [data-app-shell-main-surface]
-  [class*="group/home-composer-layout"] > div:first-child,
-html[data-dream-skin="active"].codex-spider-gwen-immersive
-  [role="main"]:has([data-testid="home-icon"]) > div:first-child > div:first-child {
-  flex: 0 1 auto !important;
-  min-height: 0 !important;
-  height: auto !important;
-}
-
-/* Codex 26.924 bottom ambient gradient:
-   Neutralize the opaque black gradient behind the composer that cuts across Gwen's leg and foot. */
-html.codex-spider-gwen-immersive [class*="bg-gradient-to-t"][class*="from-surface"],
-html.codex-spider-gwen-immersive .bg-gradient-to-t.from-surface {
+/* A proven empty footer decoration only; never clear a native content surface
+   merely because its utility class happens to contain a gradient or bg-surface. */
+html.codex-spider-gwen-immersive [data-spider-gwen-role="footer-decoration"],
+html.codex-spider-gwen-immersive [data-spider-gwen-role="footer-fade"] {
   background: transparent !important;
   background-image: none !important;
 }
 
-/* System banners styling: compact, dark blue-purple glass cards instead of opaque black slabs */
-html.codex-spider-gwen-immersive aside[class*="rounded-3xl"],
-html.codex-spider-gwen-immersive [class*="rounded-3xl"].bg-surface,
-html.codex-spider-gwen-immersive div[class*="rounded-3xl"][class*="bg-surface"],
-html.codex-spider-gwen-immersive div:has(> button[data-variant="primary"])[class*="rounded-3xl"],
-html.codex-spider-gwen-immersive [data-app-shell-page-banner] {
-  background: rgb(8 23 45 / .55) !important;
-  border: 1px solid rgb(89 215 240 / .24) !important;
-  box-shadow: 0 8px 24px rgb(1 7 18 / .32) !important;
-  backdrop-filter: blur(16px) !important;
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
-}
-
-/* Activity headers: make the 736px-wide outer container completely transparent and blur-free */
-html.codex-spider-gwen-immersive .thread-scroll-container [data-local-conversation-item-target-ids],
-html[data-dream-skin="active"].codex-spider-gwen-immersive .thread-scroll-container [data-local-conversation-item-target-ids],
-html.codex-spider-gwen-immersive div.outline-none:has([class*="activity-header"]),
-html.codex-spider-gwen-immersive div.outline-none[data-local-conversation-item-target-ids] {
-  background: transparent !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* Compact activity header pill styling */
-html.codex-spider-gwen-immersive [class*="activity-header"] {
-  padding: 4px 10px !important;
-  border-radius: 8px !important;
-  background: rgb(8 23 45 / .38) !important;
-  border: 1px solid rgb(89 215 240 / .16) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  transition: background-color 150ms ease, border-color 150ms ease !important;
-}
-
-html.codex-spider-gwen-immersive [class*="activity-header"]:hover {
-  background: rgb(89 215 240 / .10) !important;
-  border-color: rgb(89 215 240 / .30) !important;
-}
-
-/* File edit resource cards / diff containers: style container, NOT individual rows */
-html.codex-spider-gwen-immersive div[class*="bg-surface-elevated-secondary/50"],
-html.codex-spider-gwen-immersive div:has(> [class*="group/turn-diff-header"]),
-html.codex-spider-gwen-immersive [class*="extension:border-default"][class*="extension:bg-background-primary-soft"] {
-  background: rgb(8 23 45 / .42) !important;
-  border: 1px solid rgb(89 215 240 / .18) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  box-shadow: 0 8px 24px rgb(1 7 18 / .24) !important;
-}
-
-/* File edit internal rows: clean transparent rows without nested borders or blurs */
-html.codex-spider-gwen-immersive [class*="group/turn-diff-file-row"] button,
-html.codex-spider-gwen-immersive [class*="group/turn-diff-file-row"],
-html.codex-spider-gwen-immersive button:has(> [class*="turn-diff"]) {
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  transition: background-color 150ms ease !important;
-}
-
-html.codex-spider-gwen-immersive [class*="group/turn-diff-file-row"] button:hover {
-  background: rgb(89 215 240 / .08) !important;
-}
-
-/* "Show more files" expand button */
-html.codex-spider-gwen-immersive button[class*="rounded-b-lg"] {
-  background: transparent !important;
-  border: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-html.codex-spider-gwen-immersive button[class*="rounded-b-lg"]:hover {
-  background: rgb(89 215 240 / .08) !important;
-}
-
-/* Right summary panel: only style container, NEVER all elements matching substring summary-panel */
-html.codex-spider-gwen-immersive aside.group\/summary-panel,
-html.codex-spider-gwen-immersive aside[class*="group/summary-panel"],
-html.codex-spider-gwen-immersive [data-summary-panel-variant] {
-  background: rgb(8 23 45 / .44) !important;
-  backdrop-filter: blur(16px) saturate(1.1) !important;
-  border: 1px solid rgb(89 215 240 / .20) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 12px 32px rgb(1 7 18 / .35) !important;
-}
-
-html.codex-spider-gwen-immersive aside[class*="group/summary-panel"] [class*="group/summary-panel-item"] {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 6px !important;
-  transition: background-color 150ms ease, color 150ms ease !important;
-}
-
-html.codex-spider-gwen-immersive aside[class*="group/summary-panel"] [class*="group/summary-panel-item"]:hover {
-  background: rgb(89 215 240 / .12) !important;
-  color: var(--sg-cyan-bright) !important;
-}
+/* Repeated card materials are assigned by the surface adapter below. */
 
 /* Codex++ status button in sidebar */
-#codex-plus-sidebar-nav {
+html.codex-spider-gwen-immersive #codex-plus-sidebar-nav {
   padding: 4px 10px 2px !important;
 }
-#codex-plus-sidebar-nav button {
+html.codex-spider-gwen-immersive #codex-plus-sidebar-nav button {
   border-radius: 8px !important;
   background: rgb(89 215 240 / .08) !important;
   border: 1px solid rgb(89 215 240 / .16) !important;
@@ -879,7 +629,7 @@ html.codex-spider-gwen-immersive aside[class*="group/summary-panel"] [class*="gr
   font-size: 12px !important;
   transition: background 150ms ease, border-color 150ms ease !important;
 }
-#codex-plus-sidebar-nav button:hover {
+html.codex-spider-gwen-immersive #codex-plus-sidebar-nav button:hover {
   background: rgb(89 215 240 / .16) !important;
   border-color: var(--sg-cyan) !important;
   color: #fff !important;
@@ -1060,4 +810,229 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
   }
+}
+
+/* Important paint declarations in this named layer outrank the current
+   unlayered Dream Skin material rules, including adopted sheets. Everything
+   here is scoped to our verified surfaces; native layout/handlers stay native. */
+@layer spider-gwen-material {
+  html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-task-shell {
+    color: var(--sg-paper) !important;
+    --color-text-secondary: var(--sg-reading-muted);
+    --color-text-tertiary: var(--sg-reading-muted);
+  }
+
+  html.codex-spider-gwen-immersive:has([data-spider-gwen-role="shell-main"].spider-gwen-task-shell) body::before {
+    background: linear-gradient(90deg, rgb(6 17 35 / .72), rgb(6 16 31 / .80) 32%, rgb(13 19 46 / .80)) !important;
+  }
+
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] :is([data-local-conversation-final-assistant], [data-message-author-role="assistant"]) a[href] {
+    color: var(--sg-cyan) !important;
+    text-decoration-color: currentColor !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"].spider-gwen-task-shell
+    :is(.text-secondary, .text-tertiary, .text-codex-description, [class~="text-text/60"], [class~="text-text/40"]) {
+    color: var(--sg-reading-muted) !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-group"] {
+    background: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-header"] {
+    padding: 4px 10px !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    background: rgb(8 23 45 / .62) !important;
+    box-shadow: inset 0 0 0 1px rgb(89 215 240 / .16) !important;
+    backdrop-filter: none !important;
+    --agent-activity-summary-color: var(--sg-reading-muted);
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-header"] span {
+    color: var(--sg-reading-muted) !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-header"] > span:last-child {
+    flex-shrink: 0 !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-trigger"] {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-indicator"] {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    opacity: .85 !important;
+    color: var(--sg-paper) !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="activity-header"]:is(:hover, :focus-within) [data-spider-gwen-surface="activity-indicator"] {
+    opacity: 1 !important;
+    color: var(--sg-cyan-bright) !important;
+  }
+
+  html.codex-spider-gwen-immersive :is([data-spider-gwen-surface="tool-output"], [data-spider-gwen-surface="code-surface"], [data-spider-gwen-surface="file-card"], [data-spider-gwen-surface="summary-card"], [data-spider-gwen-surface="banner"]) {
+    background: var(--sg-surface) !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: inset 0 0 0 1px var(--sg-line), 0 8px 24px rgb(1 7 18 / .20) !important;
+    backdrop-filter: none !important;
+    color: var(--sg-paper) !important;
+    --color-text-secondary: var(--sg-reading-muted);
+    --color-text-tertiary: var(--sg-reading-muted);
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="tool-output"] :is(code, [role="button"], .font-code) {
+    color: var(--sg-paper) !important;
+  }
+
+  html.codex-spider-gwen-immersive :is([data-spider-gwen-surface="code-inner"], [data-spider-gwen-surface="file-row"], [data-spider-gwen-surface="file-content"], [data-spider-gwen-surface="composer-inner"], [data-spider-gwen-surface="composer-utility"], [data-spider-gwen-surface="popup-inner"]) {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    --codex-diffs-surface-override: transparent !important;
+  }
+
+  html.codex-spider-gwen-immersive :is([data-spider-gwen-surface="file-row"], [data-spider-gwen-surface="file-content"]) button {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"] header {
+    background: var(--sg-navy) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="popup"] {
+    color: var(--sg-paper) !important;
+    background: var(--sg-surface-strong) !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: inset 0 0 0 1px var(--sg-line), 0 14px 34px var(--sg-shadow) !important;
+    backdrop-filter: blur(16px) !important;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"] {
+    position: relative;
+    isolation: isolate;
+    color: var(--sg-paper) !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 18px !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    transition: box-shadow 170ms ease !important;
+    --color-text-secondary: var(--sg-reading-muted);
+    --color-text-tertiary: var(--sg-reading-muted);
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]::before {
+    content: "" !important;
+    position: absolute;
+    inset: calc(-1 * var(--sg-composer-top-extension, 0px)) 0 calc(-1 * var(--sg-composer-extension, 0px)) !important;
+    border-radius: inherit;
+    background: var(--sg-surface) !important;
+    box-shadow: 0 12px 30px rgb(1 7 18 / .32), inset 0 1px 0 var(--sg-material-highlight) !important;
+    backdrop-filter: blur(14px) saturate(1.04) !important;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]::after {
+    content: "" !important;
+    position: absolute;
+    inset: 0 0 calc(-1 * var(--sg-composer-extension, 0px)) !important;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: .65 !important;
+    background: var(--sg-focus-ring-both);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]:focus-within::after { opacity: 1 !important; }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-inner"] { transition: none !important; }
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-utility"] {
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-inner"]::after { content: none !important; }
+
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="home-title"] {
+    text-shadow: 0 1px 2px rgb(0 0 0 / .90), 0 0 12px rgb(0 0 0 / .70) !important;
+  }
+
+  html.codex-spider-gwen-immersive :is([data-spider-gwen-role="composer-body"], [data-spider-gwen-role="composer-footer"]) {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html.codex-spider-gwen-immersive :where(button, a, input, textarea, select, [role="button"], [role="combobox"], [role="menuitem"], [role="option"]):not([data-spider-gwen-role="composer-editor"]):focus-visible {
+    outline: 2px solid var(--sg-cyan-bright) !important;
+    outline-offset: 2px !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.codex-spider-gwen-immersive :is([data-spider-gwen-surface="composer-frame"], [data-spider-gwen-surface="activity-indicator"]) {
+      transition-duration: .01ms !important;
+    }
+  }
+}
+
+/* 2.0.3: one wallpaper shade across native gutters, menu and sidebar. */
+@layer spider-gwen-material {
+  #codex-spider-gwen-background { position: fixed; inset: 0; z-index: 1; pointer-events: none !important; background-color: rgb(6 16 31 / .80) !important; }
+  html:has([data-spider-gwen-role="shell-main"].spider-gwen-home-shell) #codex-spider-gwen-background { background-color: rgb(6 16 31 / .28) !important; }
+  html.codex-spider-gwen-immersive body::before { content: none !important; }
+  html.codex-spider-gwen-immersive :is([data-spider-gwen-role="shell-main"], [data-spider-gwen-role="sidebar"], [data-spider-gwen-role="native-menu"], [data-spider-gwen-role="shell-header"]) {
+    background: transparent !important; box-shadow: none !important; border-color: transparent !important; backdrop-filter: none !important;
+  }
+  html.codex-spider-gwen-immersive [data-spider-gwen-role="native-menu"] { position: relative; z-index: 2; }
+  html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[aria-label^="切换模式"]::after,
+  html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] button[aria-label*="Switch mode"]::after { content: "" !important; color: inherit !important; }
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"] {
+    position: relative; isolation: isolate; border: 0 !important; box-shadow: 0 8px 24px rgb(1 7 18 / .20) !important; overflow: hidden;
+  }
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"]::after {
+    content: "" !important; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none !important; z-index: 2;
+    background: linear-gradient(45deg,rgb(89 215 240 / .18),rgb(120 71 232 / .10),rgb(255 92 168 / .18)) !important;
+    mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask-composite: exclude;
+  }
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"] header {
+    background: transparent !important; border-color: rgb(169 189 214 / .10) !important;
+  }
+  /* Native sticky headings carry a separate 8px backdrop above the heading.
+     It must not paint solid bars across our continuous panel material. */
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"] header::before {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@layer spider-gwen-material {
+ html.codex-spider-gwen-immersive [data-spider-gwen-role="sidebar"] [data-app-action-sidebar-thread-row] .codex-session-actions[data-codex-action-group-version] { right: var(--sg-actions-right, var(--codex-session-actions-right, 0px)) !important; }
 }

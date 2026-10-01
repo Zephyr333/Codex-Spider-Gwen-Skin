@@ -1,0 +1,16 @@
+/* Essential repairs are independent of optional decoration. Do not hide,
+   reparent or position native content here. Unknown structures stay native. */
+html[data-spider-gwen-compatibility="active"][data-dream-skin="active"]
+  [data-app-shell-main-surface]
+  [data-app-shell-main-content-top-fade]:not([hidden]):not([inert]):not([aria-hidden="true"]):has(> [data-app-shell-focus-area="main"]) {
+  display: flex !important;
+}
+
+/* Only a verified empty 440px legacy spacer receives this owned marker. */
+html[data-spider-gwen-compatibility="active"] :is([data-app-shell-main-surface], main)
+  [class*="group/home-composer-layout"]
+  [data-spider-gwen-empty-home-slot="true"]:not([hidden]):not([inert]):not([aria-hidden="true"]) {
+  flex: 0 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
