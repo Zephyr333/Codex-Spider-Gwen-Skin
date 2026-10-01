@@ -938,9 +938,15 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     border-radius: 18px !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
+    overflow: visible !important;
     transition: box-shadow 170ms ease !important;
     --color-text-secondary: var(--sg-reading-muted);
     --color-text-tertiary: var(--sg-reading-muted);
+  }
+
+  html[data-dream-skin].codex-spider-gwen-immersive :is([data-ds-part="home"], [role="main"]:has([data-testid="home-icon"])) :is(.composer-surface-chrome, [class*="_ComposerLayoutRoot_"], [data-composer-surface-variant][data-composer-radius-variant]),
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"][data-composer-surface-variant] {
+    overflow: visible !important;
   }
 
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]::before {
@@ -972,7 +978,17 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
 
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]:focus-within::after { opacity: 1 !important; }
 
-  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-inner"] { transition: none !important; }
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-inner"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    transition: none !important;
+  }
+  html.codex-spider-gwen-immersive [data-composer-rail],
+  html.codex-spider-gwen-immersive [data-composer-rail] [data-spider-gwen-surface="composer-utility"] {
+    z-index: 20 !important;
+    pointer-events: auto !important;
+  }
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-utility"] {
     border: 0 !important;
     border-radius: 0 !important;

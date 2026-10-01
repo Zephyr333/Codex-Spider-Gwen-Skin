@@ -261,11 +261,14 @@
     if (node.style.getPropertyValue('--sg-composer-extension') === state.written) {
       if (state.before) node.style.setProperty('--sg-composer-extension', state.before, state.priority);
       else node.style.removeProperty('--sg-composer-extension');
-      if (!state.hadStyle && !node.style.length) node.removeAttribute('style');
     }
     if (node.style.getPropertyValue('--sg-composer-top-extension') === state.topWritten) {
       if (state.topBefore) node.style.setProperty('--sg-composer-top-extension', state.topBefore, state.topPriority);
       else node.style.removeProperty('--sg-composer-top-extension');
+    }
+    if (state.overflowSet && node.style.getPropertyValue('overflow') === 'visible') {
+      if (state.overflowBefore) node.style.setProperty('overflow', state.overflowBefore, state.overflowPriority);
+      else node.style.removeProperty('overflow');
     }
     if (!state.hadStyle && !node.style.length) node.removeAttribute('style');
     extensions.delete(node);
@@ -273,14 +276,32 @@
   const syncExtension = (node, height, top = 0) => {
     for (const other of extensions.keys()) if (other !== node) releaseExtension(other);
     if (!node) return;
-    if (!extensions.has(node)) extensions.set(node, { before: node.style.getPropertyValue('--sg-composer-extension'),
-      priority: node.style.getPropertyPriority('--sg-composer-extension'), topBefore: node.style.getPropertyValue('--sg-composer-top-extension'), topPriority: node.style.getPropertyPriority('--sg-composer-top-extension'), hadStyle: node.hasAttribute('style') });
+    if (!extensions.has(node)) extensions.set(node, {
+      before: node.style.getPropertyValue('--sg-composer-extension'),
+      priority: node.style.getPropertyPriority('--sg-composer-extension'),
+      topBefore: node.style.getPropertyValue('--sg-composer-top-extension'),
+      topPriority: node.style.getPropertyPriority('--sg-composer-top-extension'),
+      overflowBefore: node.style.getPropertyValue('overflow'),
+      overflowPriority: node.style.getPropertyPriority('overflow'),
+      overflowSet: false,
+      hadStyle: node.hasAttribute('style')
+    });
     const value = `${Math.max(0, Math.round(height * 100) / 100)}px`;
     if (node.style.getPropertyValue('--sg-composer-extension') !== value) node.style.setProperty('--sg-composer-extension', value);
     extensions.get(node).written = value;
     const topValue = Math.max(0, Math.round(top * 100) / 100) + 'px';
     if (node.style.getPropertyValue('--sg-composer-top-extension') !== topValue) node.style.setProperty('--sg-composer-top-extension', topValue);
     extensions.get(node).topWritten = topValue;
+    if (top > 0) {
+      if (node.style.getPropertyValue('overflow') !== 'visible') {
+        node.style.setProperty('overflow', 'visible', 'important');
+      }
+      extensions.get(node).overflowSet = true;
+    } else if (extensions.get(node).overflowSet) {
+      if (extensions.get(node).overflowBefore) node.style.setProperty('overflow', extensions.get(node).overflowBefore, extensions.get(node).overflowPriority);
+      else node.style.removeProperty('overflow');
+      extensions.get(node).overflowSet = false;
+    }
   };
   const releaseActionOffset = node => {
     const state = actionOffsets.get(node);
