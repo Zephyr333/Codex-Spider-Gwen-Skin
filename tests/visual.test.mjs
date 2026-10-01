@@ -218,16 +218,50 @@ test('unrecognized rails and nested asides retain native stacking and material',
   assert.equal(await page.evaluate('document.getElementById("native-notice").getAttribute("data-spider-gwen-surface")'),'banner');
 });
 
-test('content cards and popup edges share quiet cyan and pink without extra pseudo layers', async () => {
+test('content cards and popup edges share the continuous composer gradient without changing hit targets', async () => {
   await load();
   await clickTrigger();
-  await page.evaluate('document.body.insertAdjacentHTML("beforeend",\'<div role="menu" id="edge-menu" style="position:fixed;top:100px;left:800px"><button role="menuitem">Action</button></div>\');window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure()');
-  const cards=await page.evaluate(`Array.from(document.querySelectorAll('[data-spider-gwen-surface="tool-output"],[data-spider-gwen-surface="file-card"],[data-spider-gwen-surface="activity-header"],[data-spider-gwen-surface="popup"]')).map(n=>({shadow:getComputedStyle(n).boxShadow,after:getComputedStyle(n,'::after').content,border:getComputedStyle(n).borderWidth}))`);
+  await page.evaluate('document.body.insertAdjacentHTML("beforeend",\'<div role="menu" id="edge-menu" style="position:fixed;top:100px;left:800px;z-index:100"><button role="menuitem">Action</button></div>\');window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure()');
+  const cards=await page.evaluate(`Array.from(document.querySelectorAll('[data-spider-gwen-surface="tool-output"],[data-spider-gwen-surface="file-card"],[data-spider-gwen-surface="activity-header"],[data-spider-gwen-surface="popup"]')).map(n=>{const s=getComputedStyle(n,'::after');return {after:s.content,gradient:s.backgroundImage,pointer:s.pointerEvents,mask:s.maskComposite,padding:s.paddingTop,opacity:Number(s.opacity),border:getComputedStyle(n).borderWidth}})`);
   assert.ok(cards.length>=4);
   for(const card of cards) {
-    assert.ok(card.shadow.includes('89, 215, 240')&&card.shadow.includes('255, 92, 168'));
-    assert.equal(card.after,'none');
+    assert.ok(card.gradient.includes('linear-gradient(90deg')&&card.gradient.includes('89, 215, 240')&&card.gradient.includes('255, 92, 168'));
+    assert.equal(card.after,'""');
+    assert.equal(card.pointer,'none');
+    assert.ok(card.mask.split(',').every(mode=>mode.trim()==='exclude'));
+    assert.equal(card.padding,'1px');
+    assert.equal(card.opacity,.65);
     assert.equal(card.border,'0px');
+  }
+  const button=await page.evaluate(`(()=>{const n=document.querySelector('#edge-menu button'),r=n.getBoundingClientRect();return n.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))})()`);
+  assert.equal(button,true);
+});
+
+test('gradient edges preserve native positioned cards and remain absent from inner file rows', async () => {
+  await load();
+  await page.evaluate(`{
+    const css=document.createElement('style');css.textContent='#file-card{position:sticky;top:0}';document.head.appendChild(css);
+    window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure();
+  }`);
+  assert.equal(await page.evaluate('getComputedStyle(document.getElementById("file-card")).position'),'sticky');
+  assert.equal(await page.evaluate('getComputedStyle(document.querySelector(".group\\\\/turn-diff-file-row"),"::after").content'),'none');
+});
+
+test('near-square profile menu, tall summary and sidebar launcher use the same horizontal ring as composer', async () => {
+  await load();
+  await page.evaluate(`{
+    document.body.insertAdjacentHTML('beforeend','<div role="menu" id="profile-popup" style="position:fixed;top:80px;left:800px;width:228px;height:240px;z-index:100"><button role="menuitem">Settings</button></div>');
+    document.getElementById('active').insertAdjacentHTML('beforeend','<div data-summary-panel-variant="summary" id="tall-summary" style="width:300px;height:500px"><header>Sources</header></div>');
+    document.querySelector('aside').insertAdjacentHTML('beforeend','<nav id="codex-plus-sidebar-nav"><button>Codex++</button></nav>');
+    window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure();
+  }`);
+  await page.evaluate(`new Promise((resolve,reject)=>{const started=performance.now();const settled=()=>{const n=document.querySelector('[data-spider-gwen-surface="composer-frame"]');if(n&&Number(getComputedStyle(n,'::after').opacity)===.65)return resolve();if(performance.now()-started>1500)return reject(Error('Composer edge transition did not settle'));setTimeout(settled,20)};settled()})`);
+  const rings=await page.evaluate(`['[data-spider-gwen-surface="composer-frame"]','#profile-popup','#tall-summary','#codex-plus-sidebar-nav button'].map(selector=>{const s=getComputedStyle(document.querySelector(selector),'::after');return {selector,gradient:s.backgroundImage,opacity:s.opacity,pointer:s.pointerEvents}})`);
+  assert.ok(rings[0].gradient.startsWith('linear-gradient(90deg'));
+  for(const ring of rings) {
+    assert.equal(ring.gradient,rings[0].gradient);
+    assert.equal(ring.opacity,'0.65',ring.selector);
+    assert.equal(ring.pointer,'none');
   }
 });
 
