@@ -7,7 +7,7 @@
   const ROOT_CLASS = 'codex-spider-gwen-immersive';
   const ROLE_ATTR = 'data-spider-gwen-role';
   const SURFACE_ATTR = 'data-spider-gwen-surface';
-  const COMPATIBILITY_REVISION = 20;
+  const COMPATIBILITY_REVISION = 21;
   const BACKGROUND_ID = "codex-spider-gwen-background";
   const SURFACE_HINTS = '[data-local-conversation-item-target-ids], div[class~="group/activity-header"], [data-testid="exec-shell-body"], div[class~="group/command"], div[class~="group/output"], div[class~="group/turn-diff-header"], [data-summary-panel-variant], pre, [data-composer-utility-bar], [class*="ComposerUtility"], [class*="ComposerLayoutUtilityBar"], [data-composer-rail], [data-above-composer-portal], [data-home-beacon-banner], [data-app-action-sidebar-thread-row], [data-codex-action-group-version], [role="alert"], [role="menu"], [role="dialog"], [role="listbox"], [role="tooltip"]';
   const EDITORS = '[role="textbox"][contenteditable="true"], [data-codex-composer][contenteditable], textarea';
@@ -256,6 +256,15 @@
     }
     surfaces.delete(node);
   };
+  const ownsOverflow = (node, state) => state.overflowSet &&
+    node.style.getPropertyValue('overflow') === 'visible' && node.style.getPropertyPriority('overflow') === 'important';
+  const releaseOverflow = (node, state) => {
+    if (ownsOverflow(node, state)) {
+      if (state.overflowBefore) node.style.setProperty('overflow', state.overflowBefore, state.overflowPriority);
+      else node.style.removeProperty('overflow');
+    }
+    state.overflowSet = false;
+  };
   const releaseExtension = node => {
     const state = extensions.get(node);
     if (node.style.getPropertyValue('--sg-composer-extension') === state.written) {
@@ -266,10 +275,7 @@
       if (state.topBefore) node.style.setProperty('--sg-composer-top-extension', state.topBefore, state.topPriority);
       else node.style.removeProperty('--sg-composer-top-extension');
     }
-    if (state.overflowSet && node.style.getPropertyValue('overflow') === 'visible') {
-      if (state.overflowBefore) node.style.setProperty('overflow', state.overflowBefore, state.overflowPriority);
-      else node.style.removeProperty('overflow');
-    }
+    releaseOverflow(node, state);
     if (!state.hadStyle && !node.style.length) node.removeAttribute('style');
     extensions.delete(node);
   };
@@ -284,6 +290,7 @@
       overflowBefore: node.style.getPropertyValue('overflow'),
       overflowPriority: node.style.getPropertyPriority('overflow'),
       overflowSet: false,
+      overflowBlocked: false,
       hadStyle: node.hasAttribute('style')
     });
     const value = `${Math.max(0, Math.round(height * 100) / 100)}px`;
@@ -292,15 +299,21 @@
     const topValue = Math.max(0, Math.round(top * 100) / 100) + 'px';
     if (node.style.getPropertyValue('--sg-composer-top-extension') !== topValue) node.style.setProperty('--sg-composer-top-extension', topValue);
     extensions.get(node).topWritten = topValue;
-    if (top > 0) {
-      if (node.style.getPropertyValue('overflow') !== 'visible') {
+    const state = extensions.get(node);
+    if (state.overflowSet && !ownsOverflow(node, state)) {
+      // The host has taken ownership. Do not fight it on each geometry update.
+      state.overflowSet = false; state.overflowBlocked = true;
+    }
+    if (top > 0 || height > 0) {
+      if (!state.overflowSet && !state.overflowBlocked) {
+        state.overflowBefore = node.style.getPropertyValue('overflow');
+        state.overflowPriority = node.style.getPropertyPriority('overflow');
         node.style.setProperty('overflow', 'visible', 'important');
+        state.overflowSet = true;
       }
-      extensions.get(node).overflowSet = true;
-    } else if (extensions.get(node).overflowSet) {
-      if (extensions.get(node).overflowBefore) node.style.setProperty('overflow', extensions.get(node).overflowBefore, extensions.get(node).overflowPriority);
-      else node.style.removeProperty('overflow');
-      extensions.get(node).overflowSet = false;
+    } else {
+      releaseOverflow(node, state);
+      state.overflowBlocked = false;
     }
   };
   const releaseActionOffset = node => {
@@ -393,7 +406,9 @@
       for (const child of card.children) if (child !== header) mark(child, 'file-content');
       for (const row of all(card, '[class~="group/turn-diff-file-row"]')) mark(row, 'file-row');
     }
-    for (const node of scoped('[data-summary-panel-variant], [data-user-message-bubble="true"], [data-message-author-role="user"], [data-app-shell-page-banner], [data-codex-composer-root] aside')) {
+    for (const node of scoped('[data-summary-panel-variant], [data-user-message-bubble="true"], [data-message-author-role="user"], [data-app-shell-page-banner], [data-codex-composer-root] > aside')) {
+      if (node.matches('aside') && !node.hasAttribute('data-summary-panel-variant') &&
+          (node.querySelector(EDITORS) || composer.surface?.contains(node))) continue;
       mark(node, node.matches('[data-summary-panel-variant]') ? 'summary-card' : node.matches('[data-app-shell-page-banner], aside') ? 'banner' : 'user-message');
     }
     if (composerWork && composer.host?.getAttribute('data-composer-placement') === 'home') {
@@ -408,7 +423,7 @@
         let common = composer.surface.parentElement;
         while (common && common !== composer.host && !common.contains(utility[0])) common = common.parentElement;
         const nativeRail = utility[0].hasAttribute('data-composer-rail-item') && !utility[0].querySelector(EDITORS);
-        const protectedContent = common && all(common, '[role="alert"], [data-above-composer-portal], [data-home-beacon-banner], [data-codex-composer-root] aside')
+        const protectedContent = common && all(common, '[role="alert"], [data-above-composer-portal], [data-home-beacon-banner], [data-codex-composer-root] > aside')
           .some(node => node.textContent.trim() || node.querySelector(INTERACTIVE));
         const extraContent = common === composer.host && [...common.children].some(node =>
           !node.contains(composer.surface) && !node.contains(utility[0]) && (node.textContent.trim() || node.querySelector(INTERACTIVE)));
@@ -419,7 +434,7 @@
           (getComputedStyle(common).position === 'relative' || common === composer.host && nativeRail)) frame = common;
         if (frame === composer.surface && !frame.contains(utility[0]) && nativeRail) {
           const base = rect(frame), rail = rect(utility[0]);
-          const notices = all(composer.host, '[data-above-composer-portal], [role="alert"], [data-home-beacon-banner], [data-codex-composer-root] aside').filter(visible);
+          const notices = all(composer.host, '[data-above-composer-portal], [role="alert"], [data-home-beacon-banner], [data-codex-composer-root] > aside').filter(visible);
           const overlapsNotice = notices.some(node => { const n = rect(node); return n.bottom > rail.y + 1 && n.y < base.bottom && n.right > base.x && n.x < base.right; });
           if (!overlapsNotice && rail.x >= base.x - 1 && rail.right <= base.right + 1 && rail.bottom <= base.y + 10 && base.y - rail.y <= 128) {
             topExtension = base.y - rail.y; detachedRail = true;
@@ -779,6 +794,21 @@
       return Math.abs(box('::before') - expected) <= 1 && Math.abs(box('::after') - expected) <= 1;
     });
     if (!checks.composerFrameBounds) issues.push('composer-frame-incomplete');
+    checks.composerExtensionVisible = frames.every(([node]) => {
+      const top = parseFloat(node.style.getPropertyValue('--sg-composer-top-extension') || '0');
+      const bottom = parseFloat(node.style.getPropertyValue('--sg-composer-extension') || '0');
+      if (!top && !bottom) return true;
+      if (getComputedStyle(node).overflowY !== 'visible') return false;
+      const bounds = node.getBoundingClientRect();
+      const host = moduleCache.get('composer')?.host;
+      for (let parent = node.parentElement; parent && host?.contains(parent); parent = parent.parentElement) {
+        if (getComputedStyle(parent).overflowY === 'visible') continue;
+        const clip = parent.getBoundingClientRect();
+        if (bounds.y - top < clip.y - 1 || bounds.bottom + bottom > clip.bottom + 1) return false;
+      }
+      return true;
+    });
+    if (!checks.composerExtensionVisible) issues.push('composer-extension-clipped');
     return { checks, issues };
   };
   // Public checks are explicit reconciliation requests. Background checks use

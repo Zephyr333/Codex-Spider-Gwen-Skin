@@ -166,6 +166,71 @@ test('contained absolute Work rail extends decoration only, without moving nativ
   assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.getPropertyValue("--sg-composer-extension")'), '');
 });
 
+async function detachedComposer() {
+  await page.content(fixture({ placement: 'home', hiddenFirst: false }));
+  await page.evaluate(`{
+    window.__CODEX_PLUS_DREAM_SKIN_THEME__={id:'spider-gwen'};
+    const host=document.querySelector('[data-codex-composer-root]');host.style.cssText='position:relative;padding-top:50px';
+    host.querySelector('.ComposerLayoutRoot').style.setProperty('overflow','hidden','important');
+    host.insertAdjacentHTML('afterbegin','<div data-above-composer-portal style="position:absolute;top:-80px;height:20px">Notice</div><div data-composer-rail><div id="detached-rail" data-composer-rail-item="present" data-composer-placement="home" style="position:absolute;top:0;left:0;right:0;height:36px"><button>Project</button></div></div>');
+  }`);
+  await page.evaluate(source);
+  const top=await page.evaluate('parseFloat(document.querySelector(".ComposerLayoutRoot").style.getPropertyValue("--sg-composer-top-extension"))');
+  assert.equal(top,50,'fixture must exercise a verified detached rail');
+}
+
+test('detached rail overflow restores original value only while still owned', async () => {
+  await detachedComposer();
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.overflow'),'visible');
+  await page.evaluate('document.getElementById("detached-rail").remove();window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure()');
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.overflow'),'hidden');
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.getPropertyPriority("overflow")'),'important');
+});
+
+test('native overflow takeover survives rail cancellation and destroy without geometry fights', async () => {
+  await detachedComposer();
+  await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.setProperty("overflow","clip","important");window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure()');
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.overflow'),'clip');
+  assert.ok((await page.evaluate('window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.selfCheck()')).visualIssues.includes('composer-extension-clipped'));
+  await page.evaluate('document.getElementById("detached-rail").remove();window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure();window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.destroy()');
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.overflow'),'clip');
+});
+
+test('changing only native overflow priority is preserved at destroy', async () => {
+  await detachedComposer();
+  await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.setProperty("overflow","visible","");window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.destroy()');
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.overflow'),'visible');
+  assert.equal(await page.evaluate('document.querySelector(".ComposerLayoutRoot").style.getPropertyPriority("overflow")'),'');
+});
+
+test('unrecognized rails and nested asides retain native stacking and material', async () => {
+  await load();
+  await page.evaluate(`{
+    const host=document.querySelector('[data-codex-composer-root]');
+    host.insertAdjacentHTML('beforeend','<div data-composer-rail id="unknown-rail" style="z-index:7"><button>Native rail</button></div>');
+    host.querySelector('.ComposerLayoutBody').insertAdjacentHTML('beforeend','<aside id="nested-aside" style="background:rgb(20,30,40)">Native extension</aside>');
+    host.insertAdjacentHTML('afterbegin','<aside id="native-notice"><button>Dismiss notice</button></aside>');
+    window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure();
+  }`);
+  assert.equal(await page.evaluate('getComputedStyle(document.getElementById("unknown-rail")).zIndex'),'7');
+  assert.equal(await page.evaluate('document.getElementById("nested-aside").hasAttribute("data-spider-gwen-surface")'),false);
+  assert.equal(await page.evaluate('getComputedStyle(document.getElementById("nested-aside")).backgroundColor'),'rgb(20, 30, 40)');
+  assert.equal(await page.evaluate('document.getElementById("native-notice").getAttribute("data-spider-gwen-surface")'),'banner');
+});
+
+test('content cards and popup edges share quiet cyan and pink without extra pseudo layers', async () => {
+  await load();
+  await clickTrigger();
+  await page.evaluate('document.body.insertAdjacentHTML("beforeend",\'<div role="menu" id="edge-menu" style="position:fixed;top:100px;left:800px"><button role="menuitem">Action</button></div>\');window.__CODEX_PLUS_SPIDER_GWEN_IMMERSIVE__.ensure()');
+  const cards=await page.evaluate(`Array.from(document.querySelectorAll('[data-spider-gwen-surface="tool-output"],[data-spider-gwen-surface="file-card"],[data-spider-gwen-surface="activity-header"],[data-spider-gwen-surface="popup"]')).map(n=>({shadow:getComputedStyle(n).boxShadow,after:getComputedStyle(n,'::after').content,border:getComputedStyle(n).borderWidth}))`);
+  assert.ok(cards.length>=4);
+  for(const card of cards) {
+    assert.ok(card.shadow.includes('89, 215, 240')&&card.shadow.includes('255, 92, 168'));
+    assert.equal(card.after,'none');
+    assert.equal(card.border,'0px');
+  }
+});
+
 
 test('one background covers native gutters and late menu glass while shell stays transparent', async () => {
   await load();

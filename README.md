@@ -6,6 +6,8 @@
 
 ## 效果预览
 
+以下为早期实机截图，展示整体风格；2.1.2 的边缘层次见[视觉规则](docs/visual-rules.md)。
+
 ### 首页沉浸全景
 > 连续壁纸、半透明磨砂侧栏融合、顶部品牌标示与单层输入框。
 
@@ -30,10 +32,10 @@
 
 ## 安装
 
-**从 DreamSkin 社区来的用户请先看这里：社区 2.1.3 是基础主题，完整增强版为 GitHub 2.1.1。** 社区“一键换肤”只安装壁纸、配色和 Safe CSS，不会安装 `spider-gwen-immersive.js`，因此不包含增强脚本的新版组件兼容修复、品牌装饰、自检与自愈功能。两个版本号属于不同交付物，社区版本号更高不代表完整增强版更新。
+**从 DreamSkin 社区来的用户请先看这里：社区 2.1.3 是基础主题，完整增强版为 GitHub 2.1.2。** 社区“一键换肤”只安装壁纸、配色和 Safe CSS，不会安装 `spider-gwen-immersive.js`，因此不包含增强脚本的新版组件兼容修复、品牌装饰、自检与自愈功能。两个版本号属于不同交付物，社区版本号更高不代表完整增强版更新。
 
 - [社区基础主题 2.1.3](https://dreamskin.cc/themes/ver_966db74ee98d34241cad)：适合只需要背景和基础配色的用户。
-- [完整增强版 2.1.1](https://github.com/Zephyr333/Codex-Spider-Gwen-Skin/releases/tag/v2.1.1)：下载 `Codex-Spider-Gwen-Skin-v2.1.1.zip`，安装其中的主题和用户脚本。
+- [完整增强版 2.1.2](https://github.com/Zephyr333/Codex-Spider-Gwen-Skin/releases/tag/v2.1.2)：下载 `Codex-Spider-Gwen-Skin-v2.1.2.zip`，安装其中的主题和用户脚本。
 - [社区用户安装教程](docs/community-install.md)：包含已有社区主题的安装方式、效果检查和停用方法。
 
 下面是完整增强版的安装步骤：

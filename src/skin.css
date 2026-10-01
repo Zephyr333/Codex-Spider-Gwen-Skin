@@ -12,6 +12,11 @@
   --sg-reading-muted: #a9bdd6;
   --sg-line: rgb(89 215 240 / .34);
   --sg-line-hot: rgb(255 92 168 / .46);
+  /* Quiet card edges share the composer's cyan lower-left / pink upper-right direction.
+     Inset shadows add no box size, stacking context, pseudo-element or hit target. */
+  --sg-card-edge: inset 1px -1px 0 rgb(89 215 240 / .24), inset -1px 1px 0 rgb(255 92 168 / .24);
+  --sg-card-edge-soft: inset 1px -1px 0 rgb(89 215 240 / .16), inset -1px 1px 0 rgb(255 92 168 / .16);
+  --sg-panel-edge: linear-gradient(45deg, rgb(89 215 240 / .24), rgb(120 71 232 / .14), rgb(255 92 168 / .24));
   /* Directional hierarchy: cyan rises from lower-left; pink cuts from upper-right. */
   --sg-edge-cyan-soft: rgb(89 215 240 / .17);
   --sg-edge-pink-soft: rgb(255 92 168 / .23);
@@ -113,8 +118,8 @@
   --color-token-diff-surface: color-mix(in oklab, var(--sg-navy) 94%, white) !important;
   --color-token-checkbox-background: rgb(15 31 61 / .94) !important;
   --color-token-input-border: rgb(89 215 240 / .28) !important;
-  --color-token-border-default: rgb(89 215 240 / .16) !important;
-  --color-token-border-light: rgb(89 215 240 / .10) !important;
+  --color-token-border-default: rgb(169 189 214 / .16) !important;
+  --color-token-border-light: rgb(169 189 214 / .10) !important;
   --color-token-border-heavy: rgb(89 215 240 / .28) !important;
   --color-token-toolbar-hover-background: rgb(89 215 240 / .12) !important;
   --color-token-button-background: var(--sg-cyan) !important;
@@ -429,7 +434,6 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="composer"] {
     inset 0 1px 0 var(--sg-material-highlight),
     inset 0 -1px 0 var(--sg-material-depth) !important;
   backdrop-filter: blur(14px) saturate(1.04) !important;
-  overflow: visible !important;
   transition: background 170ms ease, box-shadow 170ms ease !important;
 }
 
@@ -850,7 +854,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     border: 0 !important;
     border-radius: 8px !important;
     background: rgb(8 23 45 / .62) !important;
-    box-shadow: inset 0 0 0 1px rgb(89 215 240 / .16) !important;
+    box-shadow: var(--sg-card-edge-soft) !important;
     backdrop-filter: none !important;
     --agent-activity-summary-color: var(--sg-reading-muted);
   }
@@ -889,7 +893,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     background: var(--sg-surface) !important;
     border: 0 !important;
     border-radius: 12px !important;
-    box-shadow: inset 0 0 0 1px var(--sg-line), 0 8px 24px rgb(1 7 18 / .20) !important;
+    box-shadow: var(--sg-card-edge), 0 8px 24px rgb(1 7 18 / .20) !important;
     backdrop-filter: none !important;
     color: var(--sg-paper) !important;
     --color-text-secondary: var(--sg-reading-muted);
@@ -925,7 +929,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     background: var(--sg-surface-strong) !important;
     border: 0 !important;
     border-radius: 12px !important;
-    box-shadow: inset 0 0 0 1px var(--sg-line), 0 14px 34px var(--sg-shadow) !important;
+    box-shadow: var(--sg-card-edge), 0 14px 34px var(--sg-shadow) !important;
     backdrop-filter: blur(16px) !important;
   }
 
@@ -938,15 +942,9 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     border-radius: 18px !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
-    overflow: visible !important;
     transition: box-shadow 170ms ease !important;
     --color-text-secondary: var(--sg-reading-muted);
     --color-text-tertiary: var(--sg-reading-muted);
-  }
-
-  html[data-dream-skin].codex-spider-gwen-immersive :is([data-ds-part="home"], [role="main"]:has([data-testid="home-icon"])) :is(.composer-surface-chrome, [class*="_ComposerLayoutRoot_"], [data-composer-surface-variant][data-composer-radius-variant]),
-  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"][data-composer-surface-variant] {
-    overflow: visible !important;
   }
 
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-frame"]::before {
@@ -984,10 +982,8 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
     backdrop-filter: none !important;
     transition: none !important;
   }
-  html.codex-spider-gwen-immersive [data-composer-rail],
-  html.codex-spider-gwen-immersive [data-composer-rail] [data-spider-gwen-surface="composer-utility"] {
-    z-index: 20 !important;
-    pointer-events: auto !important;
+  html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-utility"] {
+    z-index: 1 !important;
   }
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="composer-utility"] {
     border: 0 !important;
@@ -1033,7 +1029,7 @@ html.codex-spider-gwen-immersive [data-spider-gwen-role="shell-main"] pre {
   }
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"]::after {
     content: "" !important; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none !important; z-index: 2;
-    background: linear-gradient(45deg,rgb(89 215 240 / .18),rgb(120 71 232 / .10),rgb(255 92 168 / .18)) !important;
+    background: var(--sg-panel-edge) !important;
     mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask-composite: exclude;
   }
   html.codex-spider-gwen-immersive [data-spider-gwen-surface="summary-card"] header {
