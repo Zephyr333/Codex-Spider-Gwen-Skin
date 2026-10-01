@@ -4,6 +4,23 @@
 
 它将 Dream Skin 的连续壁纸主题与 Codex++ 用户脚本组合在一起，为首页、任务页、侧栏、输入框、菜单和浮层提供统一的 Earth-65 蓝粉视觉语言。
 
+## 效果预览
+
+### 首页沉浸全景
+> 连续壁纸、半透明磨砂侧栏融合、顶部品牌标示与单层输入框。
+
+![Spider-Gwen 首页全景预览](docs/screenshots/home.png)
+
+### 会话阅读与暗色遮罩
+> 保持背景连续透出，同时确保会话气泡、活动状态卡片与代码块的高可读性对比度。
+
+![Spider-Gwen 会话阅读预览](docs/screenshots/session.png)
+
+### 一体化输入框细节
+> 项目栏与编辑器外框合二为一，具备粉蓝渐变流光描边，且完全保留原生点击交互。
+
+![Spider-Gwen 一体化输入框细节](docs/screenshots/composer-composite.png)
+
 ## 包含内容
 
 - `theme/theme.json`：Dream Skin 主题配置
